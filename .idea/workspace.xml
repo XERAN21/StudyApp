@@ -8,7 +8,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="26f1de43-5b74-42dd-9d8c-14c95d233778" name="Changes" comment="ver1.0, main">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/images/alarm-clock.png" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Chatrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Chatrooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Classrooms.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Classrooms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/Model/Users.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Users.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,28 +55,37 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.Encryption.executor": "Run",
-    "Application.HelloApplication.executor": "Run",
-    "Application.MainPage.executor": "Run",
-    "Application.SpinTest.executor": "Run",
-    "Application.TestingMain.executor": "Run",
-    "Application.UsingBldr.executor": "Run",
-    "Application.UsingBuilder.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "git-widget-placeholder": "master",
-    "kotlin-language-version-configured": "true",
-    "last_directory_selection": "C:/Users/User/IdeaProjects/StudySystem/src/main/java/com/ss/studysystem",
-    "last_opened_file_path": "C:/Users/User/Downloads/demo/demo",
-    "project.structure.last.edited": "Global Libraries",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.43793103",
-    "run.code.analysis.last.selected.profile": "pProject Default",
-    "settings.editor.selected.configurable": "preferences.JavaFX"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.Encryption.executor&quot;: &quot;Run&quot;,
+    &quot;Application.HelloApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Application.MainPage.executor&quot;: &quot;Run&quot;,
+    &quot;Application.SpinTest.executor&quot;: &quot;Run&quot;,
+    &quot;Application.TestingMain.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UsingBldr.executor&quot;: &quot;Run&quot;,
+    &quot;Application.UsingBuilder.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;master&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_directory_selection&quot;: &quot;C:/Users/User/IdeaProjects/StudySystem/src/main/java/com/ss/studysystem&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/User/Downloads/demo/demo&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Global Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.43793103&quot;,
+    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.JavaFX&quot;
   }
-}]]></component>
+}</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\StudySystem\src\main\resources\com\ss\studysystem" />
+      <recent name="C:\Users\User\IdeaProjects\StudySystem\src\main\resources\images" />
+    </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.ss.studysystem" />
+    </key>
+  </component>
   <component name="RunManager">
     <configuration name="UsingBldr" type="Application" factoryName="Application">
       <option name="MAIN_CLASS_NAME" value="com.ss.studysystem.UsingBuilder" />
@@ -122,7 +136,23 @@
       <option name="project" value="LOCAL" />
       <updated>1732158101040</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="ver1.0, main">
+      <option name="closed" value="true" />
+      <created>1732158646706</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1732158646706</updated>
+    </task>
+    <task id="LOCAL-00006" summary="ver1.0, main">
+      <option name="closed" value="true" />
+      <created>1732158703839</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1732158703839</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
