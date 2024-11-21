@@ -4,6 +4,7 @@ import java.sql.Blob;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
 
+/*n*/
 
 public class Users {
     private int id;
