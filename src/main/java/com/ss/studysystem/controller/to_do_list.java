@@ -10,9 +10,8 @@ import javafx.scene.layout.VBox;
 import javafx.scene.shape.Circle;
 
 import java.time.LocalDate;
-import java.util.List;
 
-public class ToDoList {
+public class to_do_list {
 
     @FXML
     private Label Month;

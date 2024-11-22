@@ -5,7 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.layout.VBox;
 
-public class Study_Goals {
+public class study_goals {
 
     @FXML
     private Button add_goal;
