@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 import java.time.LocalDateTime;
 
@@ -7,14 +7,16 @@ public class Test {
 	private Classrooms classroom;
 	private String title;
 	private String[] type = {"Exam", "Quizze"};
-	private int created_by;
+	private Users user;
 	private LocalDateTime created_at;
+
 	public Test() {
+
 	}
 	public int getTest() {
 		return test;
 	}
-	public void setTest(int test) {
+	public void setTest(int test){
 		this.test = test;
 	}
 	public Classrooms getClassroom() {
@@ -35,11 +37,11 @@ public class Test {
 	public void setType(String[] type) {
 		this.type = type;
 	}
-	public int getCreated_by() {
-		return created_by;
+	public Users getUser() {
+		return user;
 	}
-	public void setCreated_by(int created_by) {
-		this.created_by = created_by;
+	public void setUser(Users user) {
+		this.user = user;
 	}
 	public LocalDateTime getCreated_at() {
 		return created_at;

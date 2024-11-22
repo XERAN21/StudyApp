@@ -1,9 +1,11 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class Test_Questions {
 	private Test test;
 	private Questions question;
+
 	public Test_Questions() {
+
 	}
 	public Test getTest() {
 		return test;

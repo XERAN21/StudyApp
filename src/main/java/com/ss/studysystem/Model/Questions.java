@@ -1,15 +1,17 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class Questions {
-	private int question;
+	private int id;
 	private String question_text;
+
 	public Questions() {
+
 	}
 	public int getQuestion() {
-		return question;
+		return id;
 	}
 	public void setQuestion(int question) {
-		this.question = question;
+		this.id = question;
 	}
 	public String getQuestion_text() {
 		return question_text;

@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,9 @@ public class Test_Attempts {
 	private Users user;
 	private int score;
 	private LocalDateTime attempted_at;
+
 	public Test_Attempts() {
+
 	}
 	public int getAttempt() {
 		return attempt;

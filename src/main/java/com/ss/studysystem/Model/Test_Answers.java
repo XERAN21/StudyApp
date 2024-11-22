@@ -1,11 +1,13 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class Test_Answers {
 	private int answer;
-	private int question;
+	private Questions question;
 	private String answer_text;
 	private Boolean is_correct;
+
 	public Test_Answers() {
+
 	}
 	public int getAnswer() {
 		return answer;
@@ -13,10 +15,10 @@ public class Test_Answers {
 	public void setAnswer(int answer) {
 		this.answer = answer;
 	}
-	public int getQuestion() {
+	public Questions getQuestion() {
 		return question;
 	}
-	public void setQuestion(int question) {
+	public void setQuestion(Questions question) {
 		this.question = question;
 	}
 	public String getAnswer_text() {
