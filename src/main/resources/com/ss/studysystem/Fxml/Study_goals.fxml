@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="498.0" prefWidth="569.0" style="-fx-background-radius: 25px; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.StudyGoals">
+<AnchorPane prefHeight="498.0" prefWidth="569.0" style="-fx-background-radius: 25px; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Study_Goals">
    <children>
       <Label layoutX="39.0" layoutY="32.0" text="Study Goals" AnchorPane.leftAnchor="39.0" AnchorPane.topAnchor="32.0">
          <font>
