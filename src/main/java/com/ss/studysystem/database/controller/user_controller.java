@@ -27,13 +27,14 @@ public class user_controller {
         }
     }
 
-    public static Users get_user(int uid){
+    public static Users get_user(int uid,boolean is_search){
         /*
         * login -> valid credentials -> get_user
         * i.e. assing this.session.user  via get user
         *
-        * */
+     * */
         String sql = "CALL GetUser(?)";
+        Users current_user = new Users();
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)){
 
@@ -42,21 +43,20 @@ public class user_controller {
             ResultSet resultSet = callableStatement.executeQuery();
 
             if (resultSet.next()){
-                Users current_user = new Users();
                 current_user.setId(resultSet.getInt("user_id"));
                 current_user.setUsername(resultSet.getString("username"));
-                current_user.setEmail(resultSet.getString("email"));
-                current_user.setPassword(resultSet.getString("password"));
-                current_user.setSalt(resultSet.getString("salt"));
-                current_user.setDob(resultSet.getDate("dob").toLocalDate());
                 current_user.setProfile_img(resultSet.getBlob("profile_img"));
-                current_user.setFile_patch(resultSet.getString("file_path"));
                 current_user.setStudy_hour(resultSet.getInt("total_study_hour"));
-                current_user.setIs_active(resultSet.getBoolean("is active"));
-                current_user.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
 
-                con.close();
-                resultSet.close();
+                if (!is_search){ //check if user is using search function
+                    current_user.setEmail(resultSet.getString("email"));
+                    current_user.setPassword(resultSet.getString("password"));
+                    current_user.setSalt(resultSet.getString("salt"));
+                    current_user.setDob(resultSet.getDate("dob").toLocalDate());
+                    current_user.setFile_patch(resultSet.getString("file_path"));
+                    current_user.setIs_active(resultSet.getBoolean("is active"));
+                    current_user.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                }
                 return current_user;
             }
 
