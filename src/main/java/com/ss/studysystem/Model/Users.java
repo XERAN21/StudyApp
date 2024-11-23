@@ -14,6 +14,7 @@ public class Users {
     private int study_hour;
     private Blob profile_img;
     private String file_patch;
+    private boolean is_active;
     private LocalDateTime created_at;
 
     public Users() {
@@ -89,6 +90,14 @@ public class Users {
 
     public void setFile_patch(String file_patch) {
         this.file_patch = file_patch;
+    }
+
+    public boolean isIs_active() {
+        return is_active;
+    }
+
+    public void setIs_active(boolean is_active) {
+        this.is_active = is_active;
     }
 
     public LocalDateTime getCreated_at() {
