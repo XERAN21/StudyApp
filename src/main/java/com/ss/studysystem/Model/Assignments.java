@@ -9,7 +9,7 @@ public class Assignments {
 	private String title;
 	private String description;
 	private LocalDate due_date;
-	private int created_by;
+	private Users created_by;
 	private LocalDateTime created_at;
 	
 	public Assignments() {
@@ -55,11 +55,11 @@ public class Assignments {
 		this.due_date = due_date;
 	}
 
-	public int getCreated_by() {
+	public Users getCreated_by() {
 		return created_by;
 	}
 
-	public void setCreated_by(int created_by) {
+	public void setCreated_by(Users created_by) {
 		this.created_by = created_by;
 	}
 
