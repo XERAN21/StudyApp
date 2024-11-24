@@ -64,6 +64,7 @@ public class classroom_controller {
 
                 Users user = new Users();
                 user.setId(resultSet.getInt("user_id"));
+                user.setUsername(resultSet.getString("username"));
                 member.setUser(user);
 
                 Classrooms classroom = new Classrooms();
