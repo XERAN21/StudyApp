@@ -4,25 +4,29 @@ import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
 public class user_controller {
 
     public static boolean create_user(Users user){
-        String sql = "CALL CreateUser(?,?,?,?)";
+        String sql = "CALL CreateUser(?,?,?,?,?)";
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)){
 
             callableStatement.setString(1, user.getUsername());
             callableStatement.setString(2,user.getEmail());
             callableStatement.setString(3,user.getPassword());
-            callableStatement.setDate(4, Date.valueOf(user.getDob()));
+            callableStatement.setString(4,user.getSalt());
+            callableStatement.setDate(5, Date.valueOf(user.getDob()));
+
 
             int rowsAffected = callableStatement.executeUpdate();
             return rowsAffected > 0;
 
         } catch (SQLException e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
     }
@@ -46,7 +50,7 @@ public class user_controller {
                 current_user.setId(resultSet.getInt("user_id"));
                 current_user.setUsername(resultSet.getString("username"));
                 current_user.setProfile_img(resultSet.getBlob("profile_img"));
-                current_user.setStudy_hour(resultSet.getInt("total_study_hour"));
+                current_user.setStudy_hour(resultSet.getInt("total_study_hours"));
 
                 if (!is_search){ //check if user is using search function
                     current_user.setEmail(resultSet.getString("email"));
@@ -54,7 +58,7 @@ public class user_controller {
                     current_user.setSalt(resultSet.getString("salt"));
                     current_user.setDob(resultSet.getDate("dob").toLocalDate());
                     current_user.setFile_patch(resultSet.getString("file_path"));
-                    current_user.setIs_active(resultSet.getBoolean("is active"));
+                    current_user.setIs_active(resultSet.getBoolean("is_active"));
                     current_user.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 }
                 return current_user;
