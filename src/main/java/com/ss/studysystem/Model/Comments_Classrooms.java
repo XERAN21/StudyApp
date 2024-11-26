@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class Comments_Classrooms {
 	private Comments comment;
@@ -10,12 +10,14 @@ public class Comments_Classrooms {
 	public Comments getComment() {
 		return comment;
 	}
+
 	public void setComment(Comments comment) {
 		this.comment = comment;
 	}
 	public Classrooms getClassroom() {
 		return classroom;
 	}
+
 	public void setClassroom(Classrooms classroom) {
 		this.classroom = classroom;
 	}

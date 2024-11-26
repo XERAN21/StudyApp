@@ -10,6 +10,7 @@ public class Events {
     private Users user;
     private Classrooms classroom;
     private LocalDateTime created_at;
+    private boolean is_archived = false;
 
     public Events() {
 
@@ -69,5 +70,13 @@ public class Events {
 
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
+    }
+
+    public boolean is_archived() {
+        return is_archived;
+    }
+
+    public void set_archived(boolean is_archived) {
+        this.is_archived = is_archived;
     }
 }
