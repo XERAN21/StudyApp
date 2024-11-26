@@ -1,12 +1,13 @@
 package Model;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Goals {
 	private int goal;
 	private Users user;
 	private String description;
-	private LocalDateTime target_date;
+	private LocalDate target_date;
 	private String[] status = {"not_started", "in_progress", "completed"};
 	private LocalDateTime created_at;
 	
