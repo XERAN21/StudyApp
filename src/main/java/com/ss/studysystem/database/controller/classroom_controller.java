@@ -1,6 +1,7 @@
 package com.ss.studysystem.database.controller;
 
 import com.ss.studysystem.Model.Classrooms;
+import com.ss.studysystem.Model.Role;
 import com.ss.studysystem.Model.User_Classroom;
 
 import com.ss.studysystem.Model.Users;
@@ -19,7 +20,7 @@ public class classroom_controller {
 
             callableStatement.setString(1,classrooms.getName());
             callableStatement.setString(2,classrooms.getDescription());
-            callableStatement.setInt(3,classrooms.getUser_id().getId());
+            callableStatement.setInt(3,classrooms.getUser().getId());
             callableStatement.setTimestamp(4, Timestamp.valueOf(classrooms.getCreated_at()));
 
             int row_affected = callableStatement.executeUpdate();
@@ -49,6 +50,11 @@ public class classroom_controller {
         }
     }
 
+    /**
+     *
+     * @param classroom_id
+     * @return users
+     */
     public static List<User_Classroom> get_all_member(int classroom_id){
 
         List<User_Classroom> member_list = new ArrayList<>();
@@ -71,8 +77,8 @@ public class classroom_controller {
                 classroom.setId(resultSet.getInt("classroom_id"));
                 member.setClassrooms(classroom);
 
-                String[] roleArray = {resultSet.getString("role")};
-                member.setRole(roleArray);
+                String role = resultSet.getString("role").toUpperCase();
+                member.setRole(Role.valueOf(role));
 
                 member_list.add(member);
             }

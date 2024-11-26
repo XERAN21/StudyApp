@@ -6,7 +6,7 @@ public class Classrooms {
     private int id;
     private String name;
     private String description;
-    private Users user_id; // id of the user who create this classroom
+    private Users user;
     private LocalDateTime created_at;
     private boolean is_archived = false;
 
@@ -37,12 +37,12 @@ public class Classrooms {
         this.description = description;
     }
 
-    public Users getUser_id() {
-        return user_id;
+    public Users getUser() {
+        return user;
     }
 
-    public void setUser_id(Users user_id) {
-        this.user_id = user_id;
+    public void setUser(Users user) {
+        this.user = user;
     }
 
     public LocalDateTime getCreated_at() {
