@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class classroom_controller {
+    static boolean flag = true;
 
     public static boolean create_classroom(Classrooms classrooms){
         String sql = "CALL create_classroom(?,?,?,?)";
@@ -30,6 +31,33 @@ public class classroom_controller {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static Classrooms get_classroom(int classroom_id){
+        String sql = "CALL get_classroom(?)";
+        Classrooms classrooms = new Classrooms();
+        try(Connection connection = DB_Connection.Get_Connection();
+            CallableStatement callableStatement = connection.prepareCall(sql)){
+
+            callableStatement.setInt(1,classroom_id);
+
+            ResultSet resultSet = callableStatement.executeQuery();
+
+            while (resultSet.next()){
+                classrooms.setName(resultSet.getString("name"));
+                classrooms.setDescription(resultSet.getString("description"));
+                classrooms.setUser(user_controller.get_user(1,!flag));
+                classrooms.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                classrooms.setIs_archived(resultSet.getBoolean("is_archived"));
+
+                return classrooms;
+            }
+
+        }catch (SQLException e){
+            e.printStackTrace();
+
+        }
+        return null;
     }
 
     public static boolean add_member(User_Classroom user_classroom){
@@ -74,8 +102,7 @@ public class classroom_controller {
                 member.setUser(user);
 
                 Classrooms classroom = new Classrooms();
-                classroom.setId(resultSet.getInt("classroom_id"));
-                member.setClassrooms(classroom);
+                member.setClassrooms(get_classroom(1));
 
                 String role = resultSet.getString("role").toUpperCase();
                 member.setRole(Role.valueOf(role));
@@ -88,4 +115,5 @@ public class classroom_controller {
         }
         return member_list;
     }
+
 }
