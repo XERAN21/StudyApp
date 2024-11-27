@@ -1,11 +1,11 @@
-package Model;
+package com.ss.studysystem.Model;
 
 import java.sql.Blob;
 import java.time.LocalDateTime;
 
 public class Files {
 	private int file;
-	private int uploader;
+	private Users uploader;
 	private String filename;
 	private Blob file_path;
 	private String file_type;
@@ -22,11 +22,11 @@ public class Files {
 		this.file = file;
 	}
 
-	public int getUploader() {
+	public Users getUploader() {
 		return uploader;
 	}
 
-	public void setUploader(int uploader) {
+	public void setUploader(Users uploader) {
 		this.uploader = uploader;
 	}
 

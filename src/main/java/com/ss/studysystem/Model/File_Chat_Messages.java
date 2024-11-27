@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class File_Chat_Messages {
 	private Messages message;

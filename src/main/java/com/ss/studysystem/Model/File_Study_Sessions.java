@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 public class File_Study_Sessions {
 	private int session;
