@@ -1,4 +1,4 @@
-package Model;
+package com.ss.studysystem.Model;
 
 import java.time.LocalDateTime;
 
@@ -8,7 +8,7 @@ public class Study_Sections {
 	private String title;
 	private String description;
 	private LocalDateTime created_at;
-	private int session_duratiom;
+	private int session_duration;
 	
 	public Study_Sections() {
 	}
@@ -53,12 +53,12 @@ public class Study_Sections {
 		this.created_at = created_at;
 	}
 
-	public int getSession_duratiom() {
-		return session_duratiom;
+	public int getSession_duration() {
+		return session_duration;
 	}
 
-	public void setSession_duratiom(int session_duratiom) {
-		this.session_duratiom = session_duratiom;
+	public void setSession_duration(int session_duration) {
+		this.session_duration = session_duration;
 	}
 	
 	
