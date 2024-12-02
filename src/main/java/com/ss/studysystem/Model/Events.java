@@ -2,15 +2,18 @@ package com.ss.studysystem.Model;
 
 import java.time.LocalDateTime;
 
-public class Classrooms {
+public class Events {
     private int id;
-    private String name;
+    private String title;
     private String description;
+    private LocalDateTime event_date;
     private Users user;
+    private Classrooms classroom;
     private LocalDateTime created_at;
     private boolean is_archived = false;
 
-    public Classrooms() {
+    public Events() {
+
     }
 
     public int getId() {
@@ -21,12 +24,12 @@ public class Classrooms {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
     }
 
     public String getDescription() {
@@ -37,12 +40,28 @@ public class Classrooms {
         this.description = description;
     }
 
+    public LocalDateTime getEvent_date() {
+        return event_date;
+    }
+
+    public void setEvent_date(LocalDateTime event_date) {
+        this.event_date = event_date;
+    }
+
     public Users getUser() {
         return user;
     }
 
     public void setUser(Users user) {
         this.user = user;
+    }
+
+    public Classrooms getClassroom() {
+        return classroom;
+    }
+
+    public void setClassroom(Classrooms classroom) {
+        this.classroom = classroom;
     }
 
     public LocalDateTime getCreated_at() {
@@ -53,11 +72,11 @@ public class Classrooms {
         this.created_at = created_at;
     }
 
-    public boolean isIs_archived() {
+    public boolean is_archived() {
         return is_archived;
     }
 
-    public void setIs_archived(boolean is_archived) {
+    public void set_archived(boolean is_archived) {
         this.is_archived = is_archived;
     }
 }
