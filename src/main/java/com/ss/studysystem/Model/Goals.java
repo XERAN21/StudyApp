@@ -8,7 +8,7 @@ public class Goals {
 	private Users user;
 	private String description;
 	private LocalDate target_date;
-	private String[] status = {"not_started", "in_progress", "completed"};
+	private status status;
 	private LocalDateTime created_at;
 	
 	public Goals() {
@@ -46,14 +46,6 @@ public class Goals {
 		this.target_date = target_date;
 	}
 
-	public String[] getStatus() {
-		return status;
-	}
-
-	public void setStatus(String[] status) {
-		this.status = status;
-	}
-
 	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
@@ -61,6 +53,12 @@ public class Goals {
 	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
-	
-	
+
+	public void setStatus(com.ss.studysystem.Model.status status) {
+		this.status = status;
+	}
+
+	public com.ss.studysystem.Model.status getStatus() {
+		return status;
+	}
 }
