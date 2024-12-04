@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="root" alignment="TOP_CENTER" style="-fx-spacing: 20px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list">
+   <children>
+      <VBox alignment="CENTER" style="-fx-spacing: 5; -fx-padding: 15px;">
+         <children>
+            <Label fx:id="Month" text="November">
+               <font>
+                  <Font name="Monospaced Bold" size="36.0" />
+               </font>
+            </Label>
+            <HBox fx:id="days_list" alignment="CENTER" prefHeight="43.0" prefWidth="326.0" style="-fx-spacing: 21px;">
+               <children>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="MONDAY" text="Mon">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Monday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="TUESDAY" text="Tue">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Tuesday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="WEDNESDAY" text="Wed">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Wednesday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="THURSDAY" text="Thu">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Thursday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="FRIDAY" text="Fri">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Friday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="SATURDAY" text="Sat">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Saturday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+                  <VBox alignment="CENTER">
+                     <children>
+                        <Label id="SUNDAY" text="Sun">
+                           <font>
+                              <Font name="Monospaced Regular" size="24.0" />
+                           </font>
+                        </Label>
+                        <Circle id="idle" fx:id="Sunday" fill="DODGERBLUE" radius="12.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: D9D9D9;">
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </Circle>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

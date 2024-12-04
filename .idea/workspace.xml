@@ -1,18 +1,80 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
   <component name="ChangeListManager">
-    <list default="true" id="26f1de43-5b74-42dd-9d8c-14c95d233778" name="Changes" comment="" />
+    <list default="true" id="26f1de43-5b74-42dd-9d8c-14c95d233778" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/material_theme_project_new.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Answers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Assignment_Submissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Assignments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Chatrooms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Classrooms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Comments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Comments_Classrooms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Events.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/File_Assignment_Submissions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/File_Chat_Messages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/File_Study_Sessions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Files.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Forum_Comments.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Forums.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Goals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Mentions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Mentions_chatrooms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Messages.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Notes.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Pin_files.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Questions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Student_Answers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Study_Sections.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Test_Attempts.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Test_Questions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Test_Type.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/To_Do_List.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/User_Chatroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/User_Classroom.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Users.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/Users_Friends.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/Model/status.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/controller/study_goals.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/controller/to_do_list.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/controller/to_do_list_item.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/database/connection/DB_Connection.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/database/controller/classroom_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/com/ss/studysystem/database/controller/user_controller.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/Study_goals.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/ToDoList.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/login.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/sign_up.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/sign_up_details.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/Fxml/to_do_list_item.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/home.fxml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/images/alarm-clock.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/com/ss/studysystem/images/tdl_rect.png" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/module-info.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/module-info.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
   <component name="Git.Settings">
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="master" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 1
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 1
+}</component>
   <component name="ProjectId" id="2o66RFSLpWeJKZT90OYnD8ak9y6" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -21,11 +83,22 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Application.Run_Samp.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "master",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "git-widget-placeholder": "front-end",
     "kotlin-language-version-configured": "true"
   }
 }]]></component>
+  <component name="RunManager">
+    <configuration name="Run_Samp" type="Application" factoryName="Application">
+      <option name="MAIN_CLASS_NAME" value="com.ss.studysystem.Samp" />
+      <module name="StudySystem" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
