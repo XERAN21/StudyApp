@@ -98,7 +98,6 @@ public class classroom_controller {
 
             while (resultSet.next()){
                 User_Classroom member = new User_Classroom();
-
                 Users user = new Users();
                 user.setId(resultSet.getInt("user_id"));
                 user.setUsername(resultSet.getString("username"));

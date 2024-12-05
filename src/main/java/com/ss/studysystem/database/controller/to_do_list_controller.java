@@ -34,8 +34,6 @@ public class to_do_list_controller {
 
 		try(Connection con = DB_Connection.Get_Connection();
 			CallableStatement callableStatement = con.prepareCall(sql)){
-
-
 			ResultSet resultSet = callableStatement.executeQuery();
 
 		}catch(SQLException e) {
@@ -63,11 +61,11 @@ public class to_do_list_controller {
 		}
 	}
 
-	public static boolean delete_to_do_list(int gid){
+	public static boolean delete_to_do_list(int uid){
 		String sql = "CALL delete_to_do_list(?)";
 		try(Connection con = DB_Connection.Get_Connection();
 		CallableStatement callableStatement = con.prepareCall(sql)){
-			callableStatement.setInt(1,gid);
+			callableStatement.setInt(1,uid);
 
 			int row_affected = callableStatement.executeUpdate();
 			return  row_affected > 0;
