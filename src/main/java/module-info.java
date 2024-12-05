@@ -2,6 +2,7 @@ module com.ss.studysystem {
     requires javafx.controls;
     requires javafx.fxml;
     requires java.sql;
+    requires password4j;
 
     opens com.ss.studysystem.controller to javafx.fxml;
     exports com.ss.studysystem.controller;
