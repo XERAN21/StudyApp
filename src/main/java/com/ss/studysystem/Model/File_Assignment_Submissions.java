@@ -1,17 +1,17 @@
 package com.ss.studysystem.Model;
 
 public class File_Assignment_Submissions {
-	private int submission;
+	private Assignment_Submissions submission;
 	private Files file;
 	
 	public File_Assignment_Submissions() {
 	}
 
-	public int getSubmission() {
+	public Assignment_Submissions getSubmission() {
 		return submission;
 	}
 
-	public void setSubmission(int submission) {
+	public void setSubmission(Assignment_Submissions submission) {
 		this.submission = submission;
 	}
 

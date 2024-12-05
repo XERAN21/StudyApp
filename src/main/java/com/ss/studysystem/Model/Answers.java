@@ -1,7 +1,7 @@
 package com.ss.studysystem.Model;
 
 public class Answers {
-	private int answer;
+	private int answer_id;
 	private Questions question;
 	private String answer_text;
 	private Boolean is_correct;
@@ -10,10 +10,10 @@ public class Answers {
 
 	}
 	public int getAnswer() {
-		return answer;
+		return answer_id;
 	}
 	public void setAnswer(int answer) {
-		this.answer = answer;
+		this.answer_id = answer;
 	}
 	public Questions getQuestion() {
 		return question;

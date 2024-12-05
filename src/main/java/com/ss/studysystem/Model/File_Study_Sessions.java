@@ -1,17 +1,17 @@
 package com.ss.studysystem.Model;
 
 public class File_Study_Sessions {
-	private int session;
+	private Study_Sections session;
 	private Files file;
 	
 	public File_Study_Sessions() {
 	}
 
-	public int getSession() {
+	public Study_Sections getSession() {
 		return session;
 	}
 
-	public void setSession(int session) {
+	public void setSession(Study_Sections session) {
 		this.session = session;
 	}
 

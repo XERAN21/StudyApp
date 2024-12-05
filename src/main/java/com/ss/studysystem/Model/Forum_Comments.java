@@ -1,5 +1,6 @@
 package com.ss.studysystem.Model;
 
+import java.sql.Blob;
 import java.time.LocalDateTime;
 
 public class Forum_Comments {
@@ -7,7 +8,9 @@ public class Forum_Comments {
 	private Forums forum;
 	private Users user;
 	private String comment_text;
-	private String forum_file;
+
+	private Blob forum_file;
+	private String forum_file_path;
 	private LocalDateTime created_at;
 	
 	public Forum_Comments() {
@@ -45,12 +48,20 @@ public class Forum_Comments {
 		this.comment_text = comment_text;
 	}
 
-	public String getForum_file() {
+	public Blob getForum_file() {
 		return forum_file;
 	}
 
-	public void setForum_file(String forum_file) {
+	public void setForum_file(Blob forum_file) {
 		this.forum_file = forum_file;
+	}
+
+	public String getForum_file_path() {
+		return forum_file_path;
+	}
+
+	public void setForum_file_path(String forum_file_path) {
+		this.forum_file_path = forum_file_path;
 	}
 
 	public LocalDateTime getCreated_at() {
@@ -60,7 +71,5 @@ public class Forum_Comments {
 	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
-	
-	
-	
 }
+
