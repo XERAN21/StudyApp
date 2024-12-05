@@ -127,7 +127,7 @@ public class assignment_controller extends DBConnection<Assignments> {
             while (resultSet.next()) {
                 Assignments assignment = new Assignments();
                 Classrooms classrooms = new Classrooms();
-                classrooms.setId(resultSet.getInt("classroom_id"));
+                classrooms.setId(id);
 
                 Users users = new Users();
                 users.setId(resultSet.getInt("created_by"));
@@ -150,7 +150,6 @@ public class assignment_controller extends DBConnection<Assignments> {
             e.printStackTrace();
             return null;
         }
-        return null;
     }
 
 
