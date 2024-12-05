@@ -3,7 +3,7 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Chatrooms {
-    private int id;
+    private int Chartroom_id;
     private String name;
     private String invitation_code;
     private Users user;
@@ -12,12 +12,12 @@ public class Chatrooms {
     public Chatrooms() {
     }
 
-    public int getId() {
-        return id;
+    public int getChartroom_id() {
+        return Chartroom_id;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public void setChartroom_id(int chartroom_id) {
+        this.Chartroom_id = chartroom_id;
     }
 
     public String getName() {

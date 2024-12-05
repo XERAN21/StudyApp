@@ -3,7 +3,7 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Assignment_Submissions {
-	private int submission;
+	private int submission_id;
 	private Assignments assignment;
 	private Users user;
 	private String assignment_file;
@@ -12,12 +12,12 @@ public class Assignment_Submissions {
 	public Assignment_Submissions() {
 	}
 
-	public int getSubmission() {
-		return submission;
+	public int getSubmission_id() {
+		return submission_id;
 	}
 
-	public void setSubmission(int submission) {
-		this.submission = submission;
+	public void setSubmission_id(int submission_id) {
+		this.submission_id = submission_id;
 	}
 
 	public Assignments getAssignment() {
