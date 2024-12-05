@@ -16,7 +16,7 @@
 
 <AnchorPane prefHeight="620.0" prefWidth="500.0" style="-fx-background-radius: 14;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list">
    <children>
-      <VBox alignment="CENTER" layoutX="22.0" layoutY="22.0" style="-fx-spacing: 5;" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="22.0">
+      <VBox fx:id="root" alignment="CENTER" layoutX="22.0" layoutY="22.0" style="-fx-spacing: 5;" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="17.0" AnchorPane.topAnchor="22.0">
          <children>
             <Label fx:id="Month" text="November">
                <font>
@@ -120,45 +120,5 @@
             </HBox>
          </children>
       </VBox>
-      <ScrollPane fitToHeight="true" fitToWidth="true" layoutY="143.0" prefHeight="477.0" prefWidth="500.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="143.0">
-         <content>
-            <VBox alignment="TOP_CENTER">
-               <children>
-                  <HBox alignment="CENTER_LEFT" style="-fx-spacing: 20px; -fx-padding: 5px; -fx-background-color: orage;">
-                     <children>
-                        <StackPane>
-                           <children>
-                              <ImageView fitHeight="87.0" fitWidth="139.0" pickOnBounds="true" preserveRatio="true">
-                                 <image>
-                                    <Image url="@../images/tdl_rect.png" />
-                                 </image>
-                              </ImageView>
-                              <Label fx:id="Day" text="Day" textAlignment="CENTER">
-                                 <font>
-                                    <Font name="Monospaced Bold" size="18.0" />
-                                 </font>
-                              </Label>
-                           </children>
-                        </StackPane>
-                        <HBox alignment="CENTER_RIGHT" prefHeight="81.0" style="-fx-padding: 5px 20px 5px 0; -fx-spacing: 5px;" HBox.hgrow="ALWAYS">
-                           <children>
-                              <TextArea fx:id="new_task_field" prefHeight="60.0" promptText="Add new task" wrapText="true" HBox.hgrow="ALWAYS">
-                                 <font>
-                                    <Font name="Monospaced Bold" size="13.0" />
-                                 </font>
-                              </TextArea>
-                              <Button fx:id="add_list" alignment="CENTER" contentDisplay="TEXT_ONLY" mnemonicParsing="false" onAction="#add_new_list" style="-fx-background-color: transparent; -fx-border-color: black; -fx-border-radius: 0.5em;" text="+">
-                                 <cursor>
-                                    <Cursor fx:constant="HAND" />
-                                 </cursor></Button>
-                           </children>
-                        </HBox>
-                     </children>
-                  </HBox>
-                  <VBox fx:id="list_view" alignment="TOP_CENTER" prefHeight="312.0" prefWidth="498.0" style="-fx-padding: 8px;" VBox.vgrow="ALWAYS" />
-               </children>
-            </VBox>
-         </content>
-      </ScrollPane>
    </children>
 </AnchorPane>
