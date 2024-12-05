@@ -1,7 +1,6 @@
 package com.ss.studysystem.database.controller;
 
 import com.ss.studysystem.Model.Classrooms;
-import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DBConnection;
 import com.ss.studysystem.Model.Assignments;
@@ -125,7 +124,7 @@ public class assignment_controller extends DBConnection<Assignments> {
             while (resultSet.next()) {
                 Assignments assignment = new Assignments();
                 Classrooms classrooms = new Classrooms();
-                classrooms.setId(resultSet.getInt("classroom_id"));
+                classrooms.setId(id);
 
                 Users users = new Users();
                 users.setId(resultSet.getInt("created_by"));
