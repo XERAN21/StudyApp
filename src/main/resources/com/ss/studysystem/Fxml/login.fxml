@@ -27,7 +27,7 @@
                               <Font name="Monospaced Bold" size="18.0" />
                            </font>
                         </Label>
-                        <TextField fx:id="user_textfield" prefHeight="36.0" prefWidth="363.0" style="-fx-border-color: black;" />
+                        <TextField fx:chartroom_id="user_textfield" prefHeight="36.0" prefWidth="363.0" style="-fx-border-color: black;" />
                      </children>
                   </VBox>
                   <VBox prefWidth="363.0">
@@ -37,12 +37,12 @@
                               <Font name="Monospaced Bold" size="18.0" />
                            </font>
                         </Label>
-                        <PasswordField fx:id="user_password" prefHeight="35.0" prefWidth="363.0" style="-fx-border-color: black;" />
+                        <PasswordField fx:chartroom_id="user_password" prefHeight="35.0" prefWidth="363.0" style="-fx-border-color: black;" />
                      </children>
                   </VBox>
                </children>
             </VBox>
-            <Button id="confirm" fx:id="confirm" layoutX="31.0" layoutY="342.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="363.0" style="-fx-background-color: #808000; -fx-border-color: black;" text="Confirm" textFill="#f3eef8" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0">
+            <Button chartroom_id="confirm" fx:chartroom_id="confirm" layoutX="31.0" layoutY="342.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="363.0" style="-fx-background-color: #808000; -fx-border-color: black;" text="Confirm" textFill="#f3eef8" AnchorPane.bottomAnchor="42.0" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0">
                <font>
                   <Font name="Monospaced Regular" size="18.0" />
                </font>
@@ -51,12 +51,12 @@
       </AnchorPane>
       <HBox alignment="CENTER_RIGHT">
          <children>
-            <Button fx:id="create_new_account" mnemonicParsing="false" style="-fx-background-color: #f3eef8;" text="Create New Account" textFill="STEELBLUE">
+            <Button fx:chartroom_id="create_new_account" mnemonicParsing="false" style="-fx-background-color: #f3eef8;" text="Create New Account" textFill="STEELBLUE">
                <font>
                   <Font name="Monospaced Italic" size="18.0" />
                </font>
             </Button>
-            <Button fx:id="forgot_password" mnemonicParsing="false" style="-fx-background-color: #f3eef8;" text="Forgot Password?" textFill="STEELBLUE">
+            <Button fx:chartroom_id="forgot_password" mnemonicParsing="false" style="-fx-background-color: #f3eef8;" text="Forgot Password?" textFill="STEELBLUE">
                <font>
                   <Font name="Monospaced Italic" size="18.0" />
                </font>
