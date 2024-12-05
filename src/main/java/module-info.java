@@ -12,4 +12,6 @@ module com.ss.studysystem {
     opens com.ss.studysystem.database.connection to javafx.fxml;
     exports com.ss.studysystem.database.controller;
     opens com.ss.studysystem.database.controller to javafx.fxml;
+    exports com.ss.studysystem.Model;
+    opens com.ss.studysystem.Model to javafx.fxml;
 }
