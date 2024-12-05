@@ -2,6 +2,7 @@ package com.ss.studysystem.database.connection;
 import java.sql.*;
 
 public class DB_Connection {
+
     public static Connection Get_Connection() throws SQLException{
 
         String url = "jdbc:mysql://localhost:6789/luminoom_ver1";//protocol:subprotocol>://<IP>:<port Number>/<DB name>

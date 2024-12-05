@@ -1,7 +1,6 @@
 package com.ss.studysystem.UI.model;
 
 import com.ss.studysystem.UI.layouts.config_background;
-import com.ss.studysystem.UI.layouts.config_position;
 import com.ss.studysystem.UI.logic.switch_scene;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -9,26 +8,25 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.Image;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.util.function.Consumer;
 
 public class sign_up {
 
     private static sign_up instance;
 
-//    private AnchorPane root;
     private HBox root;
-    private Node current_node;
-    private Node sign_in_node;
-    private Node details_node;
+    private Node currentNode;
+    private Node signInNode;
+    private Node detailsNode;
     private Stage stage;
-    private Image image;
-    private Background background_image;
+    private Background backgroundImage;
 
-    public sign_up() {
-    }
+    private sign_up() {}
 
     public static sign_up getInstance() {
         if (instance == null) {
@@ -36,15 +34,6 @@ public class sign_up {
         }
         return instance;
     }
-
-//    public AnchorPane getRoot() {
-//        return root;
-//    }
-//
-//    public void setRoot(AnchorPane root) {
-//        this.root = root;
-//    }
-
 
     public HBox getRoot() {
         return root;
@@ -54,28 +43,28 @@ public class sign_up {
         this.root = root;
     }
 
-    public Node getCurrent_node() {
-        return current_node;
+    public Node getCurrentNode() {
+        return currentNode;
     }
 
-    public void setCurrent_node(Node current_node) {
-        this.current_node = current_node;
+    public void setCurrentNode(Node currentNode) {
+        this.currentNode = currentNode;
     }
 
-    public Node getSign_in_node() {
-        return sign_in_node;
+    public Node getSignInNode() {
+        return signInNode;
     }
 
-    public void setSign_in_node(Node sign_in_node) {
-        this.sign_in_node = sign_in_node;
+    public void setSignInNode(Node signInNode) {
+        this.signInNode = signInNode;
     }
 
-    public Node getDetails_node() {
-        return details_node;
+    public Node getDetailsNode() {
+        return detailsNode;
     }
 
-    public void setDetails_node(Node details_node) {
-        this.details_node = details_node;
+    public void setDetailsNode(Node detailsNode) {
+        this.detailsNode = detailsNode;
     }
 
     public Stage getStage() {
@@ -86,113 +75,77 @@ public class sign_up {
         this.stage = stage;
     }
 
-    public Image getImage() {
-        return image;
+    public Background getBackgroundImage() {
+        return backgroundImage;
     }
 
-    public void setImage(Image image) {
-        this.image = image;
-    }
-
-    public Background getBackground_image() {
-        return background_image;
-    }
-
-    public void setBackground_image(Background background_image) {
-        this.background_image = background_image;
+    public void setBackgroundImage(Background backgroundImage) {
+        this.backgroundImage = backgroundImage;
     }
 
     public class Controller {
 
-        public Controller() {
-        }
+        private final switch_scene switcher = new switch_scene();
+        private final sign_up signUp = sign_up.getInstance();
 
-        switch_scene switcher = new switch_scene();
-        sign_up here = sign_up.getInstance();
-        
         public void initialize() {
+            setupBackground();
+            setupActions();
+            alignRoot();
+        }
 
-            set_up_actions();
+        private void setupBackground() {
+            if (signUp.getBackgroundImage() == null) {
+                File imgFile = new File("/Users/thantzinlin/Downloads/Mountain Sunset Wallpaper.jpg");
+                Image backgroundImage = new Image(imgFile.toURI().toString());
 
-            if(image == null && background_image == null) {
-                File img = new File("/Users/thantzinlin/Downloads/Mountain Sunset Wallpaper.jpg");
-
-                here.setImage(new Image(img.toURI().toString()));
-                here.setBackground_image(config_background.get_background_w_prop(here.getImage()));
+                Background background = config_background.get_background_w_prop(backgroundImage);
+                signUp.setBackgroundImage(background);
             }
+            signUp.getRoot().setBackground(signUp.getBackgroundImage());
+        }
 
-            root.setBackground(background_image);
+        private void setupActions() {
+            bindButtonAction(signUp.getSignInNode(), "#sign_up", this::switchToDetails);
+            bindButtonAction(signUp.getDetailsNode(), "#go_back", this::returnToSignIn);
+            bindButtonAction(signUp.getSignInNode(), "#login_acc", this::loginAccount);
+        }
 
-//            Platform.runLater(() -> {
-//                stage.widthProperty().addListener((ob, ov, nv) -> config_position.center_node(stage, current_node));
-//                stage.heightProperty().addListener((ob, ov, nv) -> config_position.center_node(stage, current_node));
-//            });
-
+        private void alignRoot() {
+            HBox root = signUp.getRoot();
             root.setAlignment(Pos.CENTER);
-
         }
 
-        //todo controller.sign_up
-        public void set_up_actions() {
-
-            Button proceed = (Button) sign_in_node.lookup("#sign_up");
-            Button back_to_signin = (Button) details_node.lookup("#go_back");
-            Button login = (Button) sign_in_node.lookup("#login_acc");
-
-            if (proceed != null) {
-                proceed.setOnAction(event -> switch_to_details(event));
+        private void bindButtonAction(Node parentNode, String buttonId, Consumer<ActionEvent> action) {
+            Button button = (Button) parentNode.lookup(buttonId);
+            if (button != null) {
+                button.setOnAction(event -> action.accept(event));
             }
-
-            if (back_to_signin != null) {
-                back_to_signin.setOnAction(event -> return_to_signin(event));
-            }
-
-            //todo signup controller - 1
-            if (login != null) {
-                login.setOnAction(event -> login_acc(event));
-            }
-            //
-
         }
 
-        //todo 1
-        private void login_acc(ActionEvent event) {
+        private void switchToDetails(ActionEvent event) {
+            switchNode(signUp.getDetailsNode());
+        }
+
+        private void returnToSignIn(ActionEvent event) {
+            switchNode(signUp.getSignInNode());
+        }
+
+        private void loginAccount(ActionEvent event) {
             try {
-                switcher.login_scene(event, stage);
-            } catch (Exception err) {
-                err.printStackTrace();
+                switcher.switchToLoginScene(event, (Stage) signInNode.getScene().getWindow());
+            } catch (Exception e) {
+                e.printStackTrace();
             }
         }
-        //
 
-        private void return_to_signin(ActionEvent event) {
-
-            Platform.runLater(()->{
-                root.getChildren().remove(current_node);
-                here.current_node = sign_in_node;
-                root.getChildren().add(current_node);
-
-//                config_position.center_node(stage, current_node);
-
+        private void switchNode(Node targetNode) {
+            Platform.runLater(() -> {
+                HBox root = signUp.getRoot();
+                root.getChildren().remove(signUp.getCurrentNode());
+                signUp.setCurrentNode(targetNode);
+                root.getChildren().add(targetNode);
             });
-
-
         }
-
-        private void switch_to_details(ActionEvent event) {
-
-            Platform.runLater(()->{
-
-                root.getChildren().remove(current_node);
-                here.current_node = details_node;
-                root.getChildren().add(current_node);
-
-//                config_position.center_node(stage, current_node);
-
-            });
-
-
-        }
-        //
     }
 }

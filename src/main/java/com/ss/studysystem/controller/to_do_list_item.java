@@ -42,7 +42,8 @@ public class to_do_list_item {
 
     private void delete_task() {
 
-        //Database controller logic
+        //todo ask for user confirmation
+        //todo Database controller logic
 
         parent.getChildren().remove(task_root);
     }
@@ -57,7 +58,7 @@ public class to_do_list_item {
 
     private void complete_task() {
 
-        //Database controller logic
+        //todo Database controller logic
 
         task.setStrikethrough(check.isSelected());
 

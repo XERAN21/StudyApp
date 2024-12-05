@@ -3,63 +3,63 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Messages {
-	private int message;
-	private Chatrooms chatroom;
-	private Users user;
-	private String message_text;
-	private String message_file;
-	private LocalDateTime created_at;
-	
-	public Messages() {
-	}
+    private int message;
+    private Chatrooms chatroom;
+    private Users user;
+    private String message_text;
+    private String message_file;
+    private LocalDateTime created_at;
 
-	public int getMessage() {
-		return message;
-	}
+    public Messages() {
+    }
 
-	public void setMessage(int message) {
-		this.message = message;
-	}
+    public int getMessage() {
+        return message;
+    }
 
-	public Chatrooms getChatroom() {
-		return chatroom;
-	}
+    public void setMessage(int message) {
+        this.message = message;
+    }
 
-	public void setChatroom(Chatrooms chatroom) {
-		this.chatroom = chatroom;
-	}
+    public Chatrooms getChatroom() {
+        return chatroom;
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public void setChatroom(Chatrooms chatroom) {
+        this.chatroom = chatroom;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public String getMessage_text() {
-		return message_text;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setMessage_text(String message_text) {
-		this.message_text = message_text;
-	}
+    public String getMessage_text() {
+        return message_text;
+    }
 
-	public String getMessage_file() {
-		return message_file;
-	}
+    public void setMessage_text(String message_text) {
+        this.message_text = message_text;
+    }
 
-	public void setMessage_file(String message_file) {
-		this.message_file = message_file;
-	}
+    public String getMessage_file() {
+        return message_file;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public void setMessage_file(String message_file) {
+        this.message_file = message_file;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-	
-	
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+
 }

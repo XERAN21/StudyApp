@@ -1,27 +1,27 @@
 package com.ss.studysystem.Model;
 
 public class User_Chatroom {
-	private Users user;
-	private Chatrooms chatroom;
-	
-	public User_Chatroom() {
-	}
+    private Users user;
+    private Chatrooms chatroom;
 
-	public Users getUser() {
-		return user;
-	}
+    public User_Chatroom() {
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public Chatrooms getChatroom() {
-		return chatroom;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setChatroom(Chatrooms chatroom) {
-		this.chatroom = chatroom;
-	}
-	
+    public Chatrooms getChatroom() {
+        return chatroom;
+    }
+
+    public void setChatroom(Chatrooms chatroom) {
+        this.chatroom = chatroom;
+    }
+
 }
 

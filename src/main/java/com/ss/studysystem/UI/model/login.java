@@ -24,7 +24,7 @@ public class login {
     public void initialize_image() {
 
         if (image == null && background_image == null) {
-            File img = new File("/Users/thantzinlin/Downloads/Skadi and Corrupting Heart Arknights by Alwhite.jpg");
+            File img = new File("/Users/thantzinlin/Downloads/Collage Landscapes Composition.jpg");
             this.setImage(new Image(img.toURI().toString()));
             this.setBackground_image(config_background.get_background_w_prop(this.getImage()));
         }

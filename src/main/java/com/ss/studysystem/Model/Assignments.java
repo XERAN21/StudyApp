@@ -4,73 +4,72 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Assignments {
-	private int assignment;
-	private Classrooms classroom;
-	private String title;
-	private String description;
-	private LocalDate due_date;
-	private Users created_by;
-	private LocalDateTime created_at;
-	
-	public Assignments() {
-	}
+    private int assignment;
+    private Classrooms classroom;
+    private String title;
+    private String description;
+    private LocalDate due_date;
+    private Users created_by;
+    private LocalDateTime created_at;
 
-	public int getAssignment() {
-		return assignment;
-	}
+    public Assignments() {
+    }
 
-	public void setAssignment(int assignment) {
-		this.assignment = assignment;
-	}
+    public int getAssignment() {
+        return assignment;
+    }
 
-	public Classrooms getClassroom() {
-		return classroom;
-	}
+    public void setAssignment(int assignment) {
+        this.assignment = assignment;
+    }
 
-	public void setClassroom(Classrooms classroom) {
-		this.classroom = classroom;
-	}
+    public Classrooms getClassroom() {
+        return classroom;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setClassroom(Classrooms classroom) {
+        this.classroom = classroom;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public LocalDate getDue_date() {
-		return due_date;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setDue_date(LocalDate due_date) {
-		this.due_date = due_date;
-	}
+    public LocalDate getDue_date() {
+        return due_date;
+    }
 
-	public Users getCreated_by() {
-		return created_by;
-	}
+    public void setDue_date(LocalDate due_date) {
+        this.due_date = due_date;
+    }
 
-	public void setCreated_by(Users created_by) {
-		this.created_by = created_by;
-	}
+    public Users getCreated_by() {
+        return created_by;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public void setCreated_by(Users created_by) {
+        this.created_by = created_by;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-	
-	
-	
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+
 }

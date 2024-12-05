@@ -3,64 +3,64 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Forums {
-	private int id;
-	private Classrooms classroom;
-	private String title;
-	private String description;
-	private Users user;
-	private LocalDateTime created_at;
-	
-	public Forums() {
-	}
+    private int id;
+    private Classrooms classroom;
+    private String title;
+    private String description;
+    private Users user;
+    private LocalDateTime created_at;
 
-	public int getId() {
-		return id;
-	}
+    public Forums() {
+    }
 
-	public void setId(int id) {
-		this.id = id;
-	}
+    public int getId() {
+        return id;
+    }
 
-	public Classrooms getClassroom() {
-		return classroom;
-	}
+    public void setId(int id) {
+        this.id = id;
+    }
 
-	public void setClassroom(Classrooms classroom) {
-		this.classroom = classroom;
-	}
+    public Classrooms getClassroom() {
+        return classroom;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setClassroom(Classrooms classroom) {
+        this.classroom = classroom;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-	
-	
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+
 }
 

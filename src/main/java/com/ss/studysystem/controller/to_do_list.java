@@ -2,14 +2,12 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.Model.Frequency;
 import com.ss.studysystem.UI.model.to_do_task;
-import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextArea;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
@@ -78,7 +76,8 @@ public class to_do_list {
 //        list_view.setAlignment(Pos.TOP_CENTER);
 
         try {
-            String day = today.substring(0,3).toUpperCase();
+
+            String day = today.substring(0, 3).toUpperCase();
             Frequency view_day = Frequency.valueOf(day);
 
             Node view = load_to_do(view_day);
@@ -90,42 +89,45 @@ public class to_do_list {
         }
 
         for (Node n : days_list.getChildren()) {
-
             if (n instanceof VBox) {
-                for (Node l : ((VBox) n).getChildren()) {
-                    if (((VBox) n).getChildren().get(1) instanceof Circle c
-                    && ((VBox) n).getChildren().get(0) instanceof Label lbl) {
 
-                        Frequency freq = Frequency.valueOf(lbl.getText().toUpperCase());
-                        c.setUserData(freq);
 
-                        c.setOnMouseClicked(e -> {
-                            current_day.setStyle("-fx-fill: #D9D9D9");
-                            c.setStyle("-fx-fill: RED;");
-                            this.current_day = c;
-                            switch_day(freq);
-                        });
+                if (((VBox) n).getChildren().get(1) instanceof Circle c
+                        && ((VBox) n).getChildren().get(0) instanceof Label lbl) {
 
-                        if (l.getId().matches(today)) {
-                            c.setStyle("-fx-fill: RED;");
-                            this.current_day = c;
-                            continue;
-                        }
-                        
-                        //todo load .fxml
-                        Node view = load_to_do(freq);
+                    Frequency freq = Frequency.valueOf(lbl.getText().toUpperCase());
+                    c.setUserData(freq);
 
+                    c.setOnMouseClicked(e -> {
+                        current_day.setStyle("-fx-fill: #D9D9D9");
+                        c.setStyle("-fx-fill: RED;");
+                        this.current_day = c;
+                        switch_day(freq);
+                    });
+
+
+                    //today -> WEDNESDAY -> WED
+                    //lbl.getText -> Wed -> WED
+                    if (lbl.getText().toUpperCase().matches(today.substring(0, 3))) {
+                        c.setStyle("-fx-fill: RED;");
+                        this.current_day = c;
+                        continue;
                     }
+
+                    System.out.println(freq.getValue());
+                    //todo load .fxml
+                    load_to_do(freq);
                 }
+
             }
         }
 
 
     }
 
-    @FXML
-    void add_new_list(ActionEvent event) {
-
+//    @FXML
+//    void add_new_list(ActionEvent event) {
+//
 //        if (new_task_field.getText() == null || new_task_field.getText().isEmpty()) {
 //
 //            //logic
@@ -154,11 +156,11 @@ public class to_do_list {
 //        } catch (Exception e) {
 //            e.printStackTrace();
 //        }
-    }
+//    }
 
-    void assign_day_node(Node n, Frequency day){
+    void assign_day_node(Node n, Frequency day) {
 
-        switch (day){
+        switch (day) {
             case MON:
                 to_do_config.setMon(n);
                 break;
@@ -188,9 +190,10 @@ public class to_do_list {
         }
     }
 
-    Node load_to_do(Frequency view_day){
+    Node load_to_do(Frequency view_day) {
 
         try {
+
             URL path = getClass().getResource("/com/ss/studysystem/Fxml/to_do_list_view.fxml");
             FXMLLoader view_loader = new FXMLLoader(path);
             Node view = view_loader.load();
@@ -204,14 +207,15 @@ public class to_do_list {
 
         } catch (Exception e) {
             e.printStackTrace();
+            return new Label("Failed to load resource. \n" + e);
         }
 
-        return  null;
     }
+
     void switch_day(Frequency freq) {
 
         root.getChildren().remove(current_node);
-        switch (freq){
+        switch (freq) {
             case MON:
                 this.current_node = to_do_config.getMon();
                 break;
@@ -222,7 +226,7 @@ public class to_do_list {
                 this.current_node = to_do_config.getWed();
                 break;
             case THU:
-                this.current_node  = to_do_config.getThu();
+                this.current_node = to_do_config.getThu();
                 break;
             case FRI:
                 this.current_node = to_do_config.getFri();

@@ -3,44 +3,44 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Comments {
-	private int comment;
-	private Users user;
-	private String content;
-	private LocalDateTime created_at;
-	
-	public Comments() {
-	}
-	
-	public int getComment() {
-		return comment;
-	}
+    private int comment;
+    private Users user;
+    private String content;
+    private LocalDateTime created_at;
 
-	public void setComment(int comment) {
-		this.comment = comment;
-	}
+    public Comments() {
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public int getComment() {
+        return comment;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public void setComment(int comment) {
+        this.comment = comment;
+    }
 
-	public String getContent() {
-		return content;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public void setContent(String content) {
-		this.content = content;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public String getContent() {
+        return content;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-	
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
 }

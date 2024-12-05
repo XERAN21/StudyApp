@@ -3,70 +3,71 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Student_Answers {
-	private int response;
-	private Test test;
-	private Users user;
-	private Questions question;
-	private Answers answer;
-	private Boolean is_correct;
-	private LocalDateTime attempted_at;
+    private int response;
+    private Test test;
+    private Users user;
+    private Questions question;
+    private Answers answer;
+    private Boolean is_correct;
+    private LocalDateTime attempted_at;
 
-	public Student_Answers() {
-	}
-	public int getResponse() {
-		return response;
-	}
+    public Student_Answers() {
+    }
 
-	public void setResponse(int response) {
-		this.response = response;
-	}
+    public int getResponse() {
+        return response;
+    }
 
-	public Test getTest() {
-		return test;
-	}
+    public void setResponse(int response) {
+        this.response = response;
+    }
 
-	public void setTest(Test test) {
-		this.test = test;
-	}
+    public Test getTest() {
+        return test;
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public void setTest(Test test) {
+        this.test = test;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public Questions getQuestion() {
-		return question;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setQuestion(Questions question) {
-		this.question = question;
-	}
+    public Questions getQuestion() {
+        return question;
+    }
 
-	public Answers getAnswer() {
-		return answer;
-	}
+    public void setQuestion(Questions question) {
+        this.question = question;
+    }
 
-	public void setAnswer(Answers answer) {
-		this.answer = answer;
-	}
+    public Answers getAnswer() {
+        return answer;
+    }
 
-	public Boolean getIs_correct() {
-		return is_correct;
-	}
+    public void setAnswer(Answers answer) {
+        this.answer = answer;
+    }
 
-	public void setIs_correct(Boolean is_correct) {
-		this.is_correct = is_correct;
-	}
+    public Boolean getIs_correct() {
+        return is_correct;
+    }
 
-	public LocalDateTime getAttempted_at() {
-		return attempted_at;
-	}
+    public void setIs_correct(Boolean is_correct) {
+        this.is_correct = is_correct;
+    }
 
-	public void setAttempted_at(LocalDateTime attempted_at) {
-		this.attempted_at = attempted_at;
-	}
-	
+    public LocalDateTime getAttempted_at() {
+        return attempted_at;
+    }
+
+    public void setAttempted_at(LocalDateTime attempted_at) {
+        this.attempted_at = attempted_at;
+    }
+
 }

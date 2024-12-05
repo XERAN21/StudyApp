@@ -1,28 +1,27 @@
 package com.ss.studysystem.Model;
 
 public class File_Chat_Messages {
-	private Messages message;
-	private Files file;
-	
-	public File_Chat_Messages() {
-	}
+    private Messages message;
+    private Files file;
 
-	public Messages getMessage() {
-		return message;
-	}
+    public File_Chat_Messages() {
+    }
 
-	public void setMessage(Messages message) {
-		this.message = message;
-	}
+    public Messages getMessage() {
+        return message;
+    }
 
-	public Files getFile() {
-		return file;
-	}
+    public void setMessage(Messages message) {
+        this.message = message;
+    }
 
-	public void setFile(Files file) {
-		this.file = file;
-	}
-	
-	
-	
+    public Files getFile() {
+        return file;
+    }
+
+    public void setFile(Files file) {
+        this.file = file;
+    }
+
+
 }

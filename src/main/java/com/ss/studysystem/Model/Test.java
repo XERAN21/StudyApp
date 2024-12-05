@@ -3,62 +3,63 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Test {
-	private int test;
-	private Classrooms classroom;
-	private String title;
-//	private String[] type = {"Exam", "Quizze"};
-	private Test_Type type; //enum class Test_Type { EXAM, QUIZ }
-	private Users user;
-	private LocalDateTime created_at;
+    private int test;
+    private Classrooms classroom;
+    private String title;
+    //	private String[] type = {"Exam", "Quizze"};
+    private Test_Type type; //enum class Test_Type { EXAM, QUIZ }
+    private Users user;
+    private LocalDateTime created_at;
 
-	public Test() {
+    public Test() {
 
-	}
-	public int getTest() {
-		return test;
-	}
+    }
 
-	public void setTest(int test) {
-		this.test = test;
-	}
+    public int getTest() {
+        return test;
+    }
 
-	public Classrooms getClassroom() {
-		return classroom;
-	}
+    public void setTest(int test) {
+        this.test = test;
+    }
 
-	public void setClassroom(Classrooms classroom) {
-		this.classroom = classroom;
-	}
+    public Classrooms getClassroom() {
+        return classroom;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setClassroom(Classrooms classroom) {
+        this.classroom = classroom;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public Test_Type getType() {
-		return type;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setType(Test_Type type) {
-		this.type = type;
-	}
+    public Test_Type getType() {
+        return type;
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public void setType(Test_Type type) {
+        this.type = type;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
 }

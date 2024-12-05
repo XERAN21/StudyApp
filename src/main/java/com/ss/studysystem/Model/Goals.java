@@ -4,63 +4,63 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Goals {
-	private int goal;
-	private Users user;
-	private String description;
-	private LocalDate target_date;
-	private String[] status = {"not_started", "in_progress", "completed"};
-	private LocalDateTime created_at;
-	
-	public Goals() {
-	}
-	
-	public int getGoal() {
-		return goal;
-	}
+    private int goal;
+    private Users user;
+    private String description;
+    private LocalDate target_date;
+    private String[] status = {"not_started", "in_progress", "completed"};
+    private LocalDateTime created_at;
 
-	public void setGoal(int goal) {
-		this.goal = goal;
-	}
+    public Goals() {
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public int getGoal() {
+        return goal;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public void setGoal(int goal) {
+        this.goal = goal;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public LocalDate getTarget_date() {
-		return target_date;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public void setTarget_date(LocalDate target_date) {
-		this.target_date = target_date;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public String[] getStatus() {
-		return status;
-	}
+    public LocalDate getTarget_date() {
+        return target_date;
+    }
 
-	public void setStatus(String[] status) {
-		this.status = status;
-	}
+    public void setTarget_date(LocalDate target_date) {
+        this.target_date = target_date;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public String[] getStatus() {
+        return status;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
-	
-	
+    public void setStatus(String[] status) {
+        this.status = status;
+    }
+
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
+
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
+
+
 }

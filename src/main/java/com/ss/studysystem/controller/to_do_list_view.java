@@ -31,11 +31,18 @@ public class to_do_list_view {
     private TextArea new_task_field;
 
     @FXML
+    void initialze(){
+        //todo
+    }
+
+    //todo async load user tasks
+
+    @FXML
     void add_new_list(ActionEvent event) {
 
         if (new_task_field.getText() == null || new_task_field.getText().isEmpty()) {
 
-            //logic
+            //logic -> throws error
 
             return;
         }

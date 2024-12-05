@@ -1,7 +1,7 @@
 package com.ss.studysystem.Model;
 
 public enum Frequency {
-    MON("MONDAY"),
+    MON("Monday"),
     TUE("Tuesday"),
     WED("Wednesday"),
     THU("Thursday"),
@@ -10,11 +10,11 @@ public enum Frequency {
     SUN("Sunday"),
     DAILY("Daily");
 
-    private String value;
+    private final String value;
 
-   Frequency(String value){
-       this.value = value;
-   }
+    Frequency(String value) {
+        this.value = value;
+    }
 
     public String getValue() {
         return value;

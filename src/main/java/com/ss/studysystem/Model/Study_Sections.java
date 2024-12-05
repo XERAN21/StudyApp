@@ -3,64 +3,63 @@ package com.ss.studysystem.Model;
 import java.time.LocalDateTime;
 
 public class Study_Sections {
-	private int session;
-	private Users user;
-	private String title;
-	private String description;
-	private LocalDateTime created_at;
-	private int session_duration;
-	
-	public Study_Sections() {
-	}
+    private int session;
+    private Users user;
+    private String title;
+    private String description;
+    private LocalDateTime created_at;
+    private int session_duration;
 
-	public int getSession() {
-		return session;
-	}
+    public Study_Sections() {
+    }
 
-	public void setSession(int session) {
-		this.session = session;
-	}
+    public int getSession() {
+        return session;
+    }
 
-	public Users getUser() {
-		return user;
-	}
+    public void setSession(int session) {
+        this.session = session;
+    }
 
-	public void setUser(Users user) {
-		this.user = user;
-	}
+    public Users getUser() {
+        return user;
+    }
 
-	public String getTitle() {
-		return title;
-	}
+    public void setUser(Users user) {
+        this.user = user;
+    }
 
-	public void setTitle(String title) {
-		this.title = title;
-	}
+    public String getTitle() {
+        return title;
+    }
 
-	public String getDescription() {
-		return description;
-	}
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
-	public void setDescription(String description) {
-		this.description = description;
-	}
+    public String getDescription() {
+        return description;
+    }
 
-	public LocalDateTime getCreated_at() {
-		return created_at;
-	}
+    public void setDescription(String description) {
+        this.description = description;
+    }
 
-	public void setCreated_at(LocalDateTime created_at) {
-		this.created_at = created_at;
-	}
+    public LocalDateTime getCreated_at() {
+        return created_at;
+    }
 
-	public int getSession_duration() {
-		return session_duration;
-	}
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
 
-	public void setSession_duration(int session_duration) {
-		this.session_duration = session_duration;
-	}
-	
-	
-	
+    public int getSession_duration() {
+        return session_duration;
+    }
+
+    public void setSession_duration(int session_duration) {
+        this.session_duration = session_duration;
+    }
+
+
 }

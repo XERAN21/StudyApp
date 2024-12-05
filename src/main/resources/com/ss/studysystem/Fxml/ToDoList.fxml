@@ -7,9 +7,9 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox fx:id="root" alignment="TOP_CENTER" style="-fx-spacing: 20px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list">
+<VBox fx:id="root" alignment="TOP_CENTER" maxWidth="1.7976931348623157E308" style="-fx-spacing: 20px; -fx-background-color: #F3EEF8;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list">
    <children>
-      <VBox alignment="CENTER" style="-fx-spacing: 5; -fx-padding: 15px;">
+      <VBox alignment="CENTER" maxWidth="1.7976931348623157E308" style="-fx-spacing: 5; -fx-padding: 15px;">
          <children>
             <Label fx:id="Month" text="November">
                <font>
