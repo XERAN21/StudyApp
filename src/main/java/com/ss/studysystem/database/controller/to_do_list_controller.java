@@ -9,8 +9,8 @@ import com.ss.studysystem.database.connection.DB_Connection;
 
 public class to_do_list_controller {
 	
-	public static boolean create_to_do_list(To_Do_List to_do) {
-		String sql = "CALL create_to_do(?,?,?,?,?)";
+	public static boolean create_to_do_list(To_Do_List to_do, int[] inserted_id) {
+		String sql = "CALL create_to_do_list(?,?,?,?,?)";
 		try(Connection connection = DB_Connection.Get_Connection();
 			CallableStatement callableStatement = connection.prepareCall(sql)){
 			
@@ -18,9 +18,13 @@ public class to_do_list_controller {
 			callableStatement.setString(2, to_do.getContent());
 			callableStatement.setString(3, to_do.getFreq().toString());
 			callableStatement.setBoolean(4, to_do.getIs_complete());
-			callableStatement.setTimestamp(5, Timestamp.valueOf(to_do.getCreated_at()));
-			
+
 			int row_affected = callableStatement.executeUpdate();
+
+			if (row_affected > 0) {
+				inserted_id[0] = callableStatement.getInt(5);
+			}
+
 			return row_affected > 0;
 			
 		} catch (SQLException e) {

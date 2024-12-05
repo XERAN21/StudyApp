@@ -62,6 +62,7 @@ public class to_do_list {
 
     private Circle current_day;
     private Node current_node;
+    private static Frequency current_freq;
     private String today = LocalDate.now().getDayOfWeek().toString();
 
     private to_do_task to_do_config = to_do_task.getInstance();
@@ -79,6 +80,8 @@ public class to_do_list {
 
             String day = today.substring(0, 3).toUpperCase();
             Frequency view_day = Frequency.valueOf(day);
+
+            this.current_freq = view_day;
 
             Node view = load_to_do(view_day);
             root.getChildren().add(view);
@@ -102,6 +105,7 @@ public class to_do_list {
                         current_day.setStyle("-fx-fill: #D9D9D9");
                         c.setStyle("-fx-fill: RED;");
                         this.current_day = c;
+                        this.current_freq = freq;
                         switch_day(freq);
                     });
 
@@ -125,7 +129,11 @@ public class to_do_list {
 
     }
 
-//    @FXML
+    public static Frequency getCurrent_freq() {
+        return current_freq;
+    }
+
+    //    @FXML
 //    void add_new_list(ActionEvent event) {
 //
 //        if (new_task_field.getText() == null || new_task_field.getText().isEmpty()) {

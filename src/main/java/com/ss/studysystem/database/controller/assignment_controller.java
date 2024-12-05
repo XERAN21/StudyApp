@@ -16,11 +16,11 @@ public class assignment_controller extends DBConnection<Assignments> {
     public boolean save(Assignments entity) {
 
         String sql = "CALL create_assignment(?,?,?,?,?,?)";
-        try(CallableStatement callableStatement = connection.prepareCall(sql)){
+        try (CallableStatement callableStatement = connection.prepareCall(sql)) {
 
-            callableStatement.setInt(1,entity.getClassroom().getId());
-            callableStatement.setString(2,entity.getTitle());
-            callableStatement.setString(3,entity.getDescription());
+            callableStatement.setInt(1, entity.getClassroom().getId());
+            callableStatement.setString(2, entity.getTitle());
+            callableStatement.setString(3, entity.getDescription());
             callableStatement.setTimestamp(4, Timestamp.valueOf(String.valueOf(entity.getDue_date())));
 
             //todo revise uid
@@ -31,7 +31,7 @@ public class assignment_controller extends DBConnection<Assignments> {
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
 
-        }catch (SQLException e){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -46,27 +46,27 @@ public class assignment_controller extends DBConnection<Assignments> {
              CallableStatement callableStatement = con.prepareCall(sql)) {
 
 
-                ResultSet resultSet = callableStatement.executeQuery();
+            ResultSet resultSet = callableStatement.executeQuery();
 
-                while (resultSet.next()) {
-                    Classrooms classrooms = new Classrooms();
-                    classrooms.setId(resultSet.getInt("classroom_id"));
+            while (resultSet.next()) {
+                Classrooms classrooms = new Classrooms();
+                classrooms.setId(resultSet.getInt("classroom_id"));
 
-                    Users users = new Users();
-                    users.setId(resultSet.getInt("created_by"));
+                Users users = new Users();
+                users.setId(resultSet.getInt("created_by"));
 
-                    assignments.setAssignment_id(resultSet.getInt("assignment_id"));
-                    assignments.setClassroom(classrooms);
+                assignments.setAssignment_id(resultSet.getInt("assignment_id"));
+                assignments.setClassroom(classrooms);
 
-                    assignments.setTitle(resultSet.getString("title"));
+                assignments.setTitle(resultSet.getString("title"));
 
-                    assignments.setDescription(resultSet.getString("description"));
+                assignments.setDescription(resultSet.getString("description"));
 
-                    assignments.setDue_date(resultSet.getDate("due_date").toLocalDate());
+                assignments.setDue_date(resultSet.getDate("due_date").toLocalDate());
 
-                    assignments.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
-                }
-                return assignments;
+                assignments.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+            }
+            return assignments;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
@@ -76,8 +76,8 @@ public class assignment_controller extends DBConnection<Assignments> {
     @Override
     public boolean update(Assignments entity) {
         String sql = "CALL update_assignment(?,?,?,?)";
-        try(Connection con = DB_Connection.Get_Connection();
-            CallableStatement callableStatement = con.prepareCall(sql)){
+        try (Connection con = DB_Connection.Get_Connection();
+             CallableStatement callableStatement = con.prepareCall(sql)) {
             callableStatement.setInt(1, entity.getAssignment_id());
             callableStatement.setString(2, entity.getTitle());
             callableStatement.setString(3, entity.getDescription());
@@ -85,7 +85,7 @@ public class assignment_controller extends DBConnection<Assignments> {
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
-        }catch(SQLException e ){
+        } catch (SQLException e) {
             e.printStackTrace();
             return false;
         }
@@ -94,19 +94,18 @@ public class assignment_controller extends DBConnection<Assignments> {
     @Override
     public boolean delete(int uid) {
         String sql = "CALL delete_assignment(?)";
-        try(Connection con = DB_Connection.Get_Connection();
-            CallableStatement callableStatement = con.prepareCall(sql)){
-            callableStatement.setInt(1,uid);
+        try (Connection con = DB_Connection.Get_Connection();
+             CallableStatement callableStatement = con.prepareCall(sql)) {
+            callableStatement.setInt(1, uid);
 
             int row_affected = callableStatement.executeUpdate();
-            return  row_affected > 0;
+            return row_affected > 0;
         } catch (SQLException ex) {
             throw new RuntimeException(ex);
         }
     }
 
     /**
-     *
      * @param id -> classroom id
      * @return
      */
@@ -149,7 +148,4 @@ public class assignment_controller extends DBConnection<Assignments> {
             return null;
         }
     }
-
-
-
 }
