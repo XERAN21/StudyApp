@@ -53,11 +53,11 @@ public class Classrooms {
         this.created_at = created_at;
     }
 
-    public boolean isIs_archived() {
+    public boolean is_archived() {
         return is_archived;
     }
 
-    public void setIs_archived(boolean is_archived) {
+    public void set_archived(boolean is_archived) {
         this.is_archived = is_archived;
     }
 }

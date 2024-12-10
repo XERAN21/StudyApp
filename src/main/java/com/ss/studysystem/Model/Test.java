@@ -12,6 +12,8 @@ public class Test {
 //	private String[] type = {"Exam", "Quizze"};
 	private Test_Type type; //enum class Test_Type { EXAM, QUIZ }
 	private Users user;
+	private LocalDateTime start_time;
+	private LocalDateTime end_time;
 	private LocalDateTime created_at;
 
 	public Test() {

@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 public class Assignments {
-	private int assignment;
+	private int assignment_id;
 	private Classrooms classroom;
 	private String title;
 	private String description;
@@ -15,12 +15,12 @@ public class Assignments {
 	public Assignments() {
 	}
 
-	public int getAssignment() {
-		return assignment;
+	public int getAssignment_id() {
+		return assignment_id;
 	}
 
-	public void setAssignment(int assignment) {
-		this.assignment = assignment;
+	public void setAssignment_id(int assignment_id) {
+		this.assignment_id = assignment_id;
 	}
 
 	public Classrooms getClassroom() {
