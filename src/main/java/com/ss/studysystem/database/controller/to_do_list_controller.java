@@ -32,6 +32,7 @@ public class to_do_list_controller {
 			return false;
 		}
 	}
+
 	public static List<To_Do_List> get_to_do_list() {
 		String sql = "CALL get_to_do_list()";
 		List<To_Do_List> list = new ArrayList<>();

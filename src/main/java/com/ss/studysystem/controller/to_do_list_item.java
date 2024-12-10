@@ -68,6 +68,7 @@ public class to_do_list_item {
     private void complete_task() {
 
         //todo Database controller logic
+        if (!to_do_list_controller.update_to_do_list(toDoList)) return;
 
         task.setStrikethrough(check.isSelected());
 
