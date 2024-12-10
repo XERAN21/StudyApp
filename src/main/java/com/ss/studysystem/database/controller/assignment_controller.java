@@ -42,8 +42,7 @@ public class assignment_controller extends DBConnection<Assignments> {
         String sql = "CALL get_assignment()";
         Assignments assignments = new Assignments();
 
-        try (Connection con = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = con.prepareCall(sql)) {
+        try (CallableStatement callableStatement = connection.prepareCall(sql)) {
 
 
             ResultSet resultSet = callableStatement.executeQuery();
@@ -76,8 +75,7 @@ public class assignment_controller extends DBConnection<Assignments> {
     @Override
     public boolean update(Assignments entity) {
         String sql = "CALL update_assignment(?,?,?,?)";
-        try (Connection con = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = con.prepareCall(sql)) {
+        try (CallableStatement callableStatement = connection.prepareCall(sql)) {
             callableStatement.setInt(1, entity.getAssignment_id());
             callableStatement.setString(2, entity.getTitle());
             callableStatement.setString(3, entity.getDescription());
@@ -94,8 +92,7 @@ public class assignment_controller extends DBConnection<Assignments> {
     @Override
     public boolean delete(int uid) {
         String sql = "CALL delete_assignment(?)";
-        try (Connection con = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = con.prepareCall(sql)) {
+        try (CallableStatement callableStatement = connection.prepareCall(sql)) {
             callableStatement.setInt(1, uid);
 
             int row_affected = callableStatement.executeUpdate();
@@ -114,8 +111,7 @@ public class assignment_controller extends DBConnection<Assignments> {
         String sql = "CALL get_all_entity_assignment(?)"; //todo fix procedure
         List<Assignments> assignments = new ArrayList<>();
 
-        try (Connection con = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = con.prepareCall(sql)) {
+        try (CallableStatement callableStatement = connection.prepareCall(sql)) {
 
             callableStatement.setInt(1, id);
 
