@@ -1,6 +1,9 @@
 package com.ss.studysystem.Model;
 
+import java.sql.Timestamp;
 import java.time.LocalDateTime;
+
+//todo need to put two new attributes starttime and endtime
 
 public class Test {
 	private int test;
@@ -9,6 +12,8 @@ public class Test {
 //	private String[] type = {"Exam", "Quizze"};
 	private Test_Type type; //enum class Test_Type { EXAM, QUIZ }
 	private Users user;
+	private LocalDateTime start_time;
+	private LocalDateTime end_time;
 	private LocalDateTime created_at;
 
 	public Test() {
@@ -61,4 +66,5 @@ public class Test {
 	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
+
 }

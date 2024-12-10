@@ -68,7 +68,8 @@ public class to_do_list_view {
             toDoList.setContent(new_task_field.getText());
             toDoList.setFreq(freq);
             toDoList.setIs_complete(false);
- int[] inserted_id = new int[1];
+
+            int[] inserted_id = new int[1];
             if(!to_do_list_controller.create_to_do_list(toDoList, inserted_id)) return; //todo throws error
 
             toDoList.setTo_do_list(inserted_id[0]);

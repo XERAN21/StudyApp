@@ -32,6 +32,10 @@ public class Chatrooms {
         return invitation_code;
     }
 
+    public void setInvitation_code(String invitation_code) {
+        this.invitation_code = invitation_code;
+    }
+
     public Users getUser() {
         return user;
     }
@@ -44,4 +48,7 @@ public class Chatrooms {
         return created_at;
     }
 
+    public void setCreated_at(LocalDateTime created_at) {
+        this.created_at = created_at;
+    }
 }
