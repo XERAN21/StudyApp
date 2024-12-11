@@ -62,6 +62,7 @@ public class switch_scene {
 
 
     public void switchToLoginScene(ActionEvent event, Stage mainStage) {
+
         login loginConfig = login.getInstance();
 
         Task<AnchorPane> loadSceneTask = new Task<>() {
@@ -80,7 +81,8 @@ public class switch_scene {
             }
         };
 
-        configureTask(loadSceneTask, event, mainStage, () -> {
+        configureTask(loadSceneTask, event, mainStage,
+                () -> {
             AnchorPane root = loadSceneTask.getValue();
             Node node = root.getChildrenUnmodifiable().get(0);
             config_position.center_node(mainStage, node);
@@ -92,7 +94,8 @@ public class switch_scene {
         });
     }
 
-    private <T extends Parent> void configureTask(Task<T> task, ActionEvent event, Stage mainStage, Runnable onSuccessAction) {
+    private <T extends Parent> void configureTask(Task<T> task, ActionEvent event,
+                                                  Stage mainStage, Runnable onSuccessAction) {
         task.setOnSucceeded(e -> {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

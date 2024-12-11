@@ -56,9 +56,7 @@ public class to_do_list_view {
             //Database controller logic
 
             int uid = 1; //todo change this later
-            String today = LocalDate.now().getDayOfWeek().toString().substring(0,3).toUpperCase();
             Frequency freq = to_do_list.getCurrent_freq();
-            System.out.println(freq);
 
             Users users = new Users();
             users.setId(uid);
@@ -81,6 +79,7 @@ public class to_do_list_view {
             to_do_list_item tdl_ctrl = item_loader.getController();
             tdl_ctrl.set_task(new_task_field.getText());
             tdl_ctrl.set_parent(list_view);
+
             tdl_ctrl.setToDoList(toDoList);
 
             list_view.getChildren().add(item);
