@@ -9,7 +9,6 @@ public class Test {
 	private int test;
 	private Classrooms classroom;
 	private String title;
-//	private String[] type = {"Exam", "Quizze"};
 	private Test_Type type; //enum class Test_Type { EXAM, QUIZ }
 	private Users user;
 	private LocalDateTime start_time;
@@ -59,6 +58,22 @@ public class Test {
 		this.user = user;
 	}
 
+	public LocalDateTime getStart_time() {
+		return start_time;
+	}
+
+	public void setStart_time(LocalDateTime start_time) {
+		this.start_time = start_time;
+	}
+
+	public LocalDateTime getEnd_time() {
+		return end_time;
+	}
+
+	public void setEnd_time(LocalDateTime end_time) {
+		this.end_time = end_time;
+	}
+
 	public LocalDateTime getCreated_at() {
 		return created_at;
 	}
@@ -67,4 +82,17 @@ public class Test {
 		this.created_at = created_at;
 	}
 
+	@Override
+	public String toString() {
+		return "Test{" +
+				"test=" + test +
+				", classroom=" + classroom +
+				", title='" + title + '\'' +
+				", type=" + type +
+				", user=" + user +
+				", start_time=" + start_time +
+				", end_time=" + end_time +
+				", created_at=" + created_at +
+				'}';
+	}
 }
