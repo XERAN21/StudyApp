@@ -5,7 +5,7 @@ public class DB_Connection {
 
     public static Connection Get_Connection() throws SQLException{
 
-        String ip = "localhost";
+        String ip = "172.168.200.26";
         String port = "3306";
         String db = "luminoom_ver1";
 
