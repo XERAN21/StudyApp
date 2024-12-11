@@ -4,8 +4,8 @@ import java.sql.*;
 public class DB_Connection {
     public static Connection Get_Connection() throws SQLException{
 
-        String url = "jdbc:mysql://localhost:6789/luminoom_ver1";//protocol:subprotocol>://<IP>:<port Number>/<DB name>
-        String username = "root";
+        String url = "jdbc:mysql://192.168.70.142:6789/luminoom_ver1";//protocol:subprotocol>://<IP>:<port Number>/<DB name>
+        String username = "remote";
         String password = "";
         return DriverManager.getConnection(url,username,password);
 
