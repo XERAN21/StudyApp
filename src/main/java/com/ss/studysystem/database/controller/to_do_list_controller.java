@@ -4,6 +4,7 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.ss.studysystem.Model.Frequency;
 import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.database.connection.DB_Connection;
 
@@ -33,13 +34,23 @@ public class to_do_list_controller {
 		}
 	}
 
-	public static List<To_Do_List> get_to_do_list() {
-		String sql = "CALL get_to_do_list()";
+	public static List<To_Do_List> get_to_do_list(int id) {
+		String sql = "CALL get_to_do_list(?)";
 		List<To_Do_List> list = new ArrayList<>();
 
 		try(Connection con = DB_Connection.Get_Connection();
 			CallableStatement callableStatement = con.prepareCall(sql)){
+
+			callableStatement.setInt(1, id);
 			ResultSet resultSet = callableStatement.executeQuery();
+
+			while(resultSet.next()){
+				To_Do_List tdl = new To_Do_List();
+				tdl.setContent(resultSet.getString("content"));
+				tdl.setFreq(Frequency.valueOf(resultSet.getString("frequency")));
+				tdl.setIs_complete(resultSet.getBoolean("is_complete"));
+				list.add(tdl);
+			}
 
 		}catch(SQLException e) {
 			e.printStackTrace();
@@ -78,4 +89,6 @@ public class to_do_list_controller {
             throw new RuntimeException(ex);
         }
 	}
+
+
 }
