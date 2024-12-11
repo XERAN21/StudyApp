@@ -39,7 +39,7 @@ public class forum_controller {
             callableStatement.setInt(1, forum_comments.getForum().getId());
             callableStatement.setInt(2,forum_comments.getUser().getId());
             callableStatement.setString(3,forum_comments.getComment_text());
-            callableStatement.setString(4,forum_comments.getForum_file());
+            callableStatement.setBlob(4,forum_comments.getForum_file());
 
             int row_affected = callableStatement.executeUpdate();
             return  row_affected>0;
@@ -92,7 +92,7 @@ public class forum_controller {
 
             callableStatement.setInt(1,forum_comments.getForum().getId());
             callableStatement.setString(2,forum_comments.getComment_text());
-            callableStatement.setString(3,forum_comments.getForum_file());
+            callableStatement.setBlob(3,forum_comments.getForum_file());
             callableStatement.setTimestamp(4,Timestamp.valueOf(forum_comments.getCreated_at()));
 
             int row_affected = callableStatement.executeUpdate();

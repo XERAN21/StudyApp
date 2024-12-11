@@ -35,6 +35,7 @@ public class classroom_controller {
     public static Classrooms get_classroom(int classroom_id) {
         String sql = "CALL get_classroom(?)";
         Classrooms classrooms = new Classrooms();
+        Users user = new Users();
         try (Connection connection = DB_Connection.Get_Connection();
              CallableStatement callableStatement = connection.prepareCall(sql)) {
 
@@ -43,9 +44,11 @@ public class classroom_controller {
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
+                user.setId(resultSet.getInt("created_by"));
+                classrooms.setId(classroom_id);
                 classrooms.setName(resultSet.getString("name"));
                 classrooms.setDescription(resultSet.getString("description"));
-                classrooms.setUser(user_controller.get_user(1, !flag));
+                classrooms.setUser(user);
                 classrooms.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 classrooms.set_archived(resultSet.getBoolean("is_archived"));
 
@@ -104,7 +107,8 @@ public class classroom_controller {
                 member.setUser(user);
 
                 Classrooms classroom = new Classrooms();
-                member.setClassrooms(get_classroom(1));
+                classroom.setId(classroom_id);
+                member.setClassrooms(classroom);
 
                 String role = resultSet.getString("role").toUpperCase();
                 member.setRole(Role.valueOf(role));
@@ -119,96 +123,6 @@ public class classroom_controller {
     }
 
 // todo need to check this following function except get_all_classroom
-
-    public static boolean create_event(Events events) {
-        String sql = "Call Create_event(?,?,?,?,?,?)";
-        try (Connection connection = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = connection.prepareCall(sql)) {
-
-            callableStatement.setString(1, events.getTitle());
-            callableStatement.setString(2, events.getDescription());
-            callableStatement.setDate(3, Date.valueOf(events.getEvent_date().toLocalDate()));
-            callableStatement.setInt(4, events.getClassroom().getId());
-            callableStatement.setDate(5, Date.valueOf(events.getCreated_at().toLocalDate()));
-
-            int row_affected = callableStatement.executeUpdate();
-            return row_affected > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static boolean update_event(Events events) {
-        String sql = "CALL update_event(?,?,?,?,?)";
-        try (Connection connection = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = connection.prepareCall(sql)) {
-
-            callableStatement.setInt(1, events.getId());
-            callableStatement.setString(2, events.getTitle());
-            callableStatement.setString(3, events.getDescription());
-            callableStatement.setDate(4, Date.valueOf(events.getEvent_date().toLocalDate()));
-            callableStatement.setBoolean(5, events.is_archived());
-
-            int row_affected = callableStatement.executeUpdate();
-            return row_affected > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
-
-    public static List<Events> get_all_event(int classroom_id) {
-        List<Events> events = new ArrayList<>();
-        String sql = "select * from events where classroom_id = ?;";
-        try (Connection connection = DB_Connection.Get_Connection();
-             PreparedStatement psmt = connection.prepareStatement(sql)) {
-
-            psmt.setInt(1, classroom_id);
-
-            ResultSet resultSet = psmt.executeQuery();
-
-            while (resultSet.next()) {
-                Events event = new Events();
-                event.setId(resultSet.getInt("event_id"));
-                event.setTitle(resultSet.getString("title"));
-                event.setDescription(resultSet.getString("description"));
-                event.setEvent_date(LocalDateTime.from(resultSet.getDate("event_date").toLocalDate()));
-
-                Users u = new Users();
-                u.setId(resultSet.getInt("created_by"));
-                event.setUser(u);
-
-                event.set_archived(resultSet.getBoolean("is_archived"));
-                events.add(event);
-            }
-
-            return events;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-        }
-
-        return null;
-    }
-
-    public static boolean delete_event(int event_id) {
-        String sql = "CALL Delete_event()";
-        try (Connection connection = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = connection.prepareCall(sql)) {
-
-            callableStatement.setInt(1, event_id);
-
-            int row_affected = callableStatement.executeUpdate();
-            return row_affected > 0;
-
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return false;
-        }
-    }
 
     public static boolean upload_file(Files files) {
         String sql = "CALL upload_file(?,?,?,?,?)";
@@ -297,6 +211,10 @@ public class classroom_controller {
             e.printStackTrace();
             return null;
         }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(get_classroom(1));
     }
 
 }

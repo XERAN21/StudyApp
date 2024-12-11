@@ -2,18 +2,11 @@ package com.ss.studysystem.database.connection;
 import java.sql.*;
 
 public class DB_Connection {
-
     public static Connection Get_Connection() throws SQLException{
 
-        String ip = "localhost";
-        String port = "3306";
-        String db = "luminoom_ver1";
-
-        String url = String.format("jdbc:mysql://%s:%s/%s",ip,port,db);
-
-        String username = "remote";
-        String password = "12345678";
-
+        String url = "jdbc:mysql://localhost:6789/luminoom_ver1";//protocol:subprotocol>://<IP>:<port Number>/<DB name>
+        String username = "root";
+        String password = "";
         return DriverManager.getConnection(url,username,password);
 
     }
