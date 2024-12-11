@@ -12,7 +12,7 @@ import java.util.concurrent.Callable;
 public class question_controller {
 
     public static boolean create_question(Questions questions) {
-        String sql = "CALL CreateQuestion(?,?,?)";
+        String sql = "CALL create_question(?,?,?)";
         try (Connection connection = DB_Connection.Get_Connection();
              CallableStatement callableStatement = connection.prepareCall(sql)) {
 
@@ -29,7 +29,7 @@ public class question_controller {
     }
 
     public static Questions get_question(int id) {
-        String sql = "CALL GetQuestion(?)";
+        String sql = "CALL get_question(?)";
         Questions questions = new Questions();
         try (Connection con = DB_Connection.Get_Connection();
              CallableStatement callableStatement = con.prepareCall(sql)) {
@@ -50,10 +50,10 @@ public class question_controller {
         }
 
     }
-
+//todo need to check this one
     public static List<Questions> get_all_questions(int id) {
         List<Questions> Questions_list = new ArrayList<>();
-        String sql = "{CALL Get_all_question(?)}";
+        String sql = "{CALL get_all_questions(?)}";
 
         try (Connection con = DB_Connection.Get_Connection();
              CallableStatement callableStatement = con.prepareCall(sql)) {
@@ -78,7 +78,7 @@ public class question_controller {
 
     }
 
-    public boolean update_question(Questions questions) {
+    public static boolean update_question(Questions questions) {
         String sql = "CALL update_question(?,?,?)";
         try (Connection connection = DB_Connection.Get_Connection();
              CallableStatement callableStatement = connection.prepareCall(sql)) {
@@ -95,8 +95,8 @@ public class question_controller {
         }
     }
 
-    public boolean delete_question(int id){
-        String sql = "CALL delete_question(?)";
+    public static boolean delete_question(int id){
+        String sql = "CALL delete_questions(?)";
         try(Connection connection = DB_Connection.Get_Connection();
             CallableStatement callableStatement = connection.prepareCall(sql)){
             callableStatement.setInt(1,id);
@@ -107,6 +107,13 @@ public class question_controller {
             e.printStackTrace();
             return false;
         }
+    }
+
+    public static void main(String[] args) {
+        Questions questions = new Questions();
+        questions.setId(1);
+        questions.setQuestion_text("Hello!!!!");
+        System.out.println(delete_question(questions.getId()));
     }
 }
 
