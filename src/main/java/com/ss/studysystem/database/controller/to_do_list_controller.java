@@ -4,9 +4,11 @@ import java.sql.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.ss.studysystem.Model.Frequency;
+import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.Model.To_Do_List;
+import com.ss.studysystem.Model.Frequency;
 import com.ss.studysystem.database.connection.DB_Connection;
+
 
 public class to_do_list_controller {
 	
@@ -59,24 +61,6 @@ public class to_do_list_controller {
 		return list;
 	}
 
-	public static boolean update_to_do_list(To_Do_List to_do) {
-		String sql = "CALL update_to_do_list(?,?,?,?,?)";
-		try(Connection con = DB_Connection.Get_Connection();
-			CallableStatement callableStatement = con.prepareCall(sql)){
-			callableStatement.setInt(1, to_do.getUser().getId());
-			callableStatement.setString(2, to_do.getContent());
-			callableStatement.setInt(3, to_do.getUser().getId());
-			callableStatement.setInt(4, to_do.getUser().getId());
-			callableStatement.setInt(5, to_do.getUser().getId());
-
-			int row_affected = callableStatement.executeUpdate();
-			return row_affected > 0;
-		}catch(SQLException e ){
-			e.printStackTrace();
-			return false;
-		}
-	}
-
 	public static boolean delete_to_do_list(int uid){
 		String sql = "CALL delete_to_do_list(?)";
 		try(Connection con = DB_Connection.Get_Connection();
@@ -90,5 +74,33 @@ public class to_do_list_controller {
         }
 	}
 
+	public static void main(String[] args){
+		//Create a new user
+		Users user = new Users();
+		user.setId(1); // Set the user ID
 
+		//Create a new to-do item
+		To_Do_List toDo = new To_Do_List();
+		toDo.setUser(user);
+		toDo.setContent("Finish homework");
+		toDo.setFreq(Frequency.MON);
+		toDo.setIs_complete(false);
+
+		//Test create_to_do_list method
+		int[] inserted_id = new int[1];
+		boolean isCreated = to_do_list_controller.create_to_do_list(toDo, inserted_id);
+		System.out.println("To-Do Created: " + isCreated + ", ID: " + inserted_id[0]);
+
+		//Test get_to_do_list method
+		List<To_Do_List> toDoList = to_do_list_controller.get_to_do_list(1);
+		System.out.println("To-Do List: " + toDoList);
+
+		//Update the to-do item
+		toDo.setContent("Finish math homework");
+		toDo.setIs_complete(true);
+
+		//Test delete_to_do_list method
+		boolean isDeleted = to_do_list_controller.delete_to_do_list(inserted_id[0]);
+		System.out.println("To-Do Deleted: " + isDeleted);
+	}
 }
