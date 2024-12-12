@@ -60,4 +60,16 @@ public class Classrooms {
     public void set_archived(boolean is_archived) {
         this.is_archived = is_archived;
     }
+
+    @Override
+    public String toString() {
+        return "Classrooms{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", description='" + description + '\'' +
+                ", user=" + user +
+                ", created_at=" + created_at +
+                ", is_archived=" + is_archived +
+                '}';
+    }
 }

@@ -107,4 +107,21 @@ public class Users {
     public void setCreated_at(LocalDateTime created_at) {
         this.created_at = created_at;
     }
+
+    @Override
+    public String toString() {
+        return "Users{" +
+                "id=" + id +
+                ", username='" + username + '\'' +
+                ", email='" + email + '\'' +
+                ", password='" + password + '\'' +
+                ", salt='" + salt + '\'' +
+                ", dob=" + dob +
+                ", study_hour=" + study_hour +
+                ", profile_img=" + profile_img +
+                ", file_patch='" + file_patch + '\'' +
+                ", is_active=" + is_active +
+                ", created_at=" + created_at +
+                '}';
+    }
 }

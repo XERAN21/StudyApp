@@ -1,7 +1,9 @@
 package com.ss.studysystem.database.controller;
 
+import com.ss.studysystem.Model.Classrooms;
 import com.ss.studysystem.Model.Test;
 import com.ss.studysystem.Model.Test_Type;
+import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
@@ -18,11 +20,11 @@ public class test_controller {
 
             callableStatement.setInt(1,test.getClassroom().getId());
             callableStatement.setString(2, test.getTitle());
-            callableStatement.setString(3, test.getType().toString());
+            callableStatement.setString(3, test.getType().name());
             callableStatement.setInt(4,test.getUser().getId());
             callableStatement.setTimestamp(5, Timestamp.valueOf(test.getCreated_at()));
-            //callableStatement.setTimestamp(6,  Timestamp.valueOf(test.getStarttime()));
-            //callableStatement.setTimestamp(7, Timestamp.valueOf(test.Endtime()));
+            callableStatement.setTimestamp(6,  Timestamp.valueOf(test.getStart_time()));
+            callableStatement.setTimestamp(7, Timestamp.valueOf(test.getEnd_time()));
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected>0 ;
@@ -44,13 +46,21 @@ public class test_controller {
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
+                Users users = new Users();
+                users.setId(resultSet.getInt("created_by"));
+
+                Classrooms classrooms = new Classrooms();
+                classrooms.setId(resultSet.getInt("classroom_id"));
 
                 test.setTest(resultSet.getInt("test_id"));
-                test.setClassroom(classroom_controller.get_classroom(resultSet.getInt("classroom_id")));
+                test.setClassroom(classrooms);
                 test.setTitle(resultSet.getString("title"));
                 test.setType(Test_Type.valueOf(resultSet.getString("type")));
-                test.setUser(user_controller.get_user(resultSet.getInt("created_by"),flag));
+                test.setUser(users);
                 test.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                test.setStart_time(resultSet.getTimestamp("start_time").toLocalDateTime());
+                test.setEnd_time(resultSet.getTimestamp("end_time").toLocalDateTime());
+
             }
                 return test;
         }catch (SQLException e){
@@ -129,7 +139,6 @@ public class test_controller {
     }
 
 }
-
 
 
 
