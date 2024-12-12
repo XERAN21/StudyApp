@@ -42,4 +42,13 @@ public class User_Classroom {
         this.is_active = is_active;
     }
 
+    @Override
+    public String toString() {
+        return "User_Classroom{" +
+                "user=" + user +
+                ", classrooms=" + classrooms +
+                ", role=" + role +
+                ", is_active=" + is_active +
+                '}';
+    }
 }

@@ -1,5 +1,6 @@
 package com.ss.studysystem.UI.components;
 
+import com.ss.studysystem.UI.layouts.config_position;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.paint.Color;
@@ -39,6 +40,7 @@ public class modal_builder {
         modalScene.setFill(Color.TRANSPARENT);
 
         // modalStage.setResizable(false);
+        config_position.center_stage(owner, modalStage, modalScene);
 
         return modalStage;
 
