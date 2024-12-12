@@ -48,7 +48,7 @@
                   </HBox>
                </children>
             </HBox>
-            <VBox fx:id="list_view" alignment="TOP_CENTER" prefHeight="312.0" prefWidth="498.0" style="-fx-padding: 8px; -fx-background-color: transparent;" VBox.vgrow="ALWAYS" />
+            <VBox fx:id="list_view" alignment="TOP_CENTER" prefHeight="312.0" prefWidth="498.0" style="-fx-padding: 8px; -fx-background-color: transparent; -fx-spacing: 10px;" VBox.vgrow="ALWAYS" />
          </children>
       </VBox>
    </content>
