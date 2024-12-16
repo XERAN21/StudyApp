@@ -1,12 +1,10 @@
 package com.ss.studysystem.database.controller;
 
-import com.ss.studysystem.Model.Comments;
-import com.ss.studysystem.Model.Forum_Comments;
-import com.ss.studysystem.Model.Forums;
-import com.ss.studysystem.Model.Users;
+import com.ss.studysystem.Model.*;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -50,7 +48,7 @@ public class forum_controller {
     }
 
     public static List<Forum_Comments> Get_forum_comments(int forum_id, int limit, int offset){
-        String sql = "CALL Get_forum_comments(?,?,?)";
+        String sql = "CALL Get_Forum_comments(?,?,?)";
         List<Forum_Comments> FC_list = new ArrayList<>();
 
         try(Connection con = DB_Connection.Get_Connection();
@@ -85,15 +83,16 @@ public class forum_controller {
     }
 
     public static boolean Edit_forum_comment(Forum_Comments forum_comments){
-        String sql = "CALL Edit_forum_comment(?,?,?,?)";
+        String sql = "CALL Edit_forum_comment(?,?,?,?,?)";
 
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)) {
 
             callableStatement.setInt(1,forum_comments.getForum().getId());
-            callableStatement.setString(2,forum_comments.getComment_text());
-            callableStatement.setBlob(3,forum_comments.getForum_file());
-            callableStatement.setTimestamp(4,Timestamp.valueOf(forum_comments.getCreated_at()));
+            callableStatement.setInt(2,forum_comments.getComment());
+            callableStatement.setString(3,forum_comments.getComment_text());
+            callableStatement.setBlob(4,forum_comments.getForum_file());
+            callableStatement.setTimestamp(5,Timestamp.valueOf(forum_comments.getCreated_at()));
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
@@ -119,6 +118,7 @@ public class forum_controller {
             return false;
         }
     }
+
 }
 
 

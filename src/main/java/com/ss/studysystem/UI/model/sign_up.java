@@ -23,7 +23,6 @@ public class sign_up {
     private Node currentNode;
     private Node signInNode;
     private Node detailsNode;
-    private Stage stage;
     private Background backgroundImage;
 
     private sign_up() {}
@@ -67,14 +66,6 @@ public class sign_up {
         this.detailsNode = detailsNode;
     }
 
-    public Stage getStage() {
-        return stage;
-    }
-
-    public void setStage(Stage stage) {
-        this.stage = stage;
-    }
-
     public Background getBackgroundImage() {
         return backgroundImage;
     }
@@ -82,6 +73,22 @@ public class sign_up {
     public void setBackgroundImage(Background backgroundImage) {
         this.backgroundImage = backgroundImage;
     }
+
+    public void dispose() {
+        if (root != null) {
+            root.getChildren().clear();
+            root.setBackground(null);
+            root = null;
+        }
+
+        currentNode = null;
+        signInNode = null;
+        detailsNode = null;
+
+        backgroundImage = null;
+        instance = null;
+    }
+
 
     public class Controller {
 
