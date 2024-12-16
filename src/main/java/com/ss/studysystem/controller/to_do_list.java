@@ -137,7 +137,8 @@ public class to_do_list {
                 try {
                     to_do_list_view tdl_ctrl = node_map.get(td.getFreq());
                     if (tdl_ctrl != null) {
-                        tdl_ctrl.append_node(td, status_indicators.LOAD);
+                        tdl_ctrl.append_node(tdl_ctrl.generate_to_do_item(td, status_indicators.LOAD),
+                                status_indicators.LOAD);
                     }
                 } catch (Exception e) {
                     e.printStackTrace();

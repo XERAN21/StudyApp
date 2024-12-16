@@ -1,6 +1,7 @@
 package com.ss.studysystem.controller;
 
 import com.ss.studysystem.Model.To_Do_List;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
@@ -27,6 +28,7 @@ public class del_task_controller {
     void initialize() {
         cancel.setOnAction(event -> close_modal(event));
         delete.setOnAction(this::delete_task);
+        Platform.runLater(()-> task_name.setText(toDoList.getContent()));
     }
 
     @FXML
@@ -52,7 +54,7 @@ public class del_task_controller {
 
     public void setToDoList(To_Do_List toDoList) {
         this.toDoList = toDoList;
-        task_name.setText(toDoList.getContent());
+
     }
 
     public void setOnResult(Consumer<Boolean> onResult) {

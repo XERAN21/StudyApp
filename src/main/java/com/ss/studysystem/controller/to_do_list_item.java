@@ -2,8 +2,11 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.UI.components.modal_builder;
+import com.ss.studysystem.UI.layouts.status_indicators;
 import com.ss.studysystem.UI.utils.config_brightness;
 import com.ss.studysystem.UI.utils.indicator_animation;
+import com.ss.studysystem.database.async_service.Operation;
+import com.ss.studysystem.database.async_service.to_do_list_async;
 import com.ss.studysystem.database.controller.to_do_list_controller;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
@@ -57,6 +60,11 @@ public class to_do_list_item {
             task.setWrappingWidth(w);
         });
 
+        Platform.runLater(()->{
+            task.setStrikethrough(toDoList.getIs_complete());
+            check.setSelected(toDoList.getIs_complete());
+        });
+
     }
 
     public void setToDoList(To_Do_List toDoList) {
@@ -83,19 +91,28 @@ public class to_do_list_item {
             del_ctrl.setOnResult(result -> {
                 if (result) {
                     System.out.println(toDoList.getTo_do_list());
-                    boolean success = to_do_list_controller.delete_to_do_list(toDoList.getTo_do_list());
+
+                   // boolean success = to_do_list_controller.delete_to_do_list(toDoList.getTo_do_list());
+                    to_do_list_async tdl_service = new to_do_list_async(toDoList);
+                    tdl_service.set_operation(Operation.DELETE);
+
                     double y_axis = parent_parent.getVvalue();
-                    if (success) {
-                        ParallelTransition trans = iani.animate_remove_node_squash_effect(stack_pane);
-                        trans.setOnFinished(ani_event->{
-                            remove_task();
-                            Platform.runLater(()->parent_parent.setVvalue(y_axis));
-                        });
-                        //Platform.runLater(() -> parent_parent.setVvalue(y_axis));
-                        Platform.runLater(trans::play);
-                    } else {
-                        System.out.println("Failed to delete task.");
-                    }
+                    tdl_service.setOnSucceeded(s_event->{
+                        Boolean success = tdl_service.getValue();
+                        if (success) {
+                            ParallelTransition trans = iani.animate_remove_node_squash_effect(stack_pane);
+                            trans.setOnFinished(ani_event->{
+                                remove_task();
+                                Platform.runLater(()->parent_parent.setVvalue(y_axis));
+                            });
+                            //Platform.runLater(() -> parent_parent.setVvalue(y_axis));
+                            Platform.runLater(trans::play);
+                        } else {
+                            System.out.println("Failed to delete task.");
+                        }
+                    });
+
+                    tdl_service.start();
                 }
 
                 config_brightness.removeDimmingEffect((Stage) parent.getScene().getWindow());
@@ -126,9 +143,21 @@ public class to_do_list_item {
 
     private void complete_task() {
 
+        toDoList.setIs_complete(check.isSelected());
+
         //todo Database controller logic
+        to_do_list_async tdl_service = new to_do_list_async(toDoList);
+        tdl_service.set_operation(Operation.UPDATE);
+
+        tdl_service.setOnSucceeded(state ->{
+            Boolean success = tdl_service.getValue();
+            if(success){
+                Platform.runLater(()->iani.animate_light_effect(stack_pane, status_indicators.UPDATE));
+            }
+        });
         //if (!to_do_list_controller.update_to_do_list(toDoList)) return;
 
+        tdl_service.start();
         task.setStrikethrough(check.isSelected());
 
     }
