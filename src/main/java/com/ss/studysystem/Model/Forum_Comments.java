@@ -71,5 +71,19 @@ public class Forum_Comments {
 	public void setCreated_at(LocalDateTime created_at) {
 		this.created_at = created_at;
 	}
+
+	@Override
+	public String toString() {
+		return "Forum_Comments{" +
+				"comment=" + comment +
+				", forum=" + forum +
+				", user=" + user +
+				", comment_text='" + comment_text + '\'' +
+				", forum_file=" + forum_file +
+				", forum_file_path='" + forum_file_path + '\'' +
+				", created_at=" + created_at +
+				'}';
+	}
 }
+
 

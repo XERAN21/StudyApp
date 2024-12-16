@@ -7,6 +7,8 @@ import com.ss.studysystem.Model.Assignments;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -21,7 +23,7 @@ public class assignment_controller extends DBConnection<Assignments> {
             callableStatement.setInt(1, entity.getClassroom().getId());
             callableStatement.setString(2, entity.getTitle());
             callableStatement.setString(3, entity.getDescription());
-            callableStatement.setTimestamp(4, Timestamp.valueOf(String.valueOf(entity.getDue_date())));
+            callableStatement.setDate(4, Date.valueOf(entity.getDue_date()));
 
             //todo revise uid
             // upload -> creation of assignment model
@@ -39,12 +41,12 @@ public class assignment_controller extends DBConnection<Assignments> {
 
     @Override
     public Assignments get(int id) {
-        String sql = "CALL get_assignment()";
+        String sql = "CALL get_assignment(?)";
         Assignments assignments = new Assignments();
 
         try (CallableStatement callableStatement = connection.prepareCall(sql)) {
 
-
+            callableStatement.setInt(1, id);
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -79,7 +81,7 @@ public class assignment_controller extends DBConnection<Assignments> {
             callableStatement.setInt(1, entity.getAssignment_id());
             callableStatement.setString(2, entity.getTitle());
             callableStatement.setString(3, entity.getDescription());
-            callableStatement.setTimestamp(4, Timestamp.valueOf(String.valueOf(entity.getDue_date())));
+            callableStatement.setTimestamp(4, Timestamp.valueOf(entity.getDue_date().atStartOfDay()));
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
@@ -90,10 +92,10 @@ public class assignment_controller extends DBConnection<Assignments> {
     }
 
     @Override
-    public boolean delete(int uid) {
+    public boolean delete(int id) {
         String sql = "CALL delete_assignment(?)";
         try (CallableStatement callableStatement = connection.prepareCall(sql)) {
-            callableStatement.setInt(1, uid);
+            callableStatement.setInt(1, id);
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
@@ -108,7 +110,7 @@ public class assignment_controller extends DBConnection<Assignments> {
      */
     @Override
     public List<Assignments> get_all_entity(int id) {
-        String sql = "CALL get_all_entity_assignment(?)"; //todo fix procedure
+        String sql = "CALL get_all_assignment(?)"; //todo fix procedure
         List<Assignments> assignments = new ArrayList<>();
 
         try (CallableStatement callableStatement = connection.prepareCall(sql)) {
