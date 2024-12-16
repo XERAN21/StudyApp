@@ -10,15 +10,19 @@ public class Questions {
 	public Questions() {
 
 	}
-	public int getQuestion() {
+
+	public int getId() {
 		return id;
 	}
-	public void setQuestion(int question) {
-		this.id = question;
+
+	public void setId(int id) {
+		this.id = id;
 	}
+
 	public String getQuestion_text() {
 		return question_text;
 	}
+
 	public void setQuestion_text(String question_text) {
 		this.question_text = question_text;
 	}

@@ -6,6 +6,7 @@ public class To_Do_List {
 	private int to_do_list;
 	private Users user;
 	private String content;
+	private Frequency freq;
 	private Boolean is_complete;
 	private LocalDateTime created_at;
 	
@@ -35,6 +36,15 @@ public class To_Do_List {
 	public void setContent(String content) {
 		this.content = content;
 	}
+	
+	public Frequency getFreq() {
+		return freq;
+	}
+
+	public void setFreq(Frequency freq) {
+		this.freq = freq;
+	}
+
 
 	public Boolean getIs_complete() {
 		return is_complete;

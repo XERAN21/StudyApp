@@ -1,7 +1,7 @@
 package com.ss.studysystem.UI.logic;
 
 import com.ss.studysystem.UI.layouts.config_position;
-import com.ss.studysystem.UI.model.login;
+import com.ss.studysystem.UI.model.login_mdl;
 import com.ss.studysystem.UI.model.sign_up;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
@@ -15,7 +15,6 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
-import java.util.concurrent.Callable;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -60,9 +59,9 @@ public class switch_scene {
         configureTask(loadSceneTask, event, mainStage, signUpController::initialize);
     }
 
-
     public void switchToLoginScene(ActionEvent event, Stage mainStage) {
-        login loginConfig = login.getInstance();
+
+        login_mdl loginConfig = login_mdl.getInstance();
 
         Task<AnchorPane> loadSceneTask = new Task<>() {
             @Override
@@ -80,7 +79,8 @@ public class switch_scene {
             }
         };
 
-        configureTask(loadSceneTask, event, mainStage, () -> {
+        configureTask(loadSceneTask, event, mainStage,
+                () -> {
             AnchorPane root = loadSceneTask.getValue();
             Node node = root.getChildrenUnmodifiable().get(0);
             config_position.center_node(mainStage, node);
@@ -92,7 +92,27 @@ public class switch_scene {
         });
     }
 
-    private <T extends Parent> void configureTask(Task<T> task, ActionEvent event, Stage mainStage, Runnable onSuccessAction) {
+    public void switchToHome(ActionEvent event, Stage mainStage) {
+        // Dispose of resources related to the current `sign_up` instance
+        sign_up signUpInstance = sign_up.getInstance();
+        if (signUpInstance != null) {
+            signUpInstance.dispose(); // Clean up sign-up resources
+        }
+
+        // Set up the new scene for the Home page
+        Parent root = new AnchorPane(); // Replace with your actual Home root layout
+        Scene scene = new Scene(root);
+
+        // Optionally, you can customize the new scene here (e.g., styles, dimensions, etc.)
+
+        // Switch to the new scene
+        mainStage.setScene(scene);
+        mainStage.show();
+    }
+
+
+    private <T extends Parent> void configureTask(Task<T> task, ActionEvent event,
+                                                  Stage mainStage, Runnable onSuccessAction) {
         task.setOnSucceeded(e -> {
             try {
                 Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

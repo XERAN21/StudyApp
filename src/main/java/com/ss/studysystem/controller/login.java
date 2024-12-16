@@ -2,6 +2,7 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.logic.switch_scene;
+import com.ss.studysystem.UI.model.login_mdl;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,7 +34,8 @@ public class login {
     @FXML
     void initialize() {
         create_new_account.setOnAction(this::sign_up);
-        confirm.setOnAction(e-> confirmation());
+        confirm.setOnAction(this::confirmation);
+        forgot_password.setOnAction(this::fn_forgot_password);
     }
 
     @FXML
@@ -46,15 +48,23 @@ public class login {
     }
 
     @FXML
-    void confirmation() {
+    void confirmation(ActionEvent event) {
         try {
+
             FXMLLoader tdl = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/ToDoList.fxml"));
             Parent tdl_view = tdl.load();
             Stage stage = modal_builder.build_modal((Stage) confirm.getScene().getWindow(), tdl_view);
             stage.show();
+
         }catch (Exception e){
             e.printStackTrace();
         }
+    }
+
+
+    @FXML
+    void fn_forgot_password(ActionEvent event){
+
     }
 
 }
