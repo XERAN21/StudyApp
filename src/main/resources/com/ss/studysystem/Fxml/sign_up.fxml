@@ -19,7 +19,7 @@
       </Label>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="368.0" style="-fx-background-color: D18787; -fx-background-radius: 1.5em; -fx-border-color: black; -fx-border-radius: 1.5em;">
          <children>
-            <Button fx:id="sign_up" layoutX="21.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="325.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
+            <Button fx:chartroom_id="sign_up" layoutX="21.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="325.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
                <font>
                   <Font name="Monospaced Bold" size="16.0" />
                </font>
@@ -87,7 +87,7 @@
                   </VBox>
                </children>
             </VBox>
-            <Button fx:id="login_acc" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="475.0" mnemonicParsing="false" prefHeight="23.0" style="-fx-background-color: transparetn;" text="Already have an Account?" textFill="#5056e5" underline="true" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="27.0">
+            <Button fx:chartroom_id="login_acc" alignment="CENTER_RIGHT" layoutX="184.0" layoutY="475.0" mnemonicParsing="false" prefHeight="23.0" style="-fx-background-color: transparetn;" text="Already have an Account?" textFill="#5056e5" underline="true" AnchorPane.bottomAnchor="16.0" AnchorPane.rightAnchor="27.0">
                <font>
                   <Font name="Monospaced Bold Italic" size="12.0" />
                </font>
