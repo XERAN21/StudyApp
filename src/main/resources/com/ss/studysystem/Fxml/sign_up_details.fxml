@@ -22,7 +22,7 @@
          <children>
             <HBox alignment="CENTER" layoutX="29.0" layoutY="420.0" prefHeight="40.0" prefWidth="314.0" style="-fx-spacing: 50px;" AnchorPane.leftAnchor="29.0" AnchorPane.rightAnchor="27.0">
                <children>
-                  <Button fx:chartroom_id="go_back" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #3B7A57; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Back" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="go_back" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #3B7A57; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Back" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Bold" size="16.0" />
                      </font>
@@ -30,7 +30,7 @@
                         <Cursor fx:constant="HAND" />
                      </cursor>
                   </Button>
-                  <Button fx:chartroom_id="confirm" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Confirm" textAlignment="CENTER" textFill="WHITE">
+                  <Button fx:id="confirm" layoutX="10.0" layoutY="10.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="129.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Confirm" textAlignment="CENTER" textFill="WHITE">
                      <font>
                         <Font name="Monospaced Bold" size="16.0" />
                      </font>
@@ -63,7 +63,7 @@
                            <children>
                               <ToggleButton mnemonicParsing="false" style="-fx-background-color: #6495ED; -fx-border-color: black;" text="Male">
                                  <toggleGroup>
-                                    <ToggleGroup fx:chartroom_id="gender" />
+                                    <ToggleGroup fx:id="gender" />
                                  </toggleGroup>
                                  <font>
                                     <Font name="Monospaced Regular" size="16.0" />
