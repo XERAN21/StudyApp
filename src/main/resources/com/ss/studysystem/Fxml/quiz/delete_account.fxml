@@ -8,25 +8,28 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="600.0" style="-fx-padding: 20; -fx-spacing: 25; -fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="600.0" style="-fx-padding: 20; -fx-spacing: 25; -fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Label alignment="CENTER" prefHeight="45.0" prefWidth="231.0" text="Delete Account">
+      <Label alignment="TOP_CENTER" prefHeight="45.0" prefWidth="280.0" text="Delete Account">
          <font>
-            <Font size="30.0" />
+            <Font name="Monospaced Bold" size="30.0" />
          </font>
          <VBox.margin>
-            <Insets top="10.0" />
+            <Insets left="135.0" top="10.0" />
          </VBox.margin>
       </Label>
       <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="497.0" style="-fx-padding: 1em;">
          <children>
-            <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="125.0" text="Enter your password">
+            <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Enter your password">
                <opaqueInsets>
                   <Insets />
                </opaqueInsets>
                <VBox.margin>
-                  <Insets right="400.0" top="-15.0" />
+                  <Insets right="380.0" top="-15.0" />
                </VBox.margin>
+               <font>
+                  <Font name="Monospaced Bold" size="12.0" />
+               </font>
             </Label>
             <TextField prefHeight="37.0" prefWidth="442.0" style="-fx-border-color: black; -fx-border-radius: 1em;" />
          </children>
