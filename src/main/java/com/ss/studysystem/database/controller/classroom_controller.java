@@ -5,13 +5,10 @@ import com.ss.studysystem.Model.*;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class classroom_controller {
-    static boolean flag = true;
-
     public static boolean create_classroom(Classrooms classrooms) {
         String sql = "CALL create_classroom(?,?,?,?)";
         try (Connection connection = DB_Connection.Get_Connection();
@@ -83,6 +80,12 @@ public class classroom_controller {
             return false;
         }
     }
+
+    //todo finish this controller
+    public static boolean join_classroom(int invitation_code){
+        return true;
+    }
+
 
     /**
      * @param classroom_id
