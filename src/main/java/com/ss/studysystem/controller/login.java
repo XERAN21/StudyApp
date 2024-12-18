@@ -50,15 +50,19 @@ public class login {
 
     @FXML
     void confirmation(ActionEvent event) {
+
         String user_input = user_textfield.getText();
         String password = user_password.getText();
+        Users curr_user;
 
-        if (user_input == null || user_input.trim().isEmpty() || password == null || password.trim().isEmpty()){
-            Alert alert = new Alert(Alert.AlertType.ERROR,"Please Fill Necessary Information", ButtonType.OK);
+        if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()){
+            //todo popup error msg;
+        } else if (user_input == null || user_input.trim().isEmpty()) {
+            //todo popupp error msg;
+        }else{
+            //todo popupp error msg;
         }
 
-        //todo popup error msg
-        Users curr_user;
         try{
             if (isEmail(user_input)){
                curr_user =  user_controller.get_user_by_email(user_input);
@@ -71,8 +75,12 @@ public class login {
             //todo password validate
             boolean check = auth_manager.verify_password(password,curr_user.getPassword(),curr_user.getSalt());
 
-            //todo if true -> login(switch scenes)
-            //todo if false -> throws error & notifi for incorrect password
+            if (check){
+                //todo if true -> login(switch scenes)
+            }else {
+                //todo if false -> throws error & notifi for incorrect password
+            }
+
 
         }catch (Exception e){
             e.printStackTrace();
