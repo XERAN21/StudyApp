@@ -87,7 +87,7 @@ public class test_controller {
                 test.setClassroom(classroom_controller.get_classroom(resultSet.getInt("classroom_id")));
                 test.setTitle(resultSet.getString("title"));
                 test.setType(Test_Type.valueOf(resultSet.getString("type")));
-                test.setUser(user_controller.get_user(resultSet.getInt("created_by"),flag));
+                test.setUser(user_controller.get_user_by_id(resultSet.getInt("created_by"),flag));
                 test.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 test_list.add(test);
             }
@@ -138,6 +138,9 @@ public class test_controller {
         }
     }
 
+    public static void main(String[] args) {
+        System.out.println(get_test(1));
+    }
 }
 
 
