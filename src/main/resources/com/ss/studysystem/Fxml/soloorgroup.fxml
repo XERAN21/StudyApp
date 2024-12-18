@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="273.0" prefWidth="582.0" style="-fx-background-color: #E6E8EB; -fx-spacing: 60px;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label contentDisplay="CENTER" prefHeight="34.0" prefWidth="454.0" text="What type of study enviroment do you perfect?">
+         <font>
+            <Font name="System Italic" size="21.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="50.0" top="15.0" />
+         </VBox.margin>
+      </Label>
+      <GridPane>
+         <columnConstraints>
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+            <ColumnConstraints halignment="CENTER" hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints />
+         </rowConstraints>
+         <children>
+            <ToggleButton id="solo_btn" mnemonicParsing="false" style="-fx-background-color: #8ABFFF;" text="Quick Solo">
+               <toggleGroup>
+                  <ToggleGroup fx:id="study_group" />
+               </toggleGroup>
+               <font>
+                  <Font name="Monospaced Bold" size="17.0" />
+               </font>
+            </ToggleButton>
+            <ToggleButton id="group_btn" mnemonicParsing="false" style="-fx-background-color: #D18787;" text="Group Study" toggleGroup="$study_group" GridPane.columnIndex="1">
+               <font>
+                  <Font name="Monospaced Bold" size="17.0" />
+               </font>
+            </ToggleButton>
+         </children>
+      </GridPane>
+   </children>
+</VBox>

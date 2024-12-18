@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="170.0" prefWidth="209.0" style="-fx-border-color: black; -fx-border-radius: 1em;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.UserSettings2Controller ">
+   <children>
+      <Label prefHeight="33.0" prefWidth="118.0" text="User Setting">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="8.0" top="6.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="Appearance" prefHeight="25.0" prefWidth="153.0" text="Appearance">
+         <font>
+            <Font name="Monospaced Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" top="5.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="chat" text="Chat">
+         <font>
+            <Font name="Monospaced Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" top="18.0" />
+         </VBox.margin>
+      </Label>
+      <Label fx:id="Notification" text="Notification">
+         <font>
+            <Font name="Monospaced Bold" size="15.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" top="15.0" />
+         </VBox.margin>
+      </Label>
+   </children>
+</VBox>

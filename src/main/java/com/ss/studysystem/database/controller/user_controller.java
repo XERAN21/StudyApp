@@ -4,7 +4,6 @@ import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
-import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -31,9 +30,9 @@ public class user_controller {
         }
     }
 
-    public static Users get_user(int uid,boolean is_search){
+    public static Users get_user_by_id(int uid, boolean is_search){
         /*
-        * login -> valid credentials -> get_user
+        * login -> valid credentials -> get_user_by_id
         * i.e. assing this.session.user  via get user
         *
      * */
@@ -68,6 +67,62 @@ public class user_controller {
             e1.printStackTrace();
         }
         return null;
+    }
+
+    public static Users get_user_by_username(String username){
+        String sql = "select * from users where username = ? ";
+        Users users = new Users();
+
+        try(Connection connection = DB_Connection.Get_Connection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+
+            preparedStatement.setString(1,username);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                users.setId(resultSet.getInt("user_id"));
+                users.setUsername(username);
+                users.setEmail(resultSet.getString("email"));
+                users.setDob(resultSet.getDate("dob").toLocalDate());
+                users.setProfile_img(resultSet.getBlob("profile_img"));
+                users.setStudy_hour(resultSet.getInt("total_study_hours"));
+                users.setFile_patch(resultSet.getString("file_path"));
+                users.setIs_active(resultSet.getBoolean("is_active"));
+                users.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+            }
+            return  users;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static Users get_user_by_email(String email){
+        String sql = "select * from users where email = ? ";
+        Users users = new Users();
+
+        try(Connection connection = DB_Connection.Get_Connection();
+            PreparedStatement preparedStatement = connection.prepareStatement(sql)){
+
+            preparedStatement.setString(1,email);
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            while (resultSet.next()){
+                users.setId(resultSet.getInt("user_id"));
+                users.setUsername(resultSet.getString("username"));
+                users.setEmail(email);
+                users.setDob(resultSet.getDate("dob").toLocalDate());
+                users.setProfile_img(resultSet.getBlob("profile_img"));
+                users.setStudy_hour(resultSet.getInt("total_study_hours"));
+                users.setFile_patch(resultSet.getString("file_path"));
+                users.setIs_active(resultSet.getBoolean("is_active"));
+                users.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+            }
+            return  users;
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }
     }
 
     public static List<Users> get_all_friends(int uid){

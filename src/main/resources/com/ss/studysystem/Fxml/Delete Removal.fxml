@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="150.0" prefWidth="528.0" style="-fx-border-color: black; -fx-border-radius: 1em;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.AccountRemovalController">
+   <children>
+      <Label text="Account Removal">
+         <font>
+            <Font name="Monospaced Bold" size="21.0" />
+         </font>
+         <VBox.margin>
+            <Insets left="30.0" top="20.0" />
+         </VBox.margin>
+      </Label>
+      <HBox prefHeight="67.0" prefWidth="528.0">
+         <children>
+            <Button mnemonicParsing="false" style="-fx-background-radius: 1em; -fx-background-color: #FA4343; -fx-border-color: black; -fx-border-radius: 1em;" text="Delect Account">
+               <HBox.margin>
+                  <Insets left="30.0" top="30.0" />
+               </HBox.margin>
+               <font>
+                  <Font name="Monospaced Bold" size="16.0" />
+               </font>
+            </Button>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </HBox>
+   </children>
+</VBox>
