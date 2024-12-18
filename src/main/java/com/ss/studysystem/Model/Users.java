@@ -9,6 +9,7 @@ public class Users {
     private String username;
     private String email;
     private String password;
+    private Gender gender;
     private String salt;
     private LocalDate dob;
     private int study_hour;
@@ -108,6 +109,14 @@ public class Users {
         this.created_at = created_at;
     }
 
+    public Gender getGender() {
+        return gender;
+    }
+
+    public void setGender(Gender gender) {
+        this.gender = gender;
+    }
+
     @Override
     public String toString() {
         return "Users{" +
@@ -115,6 +124,7 @@ public class Users {
                 ", username='" + username + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
+                ", gender=" + gender +
                 ", salt='" + salt + '\'' +
                 ", dob=" + dob +
                 ", study_hour=" + study_hour +

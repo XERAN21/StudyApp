@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="66.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-color: #50DDD8; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="TOP_RIGHT" prefHeight="14.0" prefWidth="598.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Date">
+               <font>
+                  <Font name="Monospaced Bold" size="16.0" />
+               </font>
+               <VBox.margin>
+                  <Insets right="30.0" top="5.0" />
+               </VBox.margin>
+            </Text>
+         </children>
+      </VBox>
+      <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Normal Short Comment">
+         <font>
+            <Font name="Monospaced Regular" size="16.0" />
+         </font>
+      </Text>
+   </children>
+</VBox>

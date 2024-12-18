@@ -13,13 +13,13 @@ import java.util.List;
 
 public class answer_controller {
 
-    public static boolean createAnswer(int questionId, String answerText) {
+    public static boolean createAnswer(Answers answers) {
         String sql = "CALL create_answer(?,?)";
         try (Connection connection = DB_Connection.Get_Connection();
              CallableStatement callableStatement = connection.prepareCall(sql)) {
 
-            callableStatement.setInt(1, questionId);
-            callableStatement.setString(2, answerText);
+            callableStatement.setInt(1, answers.getQuestion().getId());
+            callableStatement.setString(2, answers.getAnswer_text());
 
             int rowsAffected = callableStatement.executeUpdate();
             return rowsAffected > 0;
@@ -31,23 +31,26 @@ public class answer_controller {
         }
     }
 
-    public static List<String> getCorrectAnswers(int questionId) {
-        String sql = "CALL get_correct_answers(?)";
-        List<String> correctAnswers = new ArrayList<>();
-        try (Connection connection = DB_Connection.Get_Connection();
-             CallableStatement callableStatement = connection.prepareCall(sql)) {
-            callableStatement.setInt(1, questionId);
-            ResultSet resultSet = callableStatement.executeQuery();
-            while (resultSet.next()) {
-                correctAnswers.add(resultSet.getString("answer_text"));
-            }
-        } catch (SQLException e) {
-            e.printStackTrace();
-            return null;
-        }
-        return correctAnswers;
-
-    }
+//    public static List<String> getCorrectAnswers(int questionId) {
+//        String sql = "CALL get_correct_answers(?)";
+//        List<String> correctAnswers = new ArrayList<>();
+//        try (Connection connection = DB_Connection.Get_Connection();
+//             CallableStatement callableStatement = connection.prepareCall(sql)) {
+//
+//            callableStatement.setInt(1, questionId);
+//
+//            ResultSet resultSet = callableStatement.executeQuery();
+//
+//            while (resultSet.next()) {
+//                correctAnswers.add(resultSet.getString("answer_text"));
+//            }
+//        } catch (SQLException e) {
+//            e.printStackTrace();
+//            return null;
+//        }
+//        return correctAnswers;
+//
+//    }
 
     public static List<Answers> getGNQA(int testId) {
         String sql = "CALL Get_gnqa(?)";
@@ -132,6 +135,17 @@ public class answer_controller {
             e.printStackTrace();
         }
         return false;
+    }
+
+    public static void main(String[] args) {
+        Questions questions = new Questions();
+        questions.setId(2);
+
+        Answers answers = new Answers();
+        answers.setQuestion(questions);
+        answers.setAnswer_text("I have a boyfriend");
+
+        System.out.println(createAnswer(answers));
     }
 
 }
