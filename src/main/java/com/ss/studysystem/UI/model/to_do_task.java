@@ -1,10 +1,19 @@
 package com.ss.studysystem.UI.model;
 
+import com.ss.studysystem.Model.Frequency;
 import javafx.scene.Node;
+
+import java.lang.ref.WeakReference;
+import java.util.HashMap;
+import java.util.Map;
 
 public class to_do_task {
 
     private static to_do_task instance;
+
+    private static WeakReference<to_do_task> weak_instance = new WeakReference<>(null);
+
+    private Map<Frequency, Node> task_days = new HashMap<>();
 
     private Node Mon;
     private Node Tue;
@@ -22,6 +31,23 @@ public class to_do_task {
             instance = new to_do_task();
         }
         return instance;
+    }
+
+    public static to_do_task getWeakInstance(){
+        to_do_task temp = weak_instance.get();
+        if (temp == null) {
+            temp = new to_do_task();
+            weak_instance = new WeakReference<>(temp);
+        }
+        return temp;
+    }
+
+    public void dump(){
+        Mon = null;
+        Tue = null;
+        Wed = null;
+        Thu = null;
+
     }
 
     public Node getMon() {
@@ -78,5 +104,13 @@ public class to_do_task {
 
     public void setSun(Node sun) {
         Sun = sun;
+    }
+
+    public Map<Frequency, Node> getTask_days() {
+        return task_days;
+    }
+
+    public void setTask_days(Map<Frequency, Node> task_days) {
+        this.task_days = task_days;
     }
 }

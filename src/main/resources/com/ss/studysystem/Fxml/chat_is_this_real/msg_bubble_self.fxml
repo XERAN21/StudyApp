@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<GridPane fx:id="msg_root" alignment="TOP_RIGHT" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="600.0" prefHeight="66.0" prefWidth="143.0" style="-fx-padding: 5px 0; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.chat_message_ww_img_ctrl">
+
+                      <columnConstraints>
+        <ColumnConstraints maxWidth="84.81294250488281" minWidth="40.298561096191406" prefWidth="78.50359725952148" />
+        <ColumnConstraints prefWidth="80.0" />
+        <ColumnConstraints maxWidth="120.0" minWidth="53.68705749511719" prefWidth="60.496402740478516" />
+    </columnConstraints>
+
+                      <rowConstraints>
+        <RowConstraints prefHeight="30.0" vgrow="NEVER" />
+        <RowConstraints maxHeight="1.7976931348623157E308" vgrow="ALWAYS" />
+    </rowConstraints>
+   <VBox alignment="TOP_CENTER" GridPane.columnIndex="2" GridPane.rowSpan="2">
+      <children>
+      
+                               <!-- Profile Image -->
+          <StackPane prefHeight="56.0" prefWidth="85.0">
+              <children>
+                  <Circle fill="#1f1f1f" radius="28.0" />
+                  <Circle fx:id="profile_image" fill="#9d9bff" radius="25.0" stroke="BLACK" />
+              </children>
+          </StackPane>
+      </children>
+      <GridPane.margin>
+         <Insets top="5.0" />
+      </GridPane.margin>
+   </VBox>
+
+                         <!-- VBox for Message Content -->
+    <VBox fx:id="messages" alignment="TOP_CENTER" maxHeight="1.7976931348623157E308" maxWidth="600.0" spacing="10.0" style="-fx-background-color: #9D9BFF; -fx-background-radius: 15; -fx-padding: 10px;" GridPane.columnSpan="2" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" GridPane.vgrow="ALWAYS" />
+
+                         <!-- Username -->
+    <Text fx:id="username" text="Name" GridPane.columnIndex="1" GridPane.halignment="RIGHT">
+        <font>
+            <Font name="PT Mono Bold" size="16.0" />
+        </font>
+    </Text>
+
+                               <!-- Date -->
+    <Text fx:id="msg_date" fill="#8a1a1a" text="Date" GridPane.halignment="LEFT">
+        <font>
+            <Font name="PT Mono" size="14.0" />
+        </font>
+    </Text>
+</GridPane>

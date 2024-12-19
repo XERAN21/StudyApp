@@ -1,0 +1,72 @@
+#SENDER {
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-focus-color: transparent; /* Remove focus border color */
+    -fx-faint-focus-color: transparent; /* Remove faint focus color */
+    -fx-highlight-text-fill: -fx-text-fill; /* Keep text color during highlight */
+    -fx-background-radius: 15;
+    -fx-background-insets: 0; /* Align background with border */
+    -fx-control-inner-background: #9D9BFF; /* Match the background color (sent messages example) */
+    -fx-background-color: #9D9BFF; /* Outer background color */
+    -fx-effect: null; /* Remove drop shadow or any other effects */
+}
+
+#SENDER .content {
+    -fx-background-color: #9D9BFF;
+    -fx-background-insets: 0; /* Remove insets to prevent gaps */
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-effect: null; /* Ensure no shadow effects */
+}
+
+#SELF {
+    -fx-padding: 0;
+    -fx-border-width: 0;
+    -fx-focus-color: transparent; /* Remove focus border color */
+    -fx-faint-focus-color: transparent; /* Remove faint focus color */
+    -fx-highlight-text-fill: -fx-text-fill; /* Keep text color during highlight */
+    -fx-background-radius: 15;
+    -fx-background-insets: 0; /* Align background with border */
+    -fx-control-inner-background: #9A9DB9; /* Match the background color (sent messages example) */
+    -fx-background-color: #9A9DB9; /* Outer background color */
+    -fx-effect: null; /* Remove drop shadow or any other effects */
+}
+
+#SELF .content {
+    -fx-background-color: #9A9DB9;
+    -fx-background-insets: 0; /* Remove insets to prevent gaps */
+    -fx-background-radius: 0;
+    -fx-padding: 0;
+    -fx-effect: null; /* Ensure no shadow effects */
+}
+
+/* Context Menu Background */
+.context-menu {
+    -fx-background-color: #fffbf0;
+    -fx-border-color: #ffcc80;
+    -fx-border-width: 2px;
+    -fx-border-radius: 10px;
+    -fx-background-radius: 10px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.3), 10, 0.5, 0, 2);
+}
+
+/* MenuItem Styling */
+.menu-item {
+    -fx-text-fill: #333333;
+    -fx-font-family: "Arial";
+    -fx-font-size: 14px;
+    -fx-padding: 8px 16px;
+    -fx-background-color: transparent;
+}
+
+/* MenuItem Hover Effect */
+.menu-item:hover {
+    -fx-background-color: #ffd699;
+    -fx-text-fill: #000000;
+}
+
+/* Optional: Focus Effect */
+.menu-item:focused {
+    -fx-background-color: #ffe5b4;
+    -fx-text-fill: #000000;
+}

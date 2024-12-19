@@ -75,7 +75,8 @@ public class to_do_list {
     private static Frequency current_freq;
     private String today = LocalDate.now().getDayOfWeek().toString();
 
-    private to_do_task to_do_config = to_do_task.getInstance();
+    private to_do_task to_do_config = to_do_task.getWeakInstance();
+    private Map<Frequency, Node> task_day = to_do_config.getTask_days();
 
     private GridPane grid = new GridPane();
     int row_count = 0;
@@ -162,6 +163,8 @@ public class to_do_list {
 
     void assign_day_node(Node n, Frequency day) {
 
+        /* old code
+
         switch (day) {
             case MON:
                 to_do_config.setMon(n);
@@ -190,6 +193,9 @@ public class to_do_list {
             default:
                 break;
         }
+*/
+
+        task_day.put(day, n);
     }
 
     Node load_to_do(Frequency view_day) {
@@ -218,6 +224,8 @@ public class to_do_list {
     void switch_day(Frequency freq) {
 
         root.getChildren().remove(current_node);
+
+        /*
         switch (freq) {
             case MON:
                 this.current_node = to_do_config.getMon();
@@ -246,6 +254,10 @@ public class to_do_list {
             default:
                 break;
         }
+    */
+
+        this.current_node = task_day.get(freq);
+
         root.getChildren().add(current_node);
     }
 
