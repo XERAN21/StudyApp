@@ -125,7 +125,7 @@ public class classroom_controller {
         return member_list;
     }
 
-// todo need to check this following function except get_all_classroom
+
 
     public static boolean upload_file(Files files) {
         String sql = "CALL upload_file(?,?,?,?,?)";
@@ -214,10 +214,6 @@ public class classroom_controller {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(get_classroom(1));
     }
 
 }
