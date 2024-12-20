@@ -1,5 +1,6 @@
 package com.ss.studysystem.database.controller;
 
+import com.ss.studysystem.Model.Gender;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DB_Connection;
 
@@ -10,7 +11,7 @@ import java.util.List;
 public class user_controller {
 
     public static boolean create_user(Users user){
-        String sql = "CALL CreateUser(?,?,?,?,?)";
+        String sql = "CALL CreateUser(?,?,?,?,?,?)";
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)){
 
@@ -19,7 +20,7 @@ public class user_controller {
             callableStatement.setString(3,user.getPassword());
             callableStatement.setString(4,user.getSalt());
             callableStatement.setDate(5, Date.valueOf(user.getDob()));
-
+            callableStatement.setString(6, user.getGender().toString());
 
             int rowsAffected = callableStatement.executeUpdate();
             return rowsAffected > 0;
@@ -50,6 +51,7 @@ public class user_controller {
                 current_user.setUsername(resultSet.getString("username"));
                 current_user.setProfile_img(resultSet.getBlob("profile_img"));
                 current_user.setStudy_hour(resultSet.getInt("total_study_hours"));
+                current_user.setGender(Gender.valueOf(resultSet.getString("gender")));
 
                 if (!is_search){ //check if user is using search function
                     current_user.setEmail(resultSet.getString("email"));
@@ -89,6 +91,7 @@ public class user_controller {
                 users.setFile_patch(resultSet.getString("file_path"));
                 users.setIs_active(resultSet.getBoolean("is_active"));
                 users.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                users.setGender(Gender.valueOf(resultSet.getString("gender")));
             }
             return  users;
         }catch (Exception e){
@@ -117,6 +120,7 @@ public class user_controller {
                 users.setFile_patch(resultSet.getString("file_path"));
                 users.setIs_active(resultSet.getBoolean("is_active"));
                 users.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                users.setGender(Gender.valueOf(resultSet.getString("gender")));
             }
             return  users;
         }catch (Exception e){
@@ -154,7 +158,7 @@ public class user_controller {
     }
 
     public static boolean update_user(Users user){
-        String sql = "CALL Update_user_info(?,?,?,?,?,?,?)";
+        String sql = "CALL Update_user_info(?,?,?,?,?,?,?,?)";
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)){
 
@@ -165,6 +169,7 @@ public class user_controller {
             callableStatement.setString(5, user.getSalt());
             callableStatement.setDate(6,Date.valueOf(user.getDob()));
             callableStatement.setBlob(7,user.getProfile_img());
+            callableStatement.setString(8,user.getGender().toString());
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected > 0;
