@@ -46,4 +46,22 @@ public class modal_builder {
 
     }
 
+    public static Stage build_fixed_modal(Stage owner, Parent view){
+
+        Stage modalStage = new Stage();
+        modalStage.initModality(Modality.APPLICATION_MODAL);
+        modalStage.initOwner(owner);
+        modalStage.initStyle(StageStyle.TRANSPARENT);
+
+        Scene modalScene = new Scene(view);
+        modalStage.setScene(modalScene);
+        modalScene.setFill(Color.TRANSPARENT);
+
+        // modalStage.setResizable(false);
+        config_position.center_stage(owner, modalStage, modalScene);
+
+        return modalStage;
+
+    }
+
 }
