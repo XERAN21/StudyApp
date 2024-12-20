@@ -36,7 +36,8 @@ public class lumi_websocket {
             return;
         }
 
-        String serverUri = "ws://localhost:6789";
+        String ip = "0.0.0.0";
+        String serverUri = String.format("ws://%s:6789",ip);
         connectWebSocket(serverUri);
     }
 
