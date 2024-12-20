@@ -52,12 +52,17 @@ public class answer_controller {
 //
 //    }
 
-    public static List<Answers> getGNQA(int testId) {
-        String sql = "CALL Get_gnqa(?)";
+    public static List<Answers> getGNQA(int testId, int questionId, int answerId, Test_Questions test_questions) {
+        String sql = "CALL Get_gnqa(?,?,?,?,?)";
         List<Answers> gnqaList = new ArrayList<>();
         try (Connection connection = DB_Connection.Get_Connection();
              CallableStatement callableStatement = connection.prepareCall(sql)) {
             callableStatement.setInt(1, testId);
+            callableStatement.setInt(2,questionId);
+            callableStatement.setInt(3,answerId);
+            callableStatement.setInt(4,test_questions.getTest().getTest());
+            callableStatement.setInt(5,test_questions.getQuestion().getId());
+
             ResultSet resultSet = callableStatement.executeQuery();
 
             while (resultSet.next()) {
@@ -72,9 +77,8 @@ public class answer_controller {
                 Test test = new Test();
                 test.setTest(testId);
 
-                Test_Questions testQuestions = new Test_Questions();
-                testQuestions.setTest(test);
-                testQuestions.setQuestion(questions);
+                test_questions.setTest(test);
+                test_questions.setQuestion(questions);
 
                 answer.setAnswer_text(resultSet.getString("answer_text"));
                 answer.setIs_correct(resultSet.getBoolean("is_correct"));
@@ -138,14 +142,29 @@ public class answer_controller {
     }
 
     public static void main(String[] args) {
+        Test test = new Test();
+        test.setTest(1);
+
         Questions questions = new Questions();
-        questions.setId(2);
+        questions.setId(1);
 
         Answers answers = new Answers();
+        answers.setAnswer(4);
         answers.setQuestion(questions);
-        answers.setAnswer_text("I have a boyfriend");
 
-        System.out.println(createAnswer(answers));
+        Test_Questions testQuestions = new Test_Questions();
+        testQuestions.setTest(test);
+        testQuestions.setQuestion(questions);
+
+        List<Answers> gnqaList = getGNQA(1,1,1,testQuestions);
+
+        for (Answers answer : gnqaList) {
+            System.out.println("Question: " + answer.getQuestion().getQuestion_text());
+            System.out.println("Answer: " + answer.getAnswer_text());
+            System.out.println("Is Correct: " + answer.getIs_correct());
+            System.out.println("Question Image: " + answer.getQuestion().getQuestion_img());
+            System.out.println();
+        }
     }
 
 }
