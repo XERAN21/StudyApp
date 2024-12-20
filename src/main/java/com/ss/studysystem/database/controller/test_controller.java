@@ -7,6 +7,7 @@ import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -55,7 +56,7 @@ public class test_controller {
                 test.setTest(resultSet.getInt("test_id"));
                 test.setClassroom(classrooms);
                 test.setTitle(resultSet.getString("title"));
-                test.setType(Test_Type.valueOf(resultSet.getString("type")));
+                test.setType(Test_Type.valueOf(resultSet.getString("type").toUpperCase()));
                 test.setUser(users);
                 test.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 test.setStart_time(resultSet.getTimestamp("start_time").toLocalDateTime());
@@ -69,15 +70,15 @@ public class test_controller {
         }
     }
 
-    public static List<Test> get_all_tests(int test_id){
+    public static List<Test> get_all_tests(){
 
         List<Test> test_list = new ArrayList<>();
-        String sql = "CALL get_all_test(?)";
+        String sql = "CALL get_all_test()";
 
         try(Connection connection = DB_Connection.Get_Connection();
             CallableStatement callableStatement = connection.prepareCall(sql)) {
 
-            callableStatement.setInt(1, test_id);
+
             ResultSet resultSet = callableStatement.executeQuery();
 
 
@@ -86,7 +87,7 @@ public class test_controller {
                 test.setTest(resultSet.getInt("test_id"));
                 test.setClassroom(classroom_controller.get_classroom(resultSet.getInt("classroom_id")));
                 test.setTitle(resultSet.getString("title"));
-                test.setType(Test_Type.valueOf(resultSet.getString("type")));
+                test.setType(Test_Type.valueOf(resultSet.getString("type").toUpperCase()));
                 test.setUser(user_controller.get_user_by_id(resultSet.getInt("created_by"),flag));
                 test.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 test_list.add(test);
@@ -111,8 +112,8 @@ public class test_controller {
             callableStatement.setString(4, test.getType().toString());
             callableStatement.setInt(5, test.getUser().getId());
             callableStatement.setTimestamp(6, Timestamp.valueOf(test.getCreated_at()));
-           // callableStatement.setTimestamp(7,  Timestamp.valueOf(test.getStart_time));
-           // callableStatement.setTimestamp(8, Timestamp.valueOf(test.Endtime()));
+            callableStatement.setTimestamp(7,  Timestamp.valueOf(test.getStart_time()));
+            callableStatement.setTimestamp(8, Timestamp.valueOf(test.getEnd_time()));
 
             int row_affected = callableStatement.executeUpdate();
             return row_affected>0 ;
@@ -138,9 +139,11 @@ public class test_controller {
         }
     }
 
-    public static void main(String[] args) {
-        System.out.println(get_test(1));
-    }
+        public static void main(String[] args) {
+            boolean isDeleted = delete_test(1);
+            System.out.println("Test Deleted: " + isDeleted);
+
+        }
 }
 
 

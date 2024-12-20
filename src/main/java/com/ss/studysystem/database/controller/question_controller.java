@@ -108,13 +108,6 @@ public class question_controller {
             return false;
         }
     }
-
-    public static void main(String[] args) {
-        Questions questions = new Questions();
-        questions.setId(1);
-        questions.setQuestion_text("Hello!!!!");
-        System.out.println(delete_question(questions.getId()));
-    }
 }
 
 
