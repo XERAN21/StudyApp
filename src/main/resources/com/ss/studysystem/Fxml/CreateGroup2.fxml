@@ -7,43 +7,34 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="282.0" prefWidth="344.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="344.0" style="-fx-padding: 20px 45px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <VBox prefHeight="138.0" prefWidth="344.0" style="-fx-padding: 4em;">
+      <VBox prefHeight="104.0" prefWidth="304.0" VBox.vgrow="ALWAYS">
          <children>
             <Label text="Name">
                <font>
                   <Font name="Monospaced Bold" size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets left="5.0" top="-15.0" />
-               </VBox.margin>
             </Label>
             <TextField prefHeight="33.0" prefWidth="248.0" style="-fx-border-color: black; -fx-border-radius: .5em;" />
          </children>
       </VBox>
-      <VBox prefHeight="138.0" prefWidth="344.0" style="-fx-padding: 4em;">
+      <VBox prefHeight="114.0" prefWidth="304.0" VBox.vgrow="ALWAYS">
          <children>
             <Label text="Description">
                <font>
                   <Font name="Monospaced Bold" size="18.0" />
                </font>
-               <VBox.margin>
-                  <Insets left="5.0" top="-15.0" />
-               </VBox.margin>
             </Label>
             <TextField prefHeight="33.0" prefWidth="248.0" style="-fx-border-color: black; -fx-border-radius: .5em;" />
          </children>
-         <VBox.margin>
-            <Insets top="-60.0" />
-         </VBox.margin>
       </VBox>
       <Button fx:id="switch_confirm" mnemonicParsing="false" prefHeight="38.0" prefWidth="244.0" style="-fx-background-color: #D18787; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Confirm">
          <font>
             <Font name="Monospaced Bold" size="18.0" />
          </font>
          <VBox.margin>
-            <Insets top="-12.0" />
+            <Insets />
          </VBox.margin>
       </Button>
    </children>
