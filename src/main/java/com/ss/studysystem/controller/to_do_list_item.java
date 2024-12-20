@@ -90,8 +90,8 @@ public class to_do_list_item {
 
             del_ctrl.setOnResult(result -> {
                 if (result) {
-                    System.out.println(toDoList.getTo_do_list());
 
+                    System.out.println(toDoList.getTo_do_list());
                    // boolean success = to_do_list_controller.delete_to_do_list(toDoList.getTo_do_list());
                     to_do_list_async tdl_service = new to_do_list_async(toDoList);
                     tdl_service.set_operation(Operation.DELETE);

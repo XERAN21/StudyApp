@@ -5,13 +5,10 @@ import com.ss.studysystem.Model.*;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
 public class classroom_controller {
-    static boolean flag = true;
-
     public static boolean create_classroom(Classrooms classrooms) {
         String sql = "CALL create_classroom(?,?,?,?)";
         try (Connection connection = DB_Connection.Get_Connection();
@@ -84,6 +81,12 @@ public class classroom_controller {
         }
     }
 
+    //todo finish this controller
+    public static boolean join_classroom(int invitation_code){
+        return true;
+    }
+
+
     /**
      * @param classroom_id
      * @return users
@@ -122,7 +125,7 @@ public class classroom_controller {
         return member_list;
     }
 
-// todo need to check this following function except get_all_classroom
+
 
     public static boolean upload_file(Files files) {
         String sql = "CALL upload_file(?,?,?,?,?)";
@@ -211,10 +214,6 @@ public class classroom_controller {
             e.printStackTrace();
             return null;
         }
-    }
-
-    public static void main(String[] args) {
-        System.out.println(get_classroom(1));
     }
 
 }

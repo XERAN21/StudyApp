@@ -1,7 +1,5 @@
 package com.ss.studysystem.controller;
 
-import com.ss.studysystem.Model.Role;
-import com.ss.studysystem.Model.User_Classroom;
 import com.ss.studysystem.UI.components.modal_builder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -16,7 +14,7 @@ public class joinclass {
     private Button btnjoin;
 
     @FXML
-    void initialized(){
+    void initialize(){
         btnjoin.setOnAction(this::joinclass);
     }
 
