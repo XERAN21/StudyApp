@@ -1,6 +1,7 @@
 package com.ss.studysystem.controller.chat;
 
 import com.ss.studysystem.Model.Chatter;
+import com.ss.studysystem.UI.utils.Font_size;
 import javafx.application.Platform;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
@@ -14,11 +15,9 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.HBox;
-import javafx.scene.layout.Priority;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
+import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -47,11 +46,11 @@ public class chat_message_ww_img_ctrl {
 
     public void initialize() {
 
-        File imgFile = new File("/Users/thantzinlin/Downloads/Mountain Sunset Wallpaper.jpg");
-        Image img = new Image(imgFile.toURI().toString());
-        ImageView imageView = new ImageView(img);
-        imageView.setFitWidth(300);
-        imageView.setPreserveRatio(true);
+//        File imgFile = new File("/Users/thantzinlin/Downloads/Mountain Sunset Wallpaper.jpg");
+//        Image img = new Image(imgFile.toURI().toString());
+//        ImageView imageView = new ImageView(img);
+//        imageView.setFitWidth(300);
+//        imageView.setPreserveRatio(true);
 
 
     }
@@ -63,25 +62,29 @@ public class chat_message_ww_img_ctrl {
             try {
 
                 TextFlow tf = new TextFlow();
-                tf.getChildren().add(new Text(msg.trim()));
-                VBox wrapper = new VBox(tf);
+                Text inner_msg = new Text(msg.trim());
+                inner_msg.setFont(new Font(Font_size.L.getSize()));
+                tf.getChildren().add(inner_msg);
+                StackPane wrapper = new StackPane(tf);
                 HBox.setHgrow(wrapper, Priority.ALWAYS);
 
-                ContextMenu contextMenu = new ContextMenu();
-                MenuItem copyItem = new MenuItem("Copy");
-                copyItem.setOnAction(e -> {
-                    Clipboard clipboard = Clipboard.getSystemClipboard();
-                    ClipboardContent content = new ClipboardContent();
-                    content.putString(msg);
-                    clipboard.setContent(content);
-                });
+//                ContextMenu contextMenu = new ContextMenu();
+//                MenuItem copyItem = new MenuItem("Copy");
+//                copyItem.setOnAction(e -> {
+//                    Clipboard clipboard = Clipboard.getSystemClipboard();
+//                    ClipboardContent content = new ClipboardContent();
+//                    content.putString(msg);
+//                    clipboard.setContent(content);
+//                });
+//
+//                contextMenu.getItems().add(copyItem);
+//
+//                tf.setOnContextMenuRequested(e -> {
+//                    contextMenu.show(tf, e.getScreenX(), e.getScreenY());
+//                });
 
-                contextMenu.getItems().add(copyItem);
 
-                tf.setOnContextMenuRequested(e -> {
-                    contextMenu.show(tf, e.getScreenX(), e.getScreenY());
-                });
-
+                //todo css
                 URL path = getClass().getResource("/com/ss/studysystem/css/msg_bubble.css");
                 if (path != null)
                     msg_root.getStylesheets().add(path.toExternalForm());

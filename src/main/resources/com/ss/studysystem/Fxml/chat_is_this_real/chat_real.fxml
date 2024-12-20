@@ -8,7 +8,7 @@
 
 <VBox fx:id="msg_view_root" style="-fx-padding: 20px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.PleaseProvideControllerClassName">
    <children>
-      <ScrollPane fitToWidth="true" prefHeight="438.0" prefWidth="421.0" style="-fx-padding: 10px;" VBox.vgrow="ALWAYS">
+      <ScrollPane fx:id="chat_scroll" fitToWidth="true" focusTraversable="false" prefHeight="438.0" prefWidth="421.0" style="-fx-padding: 10px; -fx-background-color: transparent;" VBox.vgrow="ALWAYS">
          <content>
             <GridPane fx:id="chat_viewer" prefWidth="401.0">
               <columnConstraints>

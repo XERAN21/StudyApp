@@ -10,7 +10,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<GridPane fx:id="msg_root" alignment="TOP_RIGHT" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="600.0" prefHeight="66.0" prefWidth="143.0" style="-fx-padding: 5px 0; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.chat_message_ww_img_ctrl">
+<GridPane fx:id="msg_root" hgap="5.0" maxHeight="1.7976931348623157E308" maxWidth="600.0" prefHeight="66.0" prefWidth="143.0" style="-fx-padding: 5px 0; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.chat_message_ww_img_ctrl">
 
     <columnConstraints>
         <ColumnConstraints maxWidth="120.0" minWidth="53.68705749511719" prefWidth="60.496402740478516" />

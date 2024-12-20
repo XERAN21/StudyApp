@@ -70,3 +70,52 @@
     -fx-background-color: #ffe5b4;
     -fx-text-fill: #000000;
 }
+
+
+/* ScrollPane */
+.scroll-pane {
+    -fx-focus-color: transparent; /* Removes the highlight border when focused */
+    -fx-faint-focus-color: transparent; /* Removes faint focus border */
+    -fx-background: transparent; /* Transparent background */
+    -fx-padding: 0;
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: transparent; /* Transparent viewport */
+}
+
+/* ScrollBar: Horizontal and Vertical */
+.scroll-bar {
+    -fx-background-color: transparent; /* Transparent track */
+}
+
+.scroll-bar:horizontal {
+    -fx-pref-height: 8px; /* Height for horizontal scroll bar */
+}
+
+.scroll-bar:vertical {
+    -fx-pref-width: 8px; /* Width for vertical scroll bar */
+}
+
+/* ScrollBar Thumb */
+.scroll-bar .thumb {
+    -fx-background-color: #efefef; /* Default thumb color */
+    -fx-background-insets: 0;
+    -fx-background-radius: 4px; /* Rounded edges for thumb */
+}
+
+.scroll-bar .thumb:hover {
+    -fx-background-color: #ededed; /* Darker on hover */
+}
+
+.scroll-bar .thumb:pressed {
+    -fx-background-color: #4a4a4a; /* Even darker when pressed */
+}
+
+/* ScrollBar Track */
+.scroll-bar .track {
+    -fx-background-color: transparent; /* Transparent track background */
+    -fx-background-radius: 4px; /* Rounded track edges */
+}
+
+/* Optional: Add shadow around thumb for modern effect */

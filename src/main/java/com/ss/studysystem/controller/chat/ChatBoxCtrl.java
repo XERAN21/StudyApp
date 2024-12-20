@@ -2,17 +2,14 @@ package com.ss.studysystem.controller.chat;
 
 import com.ss.studysystem.Model.Chatter;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.web.lumi_websocket;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextArea;
 import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.VBox;
 
-import java.io.IOException;
-import java.net.URL;
 import java.util.function.Consumer;
 
 public class ChatBoxCtrl {
@@ -33,9 +30,9 @@ public class ChatBoxCtrl {
     private Node current_bubble;
 
     @FXML
-    void initialize(){
+    void initialize() {
 
-        send.setOnAction(event-> geo_guesser());
+        send.setOnAction(event -> geo_guesser());
 
         user_input.textProperty().addListener((observable, oldValue, newValue) -> {
             resizeTextArea();
@@ -45,6 +42,7 @@ public class ChatBoxCtrl {
             if (event.getCode() == KeyCode.ENTER && !event.isShiftDown()) {
                 String text = user_input.getText().strip();
                 if (!text.isEmpty()) {
+                    lumi_websocket.getInstance().sendMsg(text);
                     geo_guesser();
                     user_input.clear();
                     resetTextArea();
@@ -61,6 +59,7 @@ public class ChatBoxCtrl {
         double newHeight = Math.max(30, Math.min(contentHeight, 100));
         user_input.setPrefHeight(newHeight);
     }
+
     private void resetTextArea() {
         user_input.setPrefHeight(30);
     }
@@ -81,10 +80,10 @@ public class ChatBoxCtrl {
         this.on_result = on_result;
     }
 
-    void geo_guesser(){
-        if(place == null) return;
+    void geo_guesser() {
+        if (place == null) return;
 
-        switch (place){
+        switch (place) {
             case CHAT -> generate_chat_msg(Chatter.SELF, user_input.getText());
             case FORUM -> System.out.println("");
             case ASSIGNMENT -> System.out.println("");
@@ -94,11 +93,13 @@ public class ChatBoxCtrl {
     @FXML
     public void generate_chat_msg(Chatter who, String msg) {
 
-        if(msg == null || msg.trim().isEmpty()) return; //todo throw error or not, idk
+        if (msg == null || msg.trim().isEmpty()) return; //todo throw error or not, idk
 
         //todo async insert msg into database
         //todo set on suck seed, the following code below
+
         try {
+        /*
             Node bubble;
             FXMLLoader loader;
 
@@ -119,12 +120,16 @@ public class ChatBoxCtrl {
 
             chat_message_ww_img_ctrl msg_ctrl = loader.getController();
             msg_ctrl.set_messages(msg, null, Chatter.SELF);
+            */
             user_input.clear();
-
+            chat_bubble_gen abg = new chat_bubble_gen();
+            this.current_bubble = abg.generate_chat_msg(who, msg);
             on_result.accept(true);
-            this.current_bubble = bubble;
 
-        } catch (Exception e) {
+//            this.current_bubble = bubble;
+
+        } catch (
+                Exception e) {
             throw new RuntimeException(e);
         }
     }
