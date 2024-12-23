@@ -38,7 +38,14 @@ public class Appearance {
         }catch (Exception e){
             e.printStackTrace();
         }
-
     }
-
+    @FXML
+    void confirmAppearance(ActionEvent event){
+        try{
+            Stage stage = (Stage) confirm.getScene().getWindow();
+            stage.close();
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+    }
 }
