@@ -49,12 +49,12 @@ public class survey_controller {
 
         border_root.widthProperty().addListener((ob,ov,nv)->{
             System.out.println(nv.longValue());
-            if(nv.longValue() < 800
+            if(nv.longValue() < 900
                     && border_root.getChildren().contains(l_pane)
             && border_root.getChildren().contains(r_pane)){
                 border_root.getChildren().remove(l_pane);
                 border_root.getChildren().remove(r_pane);
-            }else if(nv.longValue() >= 800
+            }else if(nv.longValue() >= 900
                     && !border_root.getChildren().contains(l_pane)
                     && !border_root.getChildren().contains(r_pane)){
                  border_root.setLeft(l_pane);
