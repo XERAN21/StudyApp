@@ -25,6 +25,7 @@ public class Appearance {
     void initialize(){
         light.setOnMouseClicked(event -> Appearance("light"));
         dark.setOnMouseClicked(event -> Appearance("dark"));
+        confirm.setOnAction(this::confirm_appearance);
     }
 
     @FXML
@@ -40,7 +41,7 @@ public class Appearance {
         }
     }
     @FXML
-    void confirmAppearance(ActionEvent event){
+    void confirm_appearance(ActionEvent event){
         try{
             Stage stage = (Stage) confirm.getScene().getWindow();
             stage.close();

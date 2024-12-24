@@ -5,10 +5,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #FCDF78; -fx-border-color: black; -fx-border-radius: 25em; -fx-background-radius: 25em;">
+      <Button fx:id="close" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #FCDF78; -fx-border-color: black; -fx-border-radius: 25em; -fx-background-radius: 25em;">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
@@ -20,7 +19,7 @@
       </VBox>
       <VBox alignment="BOTTOM_RIGHT" prefHeight="66.0" prefWidth="598.0">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #8ABFFF; -fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em;" text="OK">
+            <Button fx:id="ok" alignment="CENTER" mnemonicParsing="false" prefHeight="30.0" prefWidth="87.0" style="-fx-background-color: #8ABFFF; -fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em;" text="OK">
                <font>
                   <Font size="14.0" />
                </font>
