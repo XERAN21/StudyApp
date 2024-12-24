@@ -2,7 +2,6 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
-import com.ss.studysystem.UI.layouts.config_position;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -11,7 +10,6 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.effect.DropShadow;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
 
@@ -33,6 +31,7 @@ public class create_and_join {
 
     public void setLocation(chat_where_is_this location) {
         this.location = location;
+        Platform.runLater(()->placeholder.setText("Create " +location.getValue()));
     }
 
     @FXML
@@ -52,12 +51,12 @@ public class create_and_join {
 
             if (location == chat_where_is_this.CLASSROOM){
 
-                Create_Classroom_Group key_word = loader.getController();
+                Create_Group key_word = loader.getController();
                 key_word.setLocation(chat_where_is_this.CLASSROOM);
 
             } else if (location == chat_where_is_this.CHAT) {
 
-                Create_Classroom_Group key_word = loader.getController();
+                Create_Group key_word = loader.getController();
                 key_word.setLocation(chat_where_is_this.CHAT);
             }
 

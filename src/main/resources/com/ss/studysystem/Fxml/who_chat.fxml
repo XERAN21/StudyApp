@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.ToggleButton?>
+<?import javafx.scene.layout.VBox?>
+
+
+<VBox alignment="CENTER" prefHeight="62.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.nav.who_chat_ctrl">
+   <children>
+      <ToggleButton fx:id="chat" alignment="BOTTOM_RIGHT" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em;" text="ChatName">
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </ToggleButton>
+   </children>
+</VBox>

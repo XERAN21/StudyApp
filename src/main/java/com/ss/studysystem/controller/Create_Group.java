@@ -3,13 +3,11 @@ package com.ss.studysystem.controller;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Create_Classroom_Group {
+public class Create_Group {
 
     @FXML
     private TextField name;
