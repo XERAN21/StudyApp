@@ -49,16 +49,9 @@ public class create_and_join {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/CreateGroup2.fxml"));
             Parent load_view = loader.load();
 
-            if (location == chat_where_is_this.CLASSROOM){
+            Create_Group create_group_cnf = loader.getController();
+            create_group_cnf.setLocation(location);
 
-                Create_Group key_word = loader.getController();
-                key_word.setLocation(chat_where_is_this.CLASSROOM);
-
-            } else if (location == chat_where_is_this.CHAT) {
-
-                Create_Group key_word = loader.getController();
-                key_word.setLocation(chat_where_is_this.CHAT);
-            }
 
             Stage stage = (Stage) create.getScene().getWindow();
             Scene sc = new Scene(load_view,stage.getWidth(),stage.getHeight(), Color.TRANSPARENT);
@@ -94,6 +87,7 @@ public class create_and_join {
     @FXML
     void setClose(ActionEvent event){
         Stage stage = (Stage) close.getScene().getWindow();
+
         stage.close();
     }
 

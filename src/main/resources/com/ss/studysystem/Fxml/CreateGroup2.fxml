@@ -8,14 +8,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="344.0" style="-fx-padding: 20px 45px; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em; -fx-background-color: white;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Create_Classroom_Group">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="344.0" style="-fx-padding: 15px; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em; -fx-background-color: white;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Create_Group">
    <children>
       <HBox alignment="CENTER_RIGHT" prefHeight="30.0" prefWidth="298.0">
          <children>
             <Button fx:id="close" mnemonicParsing="false" style="-fx-background-color: #D18787; -fx-text-fill: ffffff; -fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;" text="x" />
          </children>
       </HBox>
-      <VBox prefHeight="104.0" prefWidth="304.0" VBox.vgrow="ALWAYS">
+      <VBox prefHeight="104.0" prefWidth="304.0" style="-fx-padding: 0 15px;" VBox.vgrow="ALWAYS">
          <children>
             <Label text="Name">
                <font>
@@ -25,7 +25,7 @@
             <TextField fx:id="name" prefHeight="33.0" prefWidth="248.0" style="-fx-border-color: black; -fx-border-radius: .5em;" />
          </children>
       </VBox>
-      <VBox prefHeight="114.0" prefWidth="304.0" VBox.vgrow="ALWAYS">
+      <VBox prefHeight="114.0" prefWidth="304.0" style="-fx-padding: 0 15px;" VBox.vgrow="ALWAYS">
          <children>
             <Label text="Description">
                <font>
