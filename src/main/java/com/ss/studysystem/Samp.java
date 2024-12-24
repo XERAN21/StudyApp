@@ -25,7 +25,7 @@ public class Samp extends Application {
 
         login_mdl login_config = login_mdl.getInstance();
 
-        URL path = getClass().getResource("/com/ss/studysystem/Fxml/login.fxml");
+        URL path = getClass().getResource("/com/ss/studysystem/Fxml/notes/note.fxml");
         FXMLLoader loader = new FXMLLoader(path);
         Node login_node = loader.load();
         root.getChildren().add(login_node);

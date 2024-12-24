@@ -62,7 +62,13 @@
     <dependency>
       <groupId>org.java-websocket</groupId>
       <artifactId>Java-WebSocket</artifactId>
-      <version>1.5.2</version>
+      <version>1.5.3</version>
+    </dependency>
+
+    <dependency>
+      <groupId>com.vladsch.flexmark</groupId>
+      <artifactId>flexmark-all</artifactId>
+      <version>0.64.8</version>
     </dependency>
 
   </dependencies>
