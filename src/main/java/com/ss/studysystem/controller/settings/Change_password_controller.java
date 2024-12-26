@@ -1,6 +1,5 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.settings;
 
-import com.ss.studysystem.UI.components.modal_builder;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;

@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.settings;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import javafx.event.ActionEvent;
@@ -6,7 +6,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;

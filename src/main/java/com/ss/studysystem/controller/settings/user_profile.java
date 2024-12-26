@@ -1,13 +1,11 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.settings;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.Scene;
 import javafx.scene.layout.GridPane;
 import javafx.scene.layout.HBox;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 import java.net.URL;
