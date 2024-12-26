@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="361.0" prefWidth="334.0" style="-fx-padding: 15px; -fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.image_editor.upload_img">
+   <children>
+      <HBox alignment="CENTER_LEFT" prefWidth="200.0">
+         <children>
+            <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Select an Image">
+               <font>
+                  <Font name="Baloo 2 Bold" size="24.0" />
+               </font>
+            </Text>
+            <Pane prefWidth="200.0" HBox.hgrow="ALWAYS" />
+            <Button fx:id="close_modal" mnemonicParsing="false" style="-fx-background-color: transparent;" text="X" textFill="#6b6161">
+               <font>
+                  <Font name="KoHo Bold" size="20.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+      </HBox>
+      <VBox fx:id="upload_img_pane" alignment="TOP_CENTER" prefHeight="200.0" prefWidth="100.0" style="-fx-background-color: ededed; -fx-background-radius: .6em; -fx-padding: 10px; -fx-spacing: 25px;" VBox.vgrow="ALWAYS">
+         <children>
+            <StackPane>
+               <children>
+                  <Circle fill="DODGERBLUE" radius="101.0" stroke="TRANSPARENT" strokeType="INSIDE" />
+                  <ImageView fitHeight="92.0" fitWidth="90.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../../images/up_img_icon.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </StackPane>
+            <Button fx:id="upload_img" mnemonicParsing="false" style="-fx-background-color: transparent;" text="Upload Image" textFill="#726d6d">
+               <font>
+                  <Font name="Baloo 2 Bold" size="14.0" />
+               </font>
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Button>
+         </children>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </VBox>
+   </children>
+</VBox>
