@@ -8,7 +8,7 @@ import javafx.stage.Stage;
  * @implNote Includes Loader
  */
 public class exec_task {
-    private void executeDatabaseTask(Runnable databaseTask, String successMessage, String failureMessage, ActionEvent e, Stage st) {
+    private void exec_database_task(Runnable databaseTask, String successMessage, String failureMessage, ActionEvent e, Stage st) {
         //todo dims the mainstage
 
         Task<Boolean> loadSceneTask = new Task<>() {
