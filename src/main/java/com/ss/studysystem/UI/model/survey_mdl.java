@@ -3,11 +3,13 @@ package com.ss.studysystem.UI.model;
 import javafx.scene.Node;
 import javafx.scene.layout.VBox;
 
+import java.lang.ref.WeakReference;
 import java.util.ArrayList;
 import java.util.List;
 
 public class survey_mdl {
 
+    private static WeakReference<survey_mdl> weak_instance = new WeakReference<>(null);
     private static survey_mdl instance;
 
     public static survey_mdl getInstance() {
@@ -32,7 +34,7 @@ public class survey_mdl {
         this.root = root;
     }
 
-    public void addPage(Node n){
+    public void addPage(Node n) {
         pages.add(n);
     }
 
