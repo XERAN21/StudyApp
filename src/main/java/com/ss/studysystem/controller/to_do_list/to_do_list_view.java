@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.to_do_list;
 
 import com.ss.studysystem.Model.Frequency;
 import com.ss.studysystem.Model.To_Do_List;
@@ -7,10 +7,7 @@ import com.ss.studysystem.UI.layouts.status_indicators;
 import com.ss.studysystem.UI.utils.indicator_animation;
 import com.ss.studysystem.database.async_service.Operation;
 import com.ss.studysystem.database.async_service.to_do_list_async;
-import com.ss.studysystem.database.controller.to_do_list_controller;
 import javafx.application.Platform;
-import javafx.concurrent.Service;
-import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;

@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.to_do_list;
 
 import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.UI.components.modal_builder;
@@ -7,7 +7,6 @@ import com.ss.studysystem.UI.utils.config_brightness;
 import com.ss.studysystem.UI.utils.indicator_animation;
 import com.ss.studysystem.database.async_service.Operation;
 import com.ss.studysystem.database.async_service.to_do_list_async;
-import com.ss.studysystem.database.controller.to_do_list_controller;
 import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;

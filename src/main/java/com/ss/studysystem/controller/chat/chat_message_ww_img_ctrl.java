@@ -1,23 +1,12 @@
 package com.ss.studysystem.controller.chat;
 
 import com.ss.studysystem.Model.Chatter;
+import com.ss.studysystem.UI.misc.text_style_renderer;
 import com.ss.studysystem.UI.utils.Font_size;
 import javafx.application.Platform;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
-import javafx.scene.control.ContextMenu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.control.TextArea;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.input.Clipboard;
-import javafx.scene.input.ClipboardContent;
 import javafx.scene.layout.*;
 import javafx.scene.shape.Circle;
-import javafx.scene.text.Font;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 
@@ -61,10 +50,10 @@ public class chat_message_ww_img_ctrl {
 
             try {
 
-                TextFlow tf = new TextFlow();
-                Text inner_msg = new Text(msg.trim());
-                inner_msg.setFont(new Font(Font_size.L.getSize()));
-                tf.getChildren().add(inner_msg);
+                TextFlow tf = text_style_renderer.markdown_renderer(msg.trim(), Font_size.L);
+//                Text inner_msg = new Text(msg.trim());
+//                inner_msg.setFont(new Font(Font_size.L.getSize()));
+//                tf.getChildren().add(inner_msg);
                 StackPane wrapper = new StackPane(tf);
                 HBox.setHgrow(wrapper, Priority.ALWAYS);
 

@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.to_do_list;
 
 import com.ss.studysystem.Model.To_Do_List;
 import javafx.application.Platform;
