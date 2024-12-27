@@ -44,7 +44,7 @@ public class modal_builder {
         modalScene.setFill(Color.TRANSPARENT);
 
         // modalStage.setResizable(false);
-        config_position.center_stage(owner, modalStage, modalScene);
+        Platform.runLater(()->config_position.center_stage(owner, modalStage, modalScene));
 
         modalStage.setOnHidden(hid->Platform.runLater(()->config_brightness.removeDimmingEffect(owner)));
 
@@ -68,7 +68,10 @@ public class modal_builder {
         modalScene.setFill(Color.TRANSPARENT);
 
         // modalStage.setResizable(false);
-        config_position.center_stage(owner, modalStage, modalScene);
+        Platform.runLater(()->config_position.center_stage(owner, modalStage, modalScene));
+
+        modalStage.setOnHidden(hid->Platform.runLater(()->config_brightness.removeDimmingEffect(owner)));
+
 
         return modalStage;
 
