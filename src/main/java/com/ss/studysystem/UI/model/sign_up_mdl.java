@@ -1,5 +1,6 @@
 package com.ss.studysystem.UI.model;
 
+import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.layouts.config_background;
 import com.ss.studysystem.UI.logic.switch_scene;
 import javafx.application.Platform;
@@ -13,11 +14,15 @@ import javafx.scene.layout.HBox;
 import javafx.stage.Stage;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.function.Consumer;
 
-public class sign_up {
+public class sign_up_mdl {
 
-    private static sign_up instance;
+    private static WeakReference<sign_up_mdl> weak_instance = new WeakReference<>(null);
+    private static sign_up_mdl instance;
 
     private HBox root;
     private Node currentNode;
@@ -25,13 +30,45 @@ public class sign_up {
     private Node detailsNode;
     private Background backgroundImage;
 
-    private sign_up() {}
+    private Users sign_up_user = new Users();
 
-    public static sign_up getInstance() {
+    private sign_up_mdl() {
+    }
+
+    public static sign_up_mdl getInstance() {
         if (instance == null) {
-            instance = new sign_up();
+            instance = new sign_up_mdl();
         }
         return instance;
+    }
+
+    public static sign_up_mdl getWeakInstance() {
+        sign_up_mdl temp = weak_instance.get();
+        if (temp == null) {
+            temp = new sign_up_mdl();
+            weak_instance = new WeakReference<>(temp);
+        }
+        return temp;
+    }
+
+    public static void clear() {
+        sign_up_mdl dump_inst = sign_up_mdl.getWeakInstance();
+        dump_inst.dump();
+        if (instance != null)
+            instance.dispose();
+    }
+
+    public void dump() {
+        weak_instance = new WeakReference<>(null);
+        currentNode = null;
+        signInNode = null;
+        detailsNode = null;
+        if (root != null) {
+            root.getChildren().clear();
+            root.setBackground(null);
+            root = null;
+        }
+        backgroundImage = null;
     }
 
     public HBox getRoot() {
@@ -74,6 +111,14 @@ public class sign_up {
         this.backgroundImage = backgroundImage;
     }
 
+    public Users getSign_up_user() {
+        return sign_up_user;
+    }
+
+    public void setSign_up_user(Users sign_up_user) {
+        this.sign_up_user = sign_up_user;
+    }
+
     public void dispose() {
         if (root != null) {
             root.getChildren().clear();
@@ -93,7 +138,7 @@ public class sign_up {
     public class Controller {
 
         private final switch_scene switcher = new switch_scene();
-        private final sign_up signUp = sign_up.getInstance();
+        private final sign_up_mdl signUp = sign_up_mdl.getWeakInstance();
 
         public void initialize() {
             setupBackground();
@@ -113,7 +158,7 @@ public class sign_up {
         }
 
         private void setupActions() {
-            bindButtonAction(signUp.getSignInNode(), "#sign_up", this::switchToDetails);
+            //bindButtonAction(signUp.getSignInNode(), "#next", this::switchToDetails);
             bindButtonAction(signUp.getDetailsNode(), "#go_back", this::returnToSignIn);
             bindButtonAction(signUp.getSignInNode(), "#login_acc", this::loginAccount);
         }
@@ -130,9 +175,9 @@ public class sign_up {
             }
         }
 
-        private void switchToDetails(ActionEvent event) {
-            switchNode(signUp.getDetailsNode());
-        }
+//        private void switchToDetails(ActionEvent event) {
+//            switchNode(signUp.getDetailsNode());
+//        }
 
         private void returnToSignIn(ActionEvent event) {
             switchNode(signUp.getSignInNode());

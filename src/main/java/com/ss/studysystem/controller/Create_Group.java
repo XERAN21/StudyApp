@@ -35,11 +35,13 @@ public class Create_Group {
 
     @FXML
     void confirm(ActionEvent event){
-        if(location == chat_where_is_this.CLASSROOM){
+       switch (location){
+           case CHAT:
+               break;
+           case CLASSROOM:
+               break;
+       }
 
-        } else if (location == chat_where_is_this.CHAT) {
-
-        }
     }
 
     @FXML

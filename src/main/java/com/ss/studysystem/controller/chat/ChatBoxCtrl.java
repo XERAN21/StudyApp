@@ -85,8 +85,8 @@ public class ChatBoxCtrl {
 
         switch (place) {
             case CHAT -> generate_chat_msg(Chatter.SELF, user_input.getText());
-            case FORUM -> System.out.println("");
-            case ASSIGNMENT -> System.out.println("");
+            case FORUM -> System.out.println("gg");
+            case ASSIGNMENT -> System.out.println("wp");
         }
     }
 
@@ -122,12 +122,10 @@ public class ChatBoxCtrl {
             msg_ctrl.set_messages(msg, null, Chatter.SELF);
             */
             user_input.clear();
-            chat_bubble_gen abg = new chat_bubble_gen();
+            chat_bubble_gen abg = new chat_bubble_gen(); //todo change name (ABG stands for Asian .... Girl)
             this.current_bubble = abg.generate_chat_msg(who, msg);
             on_result.accept(true);
-
 //            this.current_bubble = bubble;
-
         } catch (
                 Exception e) {
             throw new RuntimeException(e);

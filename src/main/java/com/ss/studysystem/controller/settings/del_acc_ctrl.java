@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.settings;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import javafx.event.ActionEvent;

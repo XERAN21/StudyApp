@@ -46,11 +46,12 @@ public class PleaseProvideControllerClassName implements message_handler {
         //todo load_msg method -> create nodes, the following code below
         //todo websocket real time add node on pane type shit idk
 
-
-        msg_view_root.getChildren().addListener((javafx.collections.ListChangeListener<? super Node>) change -> {
-            while (change.next()) {
-                if (change.wasAdded()) {
-                    Platform.runLater(this::smoothScrollToBottom);
+        chat_viewer.getChildren().addListener((javafx.collections.ListChangeListener<? super Node>) change -> {
+            if(chat_scroll.getVvalue() >= 0.5) {
+                while (change.next()) {
+                    if (change.wasAdded()) {
+                        Platform.runLater(this::smoothScrollToBottom);
+                    }
                 }
             }
         });

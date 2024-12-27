@@ -2,7 +2,7 @@ package com.ss.studysystem.UI.logic;
 
 import com.ss.studysystem.UI.layouts.config_position;
 import com.ss.studysystem.UI.model.login_mdl;
-import com.ss.studysystem.UI.model.sign_up;
+import com.ss.studysystem.UI.model.sign_up_mdl;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -26,8 +26,8 @@ public class switch_scene {
 
         logger.info("Loading sign-up FXML files...");
 
-        sign_up signUpConfig = sign_up.getInstance();
-        sign_up.Controller signUpController = signUpConfig.new Controller();
+        sign_up_mdl signUpConfig = sign_up_mdl.getWeakInstance();
+        sign_up_mdl.Controller signUpController = signUpConfig.new Controller();
 
         Task<HBox> loadSceneTask = new Task<>() {
             @Override
@@ -90,24 +90,6 @@ public class switch_scene {
                 mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
             });
         });
-    }
-
-    public void switchToHome(ActionEvent event, Stage mainStage) {
-        // Dispose of resources related to the current `sign_up` instance
-        sign_up signUpInstance = sign_up.getInstance();
-        if (signUpInstance != null) {
-            signUpInstance.dispose(); // Clean up sign-up resources
-        }
-
-        // Set up the new scene for the Home page
-        Parent root = new AnchorPane(); // Replace with your actual Home root layout
-        Scene scene = new Scene(root);
-
-        // Optionally, you can customize the new scene here (e.g., styles, dimensions, etc.)
-
-        // Switch to the new scene
-        mainStage.setScene(scene);
-        mainStage.show();
     }
 
 

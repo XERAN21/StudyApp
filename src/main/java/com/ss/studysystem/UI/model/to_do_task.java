@@ -26,14 +26,14 @@ public class to_do_task {
     public to_do_task() {
     }
 
-    public static to_do_task getInstance(){
-        if(instance == null){
+    public static to_do_task getInstance() {
+        if (instance == null) {
             instance = new to_do_task();
         }
         return instance;
     }
 
-    public static to_do_task getWeakInstance(){
+    public static to_do_task getWeakInstance() {
         to_do_task temp = weak_instance.get();
         if (temp == null) {
             temp = new to_do_task();
@@ -42,13 +42,19 @@ public class to_do_task {
         return temp;
     }
 
-    public void dump(){
-        Mon = null;
-        Tue = null;
-        Wed = null;
-        Thu = null;
-
+    public static void clear() {
+        to_do_task dump_inst = to_do_task.getWeakInstance();
+        dump_inst.dump();
     }
+
+    public void dump() {
+        weak_instance = new WeakReference<>(null);
+        instance = null;
+        task_days.clear();
+        task_days = null;
+        System.gc();
+    }
+
 
     public Node getMon() {
         return Mon;

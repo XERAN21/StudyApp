@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.hello;
 
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.logic.switch_scene;
