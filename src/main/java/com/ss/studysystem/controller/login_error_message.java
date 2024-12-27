@@ -32,19 +32,7 @@ public class login_error_message {
 
     @FXML
     void openLoginErrorMessage(ActionEvent event){
-        try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/login_error_message.fxml"));
-            Parent load_view = loader.load();
-            login_error_message loginErrorMessage = loader.getController();
-            loginErrorMessage.setErrorMessage("An error occurred in the login process");
-            Stage stage = modal_builder.build_fixed_modal((Stage) close.getScene().getWindow(), load_view, 385,305);
-
-            stage.show();
-
-            stage.show();
-        } catch(Exception e){
-            e.printStackTrace();
-        }
+       close(event);
     }
 
     @FXML

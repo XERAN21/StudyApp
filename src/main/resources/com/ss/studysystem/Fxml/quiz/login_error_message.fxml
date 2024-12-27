@@ -8,21 +8,21 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="263.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.login_error_message">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.login_error_message">
    <children>
       <Button fx:id="close" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #FCDF78; -fx-border-color: black; -fx-border-radius: 25em; -fx-background-radius: 25em;">
          <VBox.margin>
             <Insets left="10.0" top="10.0" />
          </VBox.margin>
       </Button>
-      <VBox prefHeight="130.0" prefWidth="598.0">
+      <VBox maxHeight="420.0" prefWidth="598.0" style="-fx-padding: 25;" VBox.vgrow="ALWAYS">
          <VBox.margin>
-            <Insets top="30.0" />
+            <Insets />
          </VBox.margin>
          <children>
-            <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0">
+            <ScrollPane fitToHeight="true" fitToWidth="true" maxHeight="420.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
               <content>
-                  <TextFlow prefHeight="200.0" prefWidth="200.0">
+                  <TextFlow prefWidth="200.0">
                      <children>
                         <Text fx:id="error_message" strokeType="OUTSIDE" strokeWidth="0.0" text="Text" />
                      </children>
