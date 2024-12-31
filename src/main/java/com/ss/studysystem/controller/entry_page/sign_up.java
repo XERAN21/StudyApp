@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller.hello;
+package com.ss.studysystem.controller.entry_page;
 
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.model.sign_up_mdl;
@@ -10,8 +10,6 @@ import javafx.scene.control.Button;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.HBox;
-
-import java.util.List;
 
 /**
  * @REFERENCES UI/model/sign_up
