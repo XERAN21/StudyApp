@@ -2,6 +2,7 @@ package com.ss.studysystem.database.async_service;
 
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
+import javafx.fxml.FXMLLoader;
 import javafx.stage.Stage;
 
 /**
@@ -25,6 +26,7 @@ public class exec_task {
         };
 
         //todo shows loading screen
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/FXML/loading_screen.fxml"));
 
         loadSceneTask.setOnSucceeded(ev -> {
             try {
