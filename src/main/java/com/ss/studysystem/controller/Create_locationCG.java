@@ -1,13 +1,17 @@
 package com.ss.studysystem.controller;
 
+import com.ss.studysystem.Model.Chatrooms;
+import com.ss.studysystem.Model.Classrooms;
+import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.database.controller.classroom_controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
-public class Create_Group {
+public class Create_locationCG {
 
     @FXML
     private TextField name;
@@ -37,8 +41,25 @@ public class Create_Group {
     void confirm(ActionEvent event){
        switch (location){
            case CHAT:
+               Chatrooms chatrooms = new Chatrooms();
+               chatrooms.setName(name.getText());
+
                break;
            case CLASSROOM:
+               Users users = new Users();
+               users.setId(1);
+
+               Classrooms classrooms = new Classrooms();
+               classrooms.setName(name.getText());
+               classrooms.setDescription(description.getText());
+               classrooms.setUser(users);
+
+               if (classroom_controller.create_classroom(classrooms)){
+                   System.out.println("Done");
+               }else {
+                   System.out.println("error");
+               }
+
                break;
        }
 

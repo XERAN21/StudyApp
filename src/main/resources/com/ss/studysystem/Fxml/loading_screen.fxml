@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="281.0" prefWidth="600.0" style="-fx-border-radius: .5em; -fx-border-color: black; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Loading_screen">
+   <children>
+      <VBox layoutX="223.0" layoutY="112.0">
+         <children>
+            <Label fx:id="label" text="Please Wait">
+               <font>
+                  <Font name="Cascadia Mono Regular" size="24.0" />
+               </font>
+               <VBox.margin>
+                  <Insets bottom="10.0" />
+               </VBox.margin>
+            </Label>
+            <Circle fx:id="loading_circle" fill="#f3eef8" radius="20.0" stroke="BLACK" strokeType="OUTSIDE" style="-fx-stroke-dash-array: 10 10;">
+               <VBox.margin>
+                  <Insets left="60.0" />
+               </VBox.margin>
+            </Circle>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

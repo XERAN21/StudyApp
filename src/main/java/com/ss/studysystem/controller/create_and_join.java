@@ -49,7 +49,7 @@ public class create_and_join {
             FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/CreateGroup2.fxml"));
             Parent load_view = loader.load();
 
-            Create_Group create_group_cnf = loader.getController();
+            Create_locationCG create_group_cnf = loader.getController();
             create_group_cnf.setLocation(location);
 
 

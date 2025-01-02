@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<VBox alignment="CENTER" prefHeight="543.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.hello.sign_up_details">
+<VBox alignment="CENTER" prefHeight="543.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.entry_page.sign_up_details">
    <children>
       <Label text="Sign Up" VBox.vgrow="ALWAYS">
          <font>

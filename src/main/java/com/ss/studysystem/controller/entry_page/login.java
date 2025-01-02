@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller.hello;
+package com.ss.studysystem.controller.entry_page;
 
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.logic.switch_scene;
@@ -6,6 +6,9 @@ import com.ss.studysystem.auth.auth_manager;
 import com.ss.studysystem.database.controller.user_controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -79,6 +82,12 @@ public class login {
                 //todo if true -> login(switch scenes)
             }else {
                 //todo if false -> throws error & notifi for incorrect password
+                FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+                Parent load_view = loader.load();
+
+                Stage stage = (Stage) confirm.getScene().getWindow();
+                Scene sc = new Scene(load_view,stage.getWidth(),stage.getHeight());
+                stage.setScene(sc);
             }
 
 

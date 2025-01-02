@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller.hello;
+package com.ss.studysystem.controller.entry_page;
 
 import com.ss.studysystem.Model.Gender;
 import com.ss.studysystem.Model.Users;
