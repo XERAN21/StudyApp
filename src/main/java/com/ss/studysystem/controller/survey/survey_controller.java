@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
@@ -65,7 +63,7 @@ public class survey_controller {
 
         try{
 
-            URL resource = getClass().getResource("/com/ss/studysystem/Fxml/survey/");
+            URL resource = getClass().getResource("/com/ss/studysystem/Fxml/Entry_page/survey/");
             if (resource == null) {
                 throw new IOException("Directory not found: /com/ss/studysystem/Fxml/survey");
             }

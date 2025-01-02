@@ -66,7 +66,7 @@ public class switch_scene {
         Task<AnchorPane> loadSceneTask = new Task<>() {
             @Override
             protected AnchorPane call() throws Exception {
-                Parent loginNode = loadFXML("/com/ss/studysystem/Fxml/login.fxml");
+                Parent loginNode = loadFXML("/com/ss/studysystem/Fxml/Entry_page/login.fxml");
 
                 Scene currentScene = mainStage.getScene();
                 AnchorPane root = new AnchorPane();
