@@ -2,6 +2,8 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.UI.misc.modal_animations;
+import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.event.ActionEvent;
@@ -87,8 +89,12 @@ public class create_and_join {
     @FXML
     void setClose(ActionEvent event){
         Stage stage = (Stage) close.getScene().getWindow();
+        Parent view = stage.getScene().getRoot();
+        ParallelTransition closeAnimation =  modal_animations.close_modal_w_size(view, stage.getWidth(), stage.getHeight());
+        closeAnimation.setOnFinished(e -> stage.close());
 
-        stage.close();
+        closeAnimation.play();
+//        stage.close();
     }
 
     public String get_placeholder(){

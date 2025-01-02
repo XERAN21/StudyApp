@@ -40,6 +40,7 @@ public class sign_up_details {
 
         if(DOB.getValue() == null) return; //todo throes error and show alert
         _user.setDob(DOB.getValue());
+
         //todo database
         System.out.printf("""
                 %s
@@ -51,6 +52,7 @@ public class sign_up_details {
                 , _user.getPassword(), _user.getGender(), _user.getDob());
 
         //todo move onto questionaries after database
+
     }
 
 }
