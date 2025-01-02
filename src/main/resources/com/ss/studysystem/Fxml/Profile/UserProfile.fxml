@@ -6,10 +6,12 @@
 <?import javafx.scene.layout.ColumnConstraints?>
 <?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="425.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.demo1.UserprofileController">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="431.0" prefWidth="635.0" style="-fx-border-radius: 2em; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.settings.Edit_ctr">
    <children>
       <GridPane prefHeight="155.0" style="-fx-padding: 15px;">
         <columnConstraints>
@@ -25,6 +27,11 @@
                   <Font name="Monospaced Bold" size="14.0" />
                </font>
             </Button>
+            <StackPane alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="224.0">
+               <children>
+                  <Circle fx:id="profile_img" fill="DODGERBLUE" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+               </children>
+            </StackPane>
          </children>
       </GridPane>
       <VBox prefHeight="250.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-color: #F6C0E0; -fx-background-radius: 1em;">
@@ -32,26 +39,29 @@
             <Insets left="30.0" right="30.0" top="5.0" />
          </VBox.margin>
          <children>
-            <VBox prefHeight="67.0" prefWidth="232.0">
+            <VBox prefHeight="67.0">
                <padding>
                   <Insets left="80.0" />
                </padding>
                <VBox.margin>
-                  <Insets left="5.0" right="300.0" top="30.0" />
+                  <Insets left="5.0" top="30.0" />
                </VBox.margin>
                <children>
                   <Label text="Username">
                      <font>
-                        <Font name="Monospaced Bold" size="18.0" />
+                        <Font name="Monospaced Bold" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets left="-45.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="username" prefHeight="33.0" prefWidth="111.0" text="Naruto">
+                  <Label fx:id="username" prefHeight="33.0" text="Naruto">
                      <VBox.margin>
-                        <Insets left="-45.0" />
+                        <Insets left="-45.0" top="5.0" />
                      </VBox.margin>
+                     <font>
+                        <Font name="Monospaced Regular" size="12.0" />
+                     </font>
                   </Label>
                </children>
             </VBox>
@@ -62,20 +72,20 @@
                <children>
                   <Label text="Email">
                      <font>
-                        <Font name="Monospaced Bold" size="18.0" />
+                        <Font name="Monospaced Bold" size="16.0" />
                      </font>
                      <VBox.margin>
                         <Insets left="-45.0" />
                      </VBox.margin>
                   </Label>
-                  <Label fx:id="email" prefHeight="33.0" prefWidth="111.0" text="Naruto3.gmail.com">
+                  <Label fx:id="email" prefHeight="33.0" text="Naruto3.gmail.com">
                      <VBox.margin>
-                        <Insets left="-45.0" />
+                        <Insets left="-45.0" top="5.0" />
                      </VBox.margin>
                   </Label>
                </children>
                <VBox.margin>
-                  <Insets left="5.0" right="300.0" top="10.0" />
+                  <Insets left="5.0" top="10.0" />
                </VBox.margin>
             </VBox>
          </children>
