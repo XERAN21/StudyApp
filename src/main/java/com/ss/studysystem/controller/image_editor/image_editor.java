@@ -1,19 +1,22 @@
 package com.ss.studysystem.controller.image_editor;
 
-import com.ss.studysystem.UI.utils.file_size;
+import com.ss.studysystem.UI.utils.png_metadata_handler;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Orientation;
-import javafx.geometry.Pos;
 import javafx.geometry.Rectangle2D;
 import javafx.scene.Cursor;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.SnapshotParameters;
+import javafx.scene.canvas.Canvas;
+import javafx.scene.canvas.GraphicsContext;
 import javafx.scene.control.Button;
 import javafx.scene.control.Slider;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.image.WritableImage;
 import javafx.scene.layout.Region;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
@@ -23,6 +26,7 @@ import javafx.scene.shape.Rectangle;
 import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
+import javax.imageio.ImageIO;
 import java.io.File;
 
 public class image_editor {
@@ -42,7 +46,7 @@ public class image_editor {
     @FXML
     private ImageView image;
 
-
+    private Circle circle;
 //    @FXML
 //    private VBox hidden_elements;
 
@@ -61,6 +65,7 @@ public class image_editor {
     void initialize() {
 
         cancel.setOnAction(e -> cancel_img());
+        apply_img.setOnAction(e->apply());
 
         Platform.runLater(() -> {
 
@@ -87,7 +92,6 @@ public class image_editor {
             image.setFitHeight(height);
             height = (int) source.getHeight();
             width = (int) source.getWidth();
-
 
             offSetX = width / 2;
             offSetY = height / 2;
@@ -167,6 +171,7 @@ public class image_editor {
                 Vscroll.setValue(Vscroll.getValue() - (inity - e.getSceneY()));
                 initx = e.getSceneX();
                 inity = e.getSceneY();
+
             });
 
             zoom_slider.setMax(4);
@@ -186,7 +191,6 @@ public class image_editor {
 //            double rec_width = region.getWidth();
 //            double rec_height = region.getHeight();
 
-
             double rec_width = image.getFitWidth();
             double rec_height = image.getFitHeight();
 
@@ -195,12 +199,12 @@ public class image_editor {
             Rectangle rect = new Rectangle(0, 0, rec_width, rec_height);
             Circle circ = new Circle(rec_width / 2, rec_height / 2, Math.min(rec_width, rec_height) / 2);
 
-            Circle border_circ = new Circle(rec_width / 2, rec_height / 2, Math.min(rec_width, rec_height) / 2);
-            border_circ.setFill(Color.TRANSPARENT);
-            border_circ.setStroke(Color.WHITE);
-            border_circ.setStrokeWidth(3.5);
-            border_circ.setMouseTransparent(true);
-            image_stack.getChildren().add(border_circ);
+            circle = new Circle(rec_width / 2, rec_height / 2, Math.min(rec_width, rec_height) / 2);
+            circle.setFill(Color.TRANSPARENT);
+            circle.setStroke(Color.WHITE);
+            circle.setStrokeWidth(3.5);
+            circle.setMouseTransparent(true);
+            image_stack.getChildren().add(circle);
 
 
             Shape clip = Shape.subtract(rect, circ);
@@ -208,10 +212,23 @@ public class image_editor {
             clip.setOpacity(0.65);
             image_stack.getChildren().add(clip);
 
-           // region.setClip(clip);
+            // region.setClip(clip);
         });
     }
 
+    private void apply(){
+        System.out.printf("zoom: %.2f, x:%.2f, y:%.2f%n", zoomlvl,offSetX,offSetY);
+        //todo save image to database
+        try {
+            String save_path = System.getProperty("user.home") + File.separator + "Downloads";
+            File outputFile = new File(save_path + "/outout.png");
+            png_metadata_handler.write_png_metadata(path, outputFile,
+                    String.valueOf(zoomlvl), String.valueOf(offSetX), String.valueOf(offSetY));
+        }catch (Exception e){
+            e.printStackTrace();
+        }
+
+    }
     private void cancel_img() {
         try {
 
@@ -232,7 +249,5 @@ public class image_editor {
         }
     }
 
-    private void apply() {
 
-    }
 }
