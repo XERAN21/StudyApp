@@ -9,7 +9,7 @@ import javafx.stage.Stage;
  * @implNote Includes Loader
  */
 public class exec_task {
-    private void exec_database_task(Runnable databaseTask, String successMessage, String failureMessage, ActionEvent e, Stage st) {
+    public void exec_database_task(Runnable databaseTask, String successMessage, String failureMessage, ActionEvent e, Stage st) {
         //todo dims the mainstage
 
         Task<Boolean> loadSceneTask = new Task<>() {
@@ -32,7 +32,6 @@ public class exec_task {
             try {
 
                 //todo remove dim, show notification, remove loading screen
-                st.close();
                 System.out.println(successMessage);
             } catch (Exception ex) {
                 ex.printStackTrace();
