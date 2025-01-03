@@ -11,7 +11,7 @@ import java.util.List;
 public class user_controller {
 
     public static boolean create_user(Users user){
-        String sql = "CALL CreateUser(?,?,?,?,?,?)";
+        String sql = "CALL Create_User(?,?,?,?,?,?)";
         try(Connection con = DB_Connection.Get_Connection();
             CallableStatement callableStatement = con.prepareCall(sql)){
 
