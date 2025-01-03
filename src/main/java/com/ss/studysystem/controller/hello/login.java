@@ -1,11 +1,15 @@
 package com.ss.studysystem.controller.hello;
 
 import com.ss.studysystem.Model.Users;
+import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.logic.switch_scene;
 import com.ss.studysystem.auth.auth_manager;
+import com.ss.studysystem.controller.login_error_message;
 import com.ss.studysystem.database.controller.user_controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 
@@ -55,35 +59,58 @@ public class login {
         String password = user_password.getText();
         Users curr_user;
 
-        if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()){
-            //todo popup error msg;
-        } else if (user_input == null || user_input.trim().isEmpty()) {
-            //todo popupp error msg;
-        }else{
-            //todo popupp error msg;
-        }
 
-        try{
-            if (isEmail(user_input)){
-               curr_user =  user_controller.get_user_by_email(user_input);
-            }else {
-                curr_user = user_controller.get_user_by_username(user_input);
+        try {
+
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/login_error_message.fxml"));
+            Parent load_view = loader.load();
+            login_error_message loginErrorMessage = loader.getController();
+            Stage stage = modal_builder.build_fixed_modal((Stage) confirm.getScene().getWindow(), load_view, 385,305);
+
+            if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()){
+                //todo popup error msg;
+                loginErrorMessage.setErrorMessage("Error occurred in the login process you need to fill in these blank");
+                stage.show();
+                return;
+            } else if (user_input == null || user_input.trim().isEmpty()) {
+                //todo popupp error msg;
+                loginErrorMessage.setErrorMessage("Please fill username (or) email!");
+                stage.show();
+                return;
+            }else if(password == null || password.trim().isEmpty()){
+                loginErrorMessage.setErrorMessage("Please fill in password field!");
+                stage.show();
+                return;
+            }else{
+                //todo popupp error msg;
+                loginErrorMessage.setErrorMessage("An error in login form!");
+                stage.show();
             }
 
-            if(curr_user == null) return; //todo throws error & notification
+            try{
+                if (isEmail(user_input)){
+                   curr_user =  user_controller.get_user_by_email(user_input);
+                }else {
+                    curr_user = user_controller.get_user_by_username(user_input);
+                }
 
-            //todo password validate
-            boolean check = auth_manager.verify_password(password,curr_user.getPassword(),curr_user.getSalt());
+                if(curr_user == null) return; //todo throws error & notification
 
-            if (check){
-                //todo if true -> login(switch scenes)
-            }else {
-                //todo if false -> throws error & notifi for incorrect password
+                //todo password validate
+                boolean check = auth_manager.verify_password(password,curr_user.getPassword(),curr_user.getSalt());
+
+                if (check){
+                    //todo if true -> login(switch scenes)
+                }else {
+                    //todo if false -> throws error & notifi for incorrect password
+                }
+
+
+            }catch (Exception e){
+                e.printStackTrace();
             }
-
-
-        }catch (Exception e){
-            e.printStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
     }
