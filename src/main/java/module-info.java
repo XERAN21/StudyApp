@@ -4,11 +4,8 @@ module com.ss.studysystem {
     requires java.sql;
     requires password4j;
     requires Java.WebSocket;
-    requires one.jpro.platform.mdfx;
     requires org.apache.commons.io;
     requires org.slf4j;
-    requires javafx.web;
-    requires org.fxmisc.richtext;
     requires org.apache.commons.imaging;
     requires java.desktop;
     requires net.sourceforge.plantuml;
@@ -35,8 +32,8 @@ module com.ss.studysystem {
     opens com.ss.studysystem.controller.to_do_list to javafx.fxml;
     exports com.ss.studysystem.controller.image_editor;
     opens com.ss.studysystem.controller.image_editor to javafx.fxml;
-    exports com.ss.studysystem.scrap;
-    opens com.ss.studysystem.scrap to javafx.fxml;
     exports com.ss.studysystem.UI.utils;
     opens com.ss.studysystem.UI.utils to java.desktop;
+    opens com.ss.studysystem.controller.event to javafx.fxml;
+    exports com.ss.studysystem.controller.event;
 }
