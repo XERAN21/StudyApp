@@ -1,30 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="281.0" prefWidth="600.0" style="-fx-border-radius: .5em; -fx-border-color: black; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Loading_screen">
+
+<StackPane prefHeight="280.0" prefWidth="600.0" style="-fx-border-color: black; -fx-background-radius: 1em; -fx-border-radius: 1em;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Loading_screen">
    <children>
-      <VBox layoutX="223.0" layoutY="112.0">
+      <GridPane style="-fx-padding: 10px; -fx-vgap: 5px;">
+         <columnConstraints>
+            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" />
+         </columnConstraints>
+         <rowConstraints>
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+            <RowConstraints minHeight="10.0" vgrow="SOMETIMES" />
+         </rowConstraints>
          <children>
-            <Label fx:id="label" text="Please Wait">
+            <Label fx:id="label" text="Please Wait" GridPane.halignment="CENTER" GridPane.valignment="BOTTOM">
                <font>
                   <Font name="Cascadia Mono Regular" size="24.0" />
                </font>
-               <VBox.margin>
-                  <Insets bottom="10.0" />
-               </VBox.margin>
             </Label>
-            <Circle fx:id="loading_circle" fill="#f3eef8" radius="20.0" stroke="BLACK" strokeType="OUTSIDE" style="-fx-stroke-dash-array: 10 10;">
-               <VBox.margin>
-                  <Insets left="60.0" />
-               </VBox.margin>
-            </Circle>
+            <Circle fx:id="loading_circle" fill="#f3eef8" radius="20.0" stroke="BLACK" strokeType="OUTSIDE" style="-fx-stroke-dash-array: 10 10;" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="TOP" />
          </children>
-      </VBox>
+      </GridPane>
    </children>
-</AnchorPane>
+</StackPane>
