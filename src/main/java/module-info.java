@@ -35,4 +35,6 @@ module com.ss.studysystem {
     opens com.ss.studysystem.controller.image_editor to javafx.fxml;
     exports com.ss.studysystem.UI.utils;
     opens com.ss.studysystem.UI.utils to java.desktop;
+    opens com.ss.studysystem.controller.event to javafx.fxml;
+    exports com.ss.studysystem.controller.event;
 }
