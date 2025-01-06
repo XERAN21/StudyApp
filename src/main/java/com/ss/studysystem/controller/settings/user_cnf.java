@@ -1,6 +1,7 @@
 package com.ss.studysystem.controller.settings;
 
 import com.ss.studysystem.Model.Gender;
+import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.misc.Theme;
 import javafx.scene.image.Image;
 
@@ -19,7 +20,8 @@ public class user_cnf {
     private static final String GENDER_KEY = "gender";
     private static final String THEME_KEY = "theme";
 
-    private String uid;
+    private Users user;
+    private int uid;
     private String username;
     private String password;
     private String email;
@@ -31,11 +33,19 @@ public class user_cnf {
     public user_cnf() {
     }
 
-    public String getUid() {
+    public Users getUser() {
+        return user;
+    }
+
+    public void setUser(Users user) {
+        this.user = user;
+    }
+
+    public int getUid() {
         return uid;
     }
 
-    public void setUid(String uid) {
+    public void setUid(int uid) {
         this.uid = uid;
     }
 
@@ -101,6 +111,8 @@ public class user_cnf {
         }
         return instance;
     }
+
+
 
     public void logout(){
         instance = null;
