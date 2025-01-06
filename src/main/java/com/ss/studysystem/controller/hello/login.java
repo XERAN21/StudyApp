@@ -3,10 +3,9 @@ package com.ss.studysystem.controller.hello;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.logic.switch_scene;
-import com.ss.studysystem.controller.login_error_message;
+import com.ss.studysystem.controller.error_handler.login_error_message;
 import com.ss.studysystem.database.async_service.exec_task;
 import com.ss.studysystem.database.controller.user_controller;
-import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -66,7 +65,7 @@ public class login {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/login_error_message.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/Error_msg/login_error_message.fxml"));
             Parent load_view = loader.load();
             login_error_message loginErrorMessage = loader.getController();
             Stage stage = modal_builder.build_fixed_modal((Stage) confirm.getScene().getWindow(), load_view, 385, 305);
