@@ -1,8 +1,11 @@
 package com.ss.studysystem.UI.logic;
 
+import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.config_position;
+import com.ss.studysystem.UI.misc.modal_animations;
 import com.ss.studysystem.UI.model.login_mdl;
 import com.ss.studysystem.UI.model.sign_up_mdl;
+import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -49,7 +52,7 @@ public class switch_scene {
 
                     signUpConfig.setRoot(root);
                     return root;
-                } catch (Exception ex){
+                } catch (Exception ex) {
                     logger.severe("Error while loading FXML files: " + ex.getMessage());
                     throw ex;
                 }
@@ -81,15 +84,33 @@ public class switch_scene {
 
         configureTask(loadSceneTask, event, mainStage,
                 () -> {
-            AnchorPane root = loadSceneTask.getValue();
-            Node node = root.getChildrenUnmodifiable().get(0);
-            config_position.center_node(mainStage, node);
+                    AnchorPane root = loadSceneTask.getValue();
+                    Node node = root.getChildrenUnmodifiable().get(0);
+                    config_position.center_node(mainStage, node);
 
-            Platform.runLater(() -> {
-                mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-                mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-            });
-        });
+                    Platform.runLater(() -> {
+                        mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+                        mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+                    });
+                });
+    }
+
+    public void switch_to_survey(ActionEvent event, Stage mainStage) {
+        try {
+
+
+            Task<Parent> loadSceneTask = new Task<>() {
+                @Override
+                protected Parent call() throws Exception {
+                    return loadFXML("/com/ss/studysystem/Fxml/fourinone.fxml");
+                }
+            };
+
+            configureTask(loadSceneTask, event, mainStage, null);
+
+        }catch (Exception e){
+            e.printStackTrace();
+        }
     }
 
 
@@ -106,8 +127,9 @@ public class switch_scene {
                 stage.setMinHeight(600);
                 stage.show();
 
-                onSuccessAction.run();
-                logger.info("Switched to sign-up scene.");
+                if (onSuccessAction != null)
+                    onSuccessAction.run();
+                logger.info("Switched");
             } catch (Exception ex) {
                 logger.log(Level.SEVERE, "Error while setting up the scene.", ex);
             }
@@ -129,7 +151,7 @@ public class switch_scene {
             throw new IllegalArgumentException("FXML file not found: " + resourcePath);
         }
 
-        logger.info("Successfully loaded sign-up scene.");
+        logger.info("Successfully loaded scene.");
         return new FXMLLoader(resource).load();
     }
 }

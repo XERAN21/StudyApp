@@ -1,6 +1,5 @@
 package com.ss.studysystem.UI.misc;
 
-import com.ss.studysystem.UI.utils.Font_size;
 import javafx.scene.text.*;
 
 import java.util.regex.Matcher;

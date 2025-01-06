@@ -1,17 +1,11 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.error_handler;
 
-import com.ss.studysystem.UI.components.modal_builder;
-import com.ss.studysystem.UI.layouts.chat_where_is_this;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
-import javafx.stage.Modality;
 import javafx.stage.Stage;
-import javafx.scene.Parent;
 
 public class login_error_message {
 

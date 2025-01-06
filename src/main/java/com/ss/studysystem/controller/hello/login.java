@@ -3,14 +3,16 @@ package com.ss.studysystem.controller.hello;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.logic.switch_scene;
-import com.ss.studysystem.auth.auth_manager;
-import com.ss.studysystem.controller.login_error_message;
+import com.ss.studysystem.controller.error_handler.login_error_message;
+import com.ss.studysystem.database.async_service.exec_task;
 import com.ss.studysystem.database.controller.user_controller;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
-import javafx.scene.control.*;
+import javafx.scene.control.Button;
+import javafx.scene.control.PasswordField;
+import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
 import java.util.regex.Pattern;
@@ -35,6 +37,7 @@ public class login {
     private TextField user_textfield;
 
     switch_scene switcher = new switch_scene();
+    exec_task exe = new exec_task();
 
     @FXML
     void initialize() {
@@ -62,12 +65,12 @@ public class login {
 
         try {
 
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/login_error_message.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/Error_msg/login_error_message.fxml"));
             Parent load_view = loader.load();
             login_error_message loginErrorMessage = loader.getController();
-            Stage stage = modal_builder.build_fixed_modal((Stage) confirm.getScene().getWindow(), load_view, 385,305);
+            Stage stage = modal_builder.build_fixed_modal((Stage) confirm.getScene().getWindow(), load_view, 385, 305);
 
-            if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()){
+            if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()) {
                 //todo popup error msg;
                 loginErrorMessage.setErrorMessage("Error occurred in the login process you need to fill in these blank");
                 stage.show();
@@ -77,36 +80,35 @@ public class login {
                 loginErrorMessage.setErrorMessage("Please fill username (or) email!");
                 stage.show();
                 return;
-            }else if(password == null || password.trim().isEmpty()){
+            } else if (password == null || password.trim().isEmpty()) {
                 loginErrorMessage.setErrorMessage("Please fill in password field!");
                 stage.show();
                 return;
-            }else{
-                //todo popupp error msg;
-                loginErrorMessage.setErrorMessage("An error in login form!");
-                stage.show();
             }
 
-            try{
-                if (isEmail(user_input)){
-                   curr_user =  user_controller.get_user_by_email(user_input);
-                }else {
-                    curr_user = user_controller.get_user_by_username(user_input);
-                }
+            try {
+                final Users[] user = new Users[1];
+                Runnable run_login = new Runnable() {
+                    @Override
+                    public void run() {
+                        user[0] = user_controller.login(user_input, password);
+                    }
+                };
 
-                if(curr_user == null) return; //todo throws error & notification
+                exe.set_on_result(result -> {
+                    if (result)
+                        if (user[0] == null) {
+                            System.out.println("FAIL");
+                        } else {
+                            System.out.println("SUCCESS");
+                        }
+                    else System.out.println("FAILED");
+                });
 
-                //todo password validate
-                boolean check = auth_manager.verify_password(password,curr_user.getPassword(),curr_user.getSalt());
-
-                if (check){
-                    //todo if true -> login(switch scenes)
-                }else {
-                    //todo if false -> throws error & notifi for incorrect password
-                }
+                exe.exec_database_task(run_login, "s", "f", event, (Stage) confirm.getScene().getWindow());
 
 
-            }catch (Exception e){
+            } catch (Exception e) {
                 e.printStackTrace();
             }
         } catch (Exception e) {
@@ -116,12 +118,12 @@ public class login {
     }
 
     //checking if user_input got email or username
-    public static boolean isEmail(String eamil){
+    public static boolean isEmail(String eamil) {
         return EMAIL_PATTERN.matcher(eamil).matches();
     }
 
     @FXML
-    void fn_forgot_password(ActionEvent event){
+    void fn_forgot_password(ActionEvent event) {
 
     }
 

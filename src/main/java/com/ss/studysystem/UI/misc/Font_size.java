@@ -1,4 +1,4 @@
-package com.ss.studysystem.UI.utils;
+package com.ss.studysystem.UI.misc;
 
 public enum Font_size {
     XS(8),
