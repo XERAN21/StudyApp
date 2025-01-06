@@ -2,7 +2,7 @@ package com.ss.studysystem.controller.chat;
 
 import com.ss.studysystem.Model.Chatter;
 import com.ss.studysystem.UI.misc.text_style_renderer;
-import com.ss.studysystem.UI.utils.Font_size;
+import com.ss.studysystem.UI.misc.Font_size;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.*;
