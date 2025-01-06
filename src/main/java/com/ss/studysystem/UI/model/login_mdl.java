@@ -5,9 +5,11 @@ import javafx.scene.image.Image;
 import javafx.scene.layout.Background;
 
 import java.io.File;
+import java.lang.ref.WeakReference;
 
 public class login_mdl {
 
+    private static WeakReference<login_mdl> weak_instance = new WeakReference<>(null);
     private static login_mdl instance;
 
     private Image image;

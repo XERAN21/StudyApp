@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox alignment="CENTER" prefHeight="543.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="CENTER" prefHeight="543.0" prefWidth="368.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.hello.sign_up">
    <children>
       <Label text="Sign Up" VBox.vgrow="ALWAYS">
          <font>
@@ -19,7 +19,7 @@
       </Label>
     <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="515.0" prefWidth="368.0" style="-fx-background-color: D18787; -fx-background-radius: 1.5em; -fx-border-color: black; -fx-border-radius: 1.5em;">
          <children>
-            <Button fx:id="sign_up" layoutX="21.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="325.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
+            <Button fx:id="next" layoutX="21.0" layoutY="420.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="325.0" style="-fx-background-color: #808000; -fx-border-color: black; -fx-border-radius: 0.5em; -fx-background-radius: 0.5em;" text="Next" textAlignment="CENTER" textFill="WHITE" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="23.0">
                <font>
                   <Font name="Monospaced Bold" size="16.0" />
                </font>
@@ -36,7 +36,7 @@
                               <Font name="Monospaced Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="41.0" prefWidth="337.0" promptText="Email address" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+                        <TextField fx:id="email" prefHeight="41.0" prefWidth="337.0" promptText="Email address" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
                            <font>
                               <Font name="Monospaced Regular" size="16.0" />
                            </font>
@@ -50,7 +50,7 @@
                               <Font name="Monospaced Bold" size="19.0" />
                            </font>
                         </Label>
-                        <TextField prefHeight="41.0" prefWidth="337.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+                        <TextField fx:id="username" prefHeight="41.0" prefWidth="337.0" promptText="Username" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
                            <font>
                               <Font name="Monospaced Regular" size="16.0" />
                            </font>
@@ -64,7 +64,7 @@
                               <Font name="Monospaced Bold" size="19.0" />
                            </font>
                         </Label>
-                        <PasswordField prefHeight="41.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+                        <PasswordField fx:id="password" prefHeight="41.0" promptText="Password" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>
@@ -78,7 +78,7 @@
                               <Font name="Monospaced Bold" size="19.0" />
                            </font>
                         </Label>
-                        <PasswordField prefHeight="41.0" promptText="Confirm Password" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
+                        <PasswordField fx:id="password_confirm" prefHeight="41.0" promptText="Confirm Password" style="-fx-border-color: black; -fx-background-radius: 0.5em; -fx-border-radius: 0.5em;">
                            <font>
                               <Font name="Monospaced Regular" size="13.0" />
                            </font>

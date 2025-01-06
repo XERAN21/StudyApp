@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane fx:id="root" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Profile.FinalProfileCtr">
+   <center>
+      <BorderPane fx:id="inner_border" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: white; -fx-border-color: white;" BorderPane.alignment="CENTER" />
+   </center>
+</BorderPane>

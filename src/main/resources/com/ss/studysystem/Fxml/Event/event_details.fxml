@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" prefHeight="150.0" prefWidth="600.0" style="-fx-background-radius: .5em; -fx-border-color: black; -fx-border-radius: .5em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.event.event_details">
+   <children>
+      <VBox layoutX="26.0" layoutY="32.0">
+         <children>
+            <StackPane prefHeight="20.0" prefWidth="52.0">
+               <children>
+                  <Circle fill="DODGERBLUE" radius="26.0" stroke="BLACK" strokeType="INSIDE" style="-fx-fill: F2ABAB;" />
+                  <Label fx:id="day" text="Mon" />
+               </children>
+            </StackPane>
+            <Label fx:id="date" text="Date">
+               <VBox.margin>
+                  <Insets top="20.0" />
+               </VBox.margin>
+               <font>
+                  <Font name="Cascadia Mono Regular" size="12.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+      <Label fx:id="exam_title" layoutX="266.0" layoutY="63.0" text="Exam_title">
+         <font>
+            <Font name="Cascadia Mono Regular" size="15.0" />
+         </font>
+      </Label>
+      <Label fx:id="class_name" layoutX="564.0" layoutY="122.0" text="Class_name" AnchorPane.rightAnchor="10.0">
+         <font>
+            <Font name="Cascadia Mono Regular" size="15.0" />
+         </font>
+      </Label>
+   </children>
+</AnchorPane>

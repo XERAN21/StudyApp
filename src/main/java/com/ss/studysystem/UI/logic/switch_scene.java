@@ -1,8 +1,11 @@
 package com.ss.studysystem.UI.logic;
 
+import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.config_position;
+import com.ss.studysystem.UI.misc.modal_animations;
 import com.ss.studysystem.UI.model.login_mdl;
-import com.ss.studysystem.UI.model.sign_up;
+import com.ss.studysystem.UI.model.sign_up_mdl;
+import javafx.animation.ParallelTransition;
 import javafx.application.Platform;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
@@ -26,8 +29,8 @@ public class switch_scene {
 
         logger.info("Loading sign-up FXML files...");
 
-        sign_up signUpConfig = sign_up.getInstance();
-        sign_up.Controller signUpController = signUpConfig.new Controller();
+        sign_up_mdl signUpConfig = sign_up_mdl.getWeakInstance();
+        sign_up_mdl.Controller signUpController = signUpConfig.new Controller();
 
         Task<HBox> loadSceneTask = new Task<>() {
             @Override
@@ -49,7 +52,7 @@ public class switch_scene {
 
                     signUpConfig.setRoot(root);
                     return root;
-                } catch (Exception ex){
+                } catch (Exception ex) {
                     logger.severe("Error while loading FXML files: " + ex.getMessage());
                     throw ex;
                 }
@@ -66,7 +69,7 @@ public class switch_scene {
         Task<AnchorPane> loadSceneTask = new Task<>() {
             @Override
             protected AnchorPane call() throws Exception {
-                Parent loginNode = loadFXML("/com/ss/studysystem/Fxml/login.fxml");
+                Parent loginNode = loadFXML("/com/ss/studysystem/Fxml/Entry_page/login.fxml");
 
                 Scene currentScene = mainStage.getScene();
                 AnchorPane root = new AnchorPane();
@@ -81,33 +84,33 @@ public class switch_scene {
 
         configureTask(loadSceneTask, event, mainStage,
                 () -> {
-            AnchorPane root = loadSceneTask.getValue();
-            Node node = root.getChildrenUnmodifiable().get(0);
-            config_position.center_node(mainStage, node);
+                    AnchorPane root = loadSceneTask.getValue();
+                    Node node = root.getChildrenUnmodifiable().get(0);
+                    config_position.center_node(mainStage, node);
 
-            Platform.runLater(() -> {
-                mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-                mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-            });
-        });
+                    Platform.runLater(() -> {
+                        mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+                        mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+                    });
+                });
     }
 
-    public void switchToHome(ActionEvent event, Stage mainStage) {
-        // Dispose of resources related to the current `sign_up` instance
-        sign_up signUpInstance = sign_up.getInstance();
-        if (signUpInstance != null) {
-            signUpInstance.dispose(); // Clean up sign-up resources
+    public void switch_to_survey(ActionEvent event, Stage mainStage) {
+        try {
+
+
+            Task<Parent> loadSceneTask = new Task<>() {
+                @Override
+                protected Parent call() throws Exception {
+                    return loadFXML("/com/ss/studysystem/Fxml/fourinone.fxml");
+                }
+            };
+
+            configureTask(loadSceneTask, event, mainStage, null);
+
+        }catch (Exception e){
+            e.printStackTrace();
         }
-
-        // Set up the new scene for the Home page
-        Parent root = new AnchorPane(); // Replace with your actual Home root layout
-        Scene scene = new Scene(root);
-
-        // Optionally, you can customize the new scene here (e.g., styles, dimensions, etc.)
-
-        // Switch to the new scene
-        mainStage.setScene(scene);
-        mainStage.show();
     }
 
 
@@ -124,8 +127,9 @@ public class switch_scene {
                 stage.setMinHeight(600);
                 stage.show();
 
-                onSuccessAction.run();
-                logger.info("Switched to sign-up scene.");
+                if (onSuccessAction != null)
+                    onSuccessAction.run();
+                logger.info("Switched");
             } catch (Exception ex) {
                 logger.log(Level.SEVERE, "Error while setting up the scene.", ex);
             }
@@ -147,7 +151,7 @@ public class switch_scene {
             throw new IllegalArgumentException("FXML file not found: " + resourcePath);
         }
 
-        logger.info("Successfully loaded sign-up scene.");
+        logger.info("Successfully loaded scene.");
         return new FXMLLoader(resource).load();
     }
 }

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="279.0" prefWidth="568.0" style="-fx-padding: 20px; -fx-spacing: 60px; -fx-background-color: #E6E8EB;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <HBox alignment="CENTER">
+         <children>
+            <Label text="Why are you gay">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Label>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" style="-fx-spacing: 80;">
+         <children>
+            <Button fx:id="light" mnemonicParsing="false" style="-fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Light">
+               <font>
+                  <Font name="Monospaced Bold" size="14.0" />
+               </font>
+            </Button>
+            <Button fx:id="dark" mnemonicParsing="false" prefHeight="27.0" prefWidth="63.0" style="-fx-background-color: black; -fx-border-color: black; -fx-background-radius: .5em; -fx-border-radius: .5em;" text="Dark" textFill="WHITE">
+               <font>
+                  <Font name="Monospaced Bold" size="14.0" />
+               </font>
+            </Button>
+         </children>
+      </HBox>
+   </children>
+</VBox>

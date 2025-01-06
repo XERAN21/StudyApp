@@ -5,8 +5,6 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.geometry.Pos;
 import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 
@@ -49,12 +47,12 @@ public class survey_controller {
 
         border_root.widthProperty().addListener((ob,ov,nv)->{
             System.out.println(nv.longValue());
-            if(nv.longValue() < 800
+            if(nv.longValue() < 900
                     && border_root.getChildren().contains(l_pane)
             && border_root.getChildren().contains(r_pane)){
                 border_root.getChildren().remove(l_pane);
                 border_root.getChildren().remove(r_pane);
-            }else if(nv.longValue() >= 800
+            }else if(nv.longValue() >= 900
                     && !border_root.getChildren().contains(l_pane)
                     && !border_root.getChildren().contains(r_pane)){
                  border_root.setLeft(l_pane);
@@ -65,7 +63,7 @@ public class survey_controller {
 
         try{
 
-            URL resource = getClass().getResource("/com/ss/studysystem/Fxml/survey/");
+            URL resource = getClass().getResource("/com/ss/studysystem/Fxml/Entry_page/survey/");
             if (resource == null) {
                 throw new IOException("Directory not found: /com/ss/studysystem/Fxml/survey");
             }
