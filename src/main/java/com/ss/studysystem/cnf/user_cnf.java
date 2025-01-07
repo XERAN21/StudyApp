@@ -1,9 +1,10 @@
-package com.ss.studysystem.controller.settings;
+package com.ss.studysystem.cnf;
 
-import com.ss.studysystem.Model.Gender;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.misc.Theme;
 import javafx.scene.image.Image;
+
+import java.util.prefs.Preferences;
 
 public class user_cnf {
 
@@ -112,7 +113,9 @@ public class user_cnf {
         return instance;
     }
 
-
+    public void save(Users user){
+        Preferences pref = Preferences.userRoot().node(PREFERENCE_NODE_NAME);
+    }
 
     public void logout(){
         instance = null;
