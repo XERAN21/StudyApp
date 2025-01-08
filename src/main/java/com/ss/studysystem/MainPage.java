@@ -1,34 +1,58 @@
 package com.ss.studysystem;
 
 import javafx.application.Application;
+import javafx.event.EventHandler;
+import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.MenuBar;
 import javafx.scene.control.MenuItem;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.GridPane;
+import javafx.scene.paint.Color;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
 import javafx.fxml.FXMLLoader;
+import javafx.stage.StageStyle;
+
+import java.net.URL;
 
 public class MainPage extends Application {
-    private GridPane root = new GridPane();
-    private final MenuBar mb = new MenuBar();
-    private final MenuItem home = new MenuItem("Home");
-    private final MenuItem solo_study = new MenuItem("Solo Study");
-    private final MenuItem group_study = new MenuItem("Group Study");
-    private final MenuItem Classroom = new MenuItem("Classroom");
-    private final MenuItem Leader_Board = new MenuItem("Leader Board");
-    private final MenuItem Study_Bot = new MenuItem("Study Bot");
-    private Label lb = new Label("Hi Username");
+
+    private double xOffset = 0;
+    private double yOffset = 0;
 
     @Override
-    public void start(Stage stage) throws Exception {
-        Scene sc = new Scene(root);
-        stage.setScene(sc);
-        stage.setTitle("Study App");
-        stage.show();
+    public void start(final Stage primaryStage) throws Exception {
 
-        root.getChildren().add(lb);
-        lb.setStyle("-fx-font-family: 'JetBrains Mono'; -fx-font-size: 14;");
+        URL path = getClass().getResource("/com/ss/studysystem/Fxml/startup/startup_loader.fxml");
+        FXMLLoader loader = new FXMLLoader(path);
+        Parent start_up = loader.load();
+
+        Scene sc = new Scene(start_up);
+        sc.setFill(Color.TRANSPARENT);
+
+        primaryStage.setScene(sc);
+        primaryStage.initStyle(StageStyle.TRANSPARENT);
+
+        primaryStage.setResizable(false);
+        primaryStage.show();
+
+        sc.setOnMousePressed(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                xOffset = event.getSceneX();
+                yOffset = event.getSceneY();
+            }
+        });
+
+        sc.setOnMouseDragged(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent event) {
+                primaryStage.setX(event.getScreenX() - xOffset);
+                primaryStage.setY(event.getScreenY() - yOffset);
+            }
+        });
 
     }
 }

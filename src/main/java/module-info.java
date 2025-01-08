@@ -7,8 +7,9 @@ module com.ss.studysystem {
     requires org.apache.commons.io;
     requires org.slf4j;
     requires org.apache.commons.imaging;
-    requires java.desktop;
     requires net.sourceforge.plantuml;
+    requires java.desktop;
+
 
     opens com.ss.studysystem.controller to javafx.fxml;
     exports com.ss.studysystem.controller;
