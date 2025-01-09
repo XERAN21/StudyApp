@@ -35,7 +35,7 @@ public class login_error_message {
         stage.close();
     }
 
-    public void setErrorMessage(String message){
+    public void set_ErrorMessage(String message){
        Platform.runLater(()-> error_message.setText(message));
     }
 }

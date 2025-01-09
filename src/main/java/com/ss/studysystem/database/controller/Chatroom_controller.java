@@ -147,5 +147,41 @@ public class Chatroom_controller {
     }
 
     //todo create method get_all_member
-}
+    public static List<Users> getAllMembers(int chatroomId){
+        String sql = "CALL Get_All_Members(?)";
+        List<Users> members = new ArrayList<>();
+
+        try (Connection con = DB_Connection.Get_Connection();
+             CallableStatement callableStatement = con.prepareCall(sql)) {
+
+            callableStatement.setInt(1, chatroomId);
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                Users user = new Users();
+                user.setId(resultSet.getInt("user_id"));
+                user.setUsername(resultSet.getString("username"));
+//                user.setProfile_img(resultSet.getBlob("profile_img"));
+                members.add(user);
+            }
+            return members;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+    }
+
+    public static void main(String[] args) {
+        int chatroomId = 1;
+        List<Users> members = getAllMembers(chatroomId);
+        if(members != null) {
+            for (Users user : members) {
+                System.out.println("User ID: " + user.getId());
+                System.out.println("Username: " + user.getUsername());
+                System.out.println("Profile Image: " + user.getProfile_img());
+            }
+        }else{
+                System.out.println("No members found or an error occurred.");
+            }
+        }
+    }
 

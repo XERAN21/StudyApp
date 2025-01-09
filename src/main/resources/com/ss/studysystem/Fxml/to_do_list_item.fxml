@@ -1,11 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.StackPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-
-<StackPane fx:id="stack_pane" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list_item">
+<StackPane fx:id="stack_pane" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list.to_do_list_item">
    <children>
       <GridPane fx:id="task_root" maxWidth="1.7976931348623157E308" style="-fx-padding: 15px; -fx-hgap: 8px;">
          <columnConstraints>
@@ -19,12 +25,18 @@
          <children>
             <VBox alignment="TOP_CENTER">
                <children>
-                  <CheckBox fx:id="check" alignment="TOP_LEFT" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" wrapText="true" />
+                  <CheckBox fx:id="check" alignment="TOP_LEFT" mnemonicParsing="false" scaleX="1.5" scaleY="1.5" stylesheets="@../css/checkbox.css" wrapText="true" />
                </children>
             </VBox>
             <VBox alignment="TOP_CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER">
                <children>
-                  <Button fx:id="delete" alignment="TOP_RIGHT" mnemonicParsing="false" text="DEL" />
+                  <Button fx:id="delete" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="26.0" prefWidth="44.0" style="-fx-background-color: #EF1111; -fx-background-radius: 15;" text="X">
+                     <font>
+                        <Font name="BM JUA OTF" size="16.0" />
+                     </font>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor></Button>
                </children>
             </VBox>
             <VBox fx:id="task_col" minWidth="100.0" prefWidth="352.0" GridPane.columnIndex="1" GridPane.halignment="LEFT" GridPane.hgrow="ALWAYS" GridPane.valignment="CENTER" GridPane.vgrow="ALWAYS">

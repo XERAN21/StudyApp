@@ -1,6 +1,5 @@
 package com.ss.studysystem.controller;
 
-import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
 import com.ss.studysystem.UI.misc.modal_animations;
 import javafx.animation.ParallelTransition;
@@ -29,11 +28,15 @@ public class create_and_join {
     @FXML
     private Button close;
 
-    private chat_where_is_this location;
+    private static chat_where_is_this location;
 
     public void setLocation(chat_where_is_this location) {
         this.location = location;
         Platform.runLater(()->placeholder.setText("Create " +location.getValue()));
+    }
+
+    public static chat_where_is_this getlocation(){
+        return location;
     }
 
     @FXML
@@ -54,26 +57,23 @@ public class create_and_join {
             Create_locationCG create_group_cnf = loader.getController();
             create_group_cnf.setLocation(location);
 
-
             Stage stage = (Stage) create.getScene().getWindow();
             Scene sc = new Scene(load_view,stage.getWidth(),stage.getHeight(), Color.TRANSPARENT);
             stage.setScene(sc);
-
         }catch (Exception e){
             e.printStackTrace();
         }
     }
-
+    //todo Complete Join function
     @FXML
     void Join(ActionEvent event){
-
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource(""));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/invi_code_join.fxml"));
             Parent load_view = loader.load();
 
-            Stage stage = modal_builder.build_fixed_modal((Stage) join.getScene().getWindow(), load_view, 400,400);
-            stage.show();
-
+            Stage stage = (Stage) join.getScene().getWindow();
+            Scene sc = new Scene(load_view, stage.getWidth(), stage.getHeight(), Color.TRANSPARENT);
+            stage.setScene(sc);
         }catch (Exception e){
             e.printStackTrace();
         }

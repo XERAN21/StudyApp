@@ -3,6 +3,7 @@ package com.ss.studysystem.controller.hello;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.logic.switch_scene;
+import com.ss.studysystem.cnf.user_cnf;
 import com.ss.studysystem.controller.error_handler.login_error_message;
 import com.ss.studysystem.database.async_service.exec_task;
 import com.ss.studysystem.database.controller.user_controller;
@@ -15,6 +16,7 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.stage.Stage;
 
+import java.util.concurrent.Callable;
 import java.util.regex.Pattern;
 
 public class login {
@@ -38,6 +40,7 @@ public class login {
 
     switch_scene switcher = new switch_scene();
     exec_task exe = new exec_task();
+    user_cnf user_pref = user_cnf.get_instance();
 
     @FXML
     void initialize() {
@@ -72,40 +75,45 @@ public class login {
 
             if (user_input == null || user_input.trim().isEmpty() && password == null || password.trim().isEmpty()) {
                 //todo popup error msg;
-                loginErrorMessage.setErrorMessage("Error occurred in the login process you need to fill in these blank");
+                loginErrorMessage.set_ErrorMessage("Error occurred in the login process you need to fill in these blank");
                 stage.show();
                 return;
             } else if (user_input == null || user_input.trim().isEmpty()) {
                 //todo popupp error msg;
-                loginErrorMessage.setErrorMessage("Please fill username (or) email!");
+                loginErrorMessage.set_ErrorMessage("Please fill username (or) email!");
                 stage.show();
                 return;
             } else if (password == null || password.trim().isEmpty()) {
-                loginErrorMessage.setErrorMessage("Please fill in password field!");
+                loginErrorMessage.set_ErrorMessage("Please fill in password field!");
                 stage.show();
                 return;
             }
 
+            Users[] user = new Users[1];
             try {
-                final Users[] user = new Users[1];
-                Runnable run_login = new Runnable() {
+                Callable<Users> call_login = new Callable<Users>() {
                     @Override
-                    public void run() {
+                    public Users call() throws Exception {
                         user[0] = user_controller.login(user_input, password);
+                        return user[0];
                     }
                 };
 
                 exe.set_on_result(result -> {
-                    if (result)
+                    if (result) {
                         if (user[0] == null) {
                             System.out.println("FAIL");
                         } else {
                             System.out.println("SUCCESS");
+                            user_pref.save(user[0]);
+                            switcher.switch_to_survey(event, (Stage) confirm.getScene().getWindow());
                         }
-                    else System.out.println("FAILED");
+                    } else {
+                        System.out.println("FAILED");
+                    }
                 });
 
-                exe.exec_database_task(run_login, "s", "f", event, (Stage) confirm.getScene().getWindow());
+                exe.exec_database_task(call_login, "Success Message", "Failure Message", event, (Stage) confirm.getScene().getWindow());
 
 
             } catch (Exception e) {
