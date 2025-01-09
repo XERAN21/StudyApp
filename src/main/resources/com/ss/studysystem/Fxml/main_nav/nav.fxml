@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+
+<VBox alignment="TOP_CENTER" style="-fx-background-color: F3EEF8; -fx-border-color: black; -fx-border-width: 0 0.5px 0 0; -fx-padding: 5 5 35 5; -fx-spacing: 10;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.main.main_nav">
+   <children>
+      <ImageView fx:id="nav_cat" fitHeight="72.0" fitWidth="63.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@../../images/cat_icon.png" />
+         </image>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </ImageView>
+      <Pane prefHeight="42.0" />
+      <Button fx:id="nav_home" mnemonicParsing="false" prefHeight="59.0" prefWidth="61.0" style="-fx-background-color: e9E0e9; -fx-background-radius: 2em;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/Home%20Icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip text="Home" />
+         </tooltip>
+      </Button>
+      <Button fx:id="nav_solo_study" layoutX="20.0" layoutY="167.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="61.0" style="-fx-background-color: e9E0e9; -fx-background-radius: 2em;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/Self%20Study%20Icon.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip text="Solo Study" />
+         </tooltip>
+      </Button>
+      <Button fx:id="nav_group" layoutX="20.0" layoutY="167.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="61.0" style="-fx-background-color: e9E0e9; -fx-background-radius: 2em;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/Group%20Study%20Discussion.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip text="Groups" />
+         </tooltip>
+      </Button>
+      <Button fx:id="nav_classroom" layoutX="20.0" layoutY="248.0" mnemonicParsing="false" prefHeight="59.0" prefWidth="61.0" style="-fx-background-color: e9E0e9; -fx-background-radius: 2em;">
+         <graphic>
+            <ImageView fitHeight="39.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/Classroom%20Desktop%20Computer.png" />
+               </image>
+            </ImageView>
+         </graphic>
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+         <tooltip>
+            <Tooltip text="Classrooms" />
+         </tooltip>
+      </Button>
+      <Pane VBox.vgrow="ALWAYS" />
+      <Circle fx:id="nav_profile" fill="DODGERBLUE" radius="28.0" stroke="BLACK" strokeType="INSIDE">
+         <cursor>
+            <Cursor fx:constant="HAND" />
+         </cursor>
+      </Circle>
+   </children>
+</VBox>
