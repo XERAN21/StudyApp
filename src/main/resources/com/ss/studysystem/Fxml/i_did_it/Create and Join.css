@@ -1,0 +1,8 @@
+#close_btn:hover{
+ -fx-background-color:#ff1f1f!important;
+}
+
+#btn:hover{
+ -fx-background-color:#9161ff !important;
+-fx-text-fill: white !important;
+}

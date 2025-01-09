@@ -1,0 +1,24 @@
+#male_btn:hover{
+    -fx-background-color:#3d47ff !important;
+    -fx-text-fill: white !important;
+}
+
+#female_btn:hover{
+    -fx-background-color:#ff2752 !important;
+    -fx-text-fill: white !important;
+}
+
+#none_btn:hover{
+    -fx-background-color:#fff426 !important;
+    
+}
+
+#back_btn:hover{
+    -fx-background-color:#37a042 !important;
+    -fx-text-fill: white !important;
+}
+
+#confirm_btn:hover{
+    -fx-background-color:#60bc0e !important;
+    -fx-text-fill: white !important;
+}

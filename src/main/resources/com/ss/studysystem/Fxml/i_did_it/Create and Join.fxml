@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="381.0" style="-fx-padding: 15px; -fx-border-color: black; -fx-border-radius: 0.5 em;" stylesheets="@Create%20and%20Join.css" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.create_and_join">
+   <children>
+      <HBox alignment="TOP_RIGHT" prefWidth="381.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Button id="close_btn" fx:id="close" mnemonicParsing="false" style="-fx-background-color: #D18787; -fx-text-fill: white; -fx-border-color: black; -fx-border-radius: 0.5 em;" text="x" />
+         </children>
+      </HBox>
+      <VBox prefHeight="119.0" prefWidth="429.0" VBox.vgrow="ALWAYS">
+         <children>
+            <Label fx:id="placeholder" alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="429.0" text="Create Placeholder">
+               <font>
+                  <Font name="Monospaced Bold" size="18.0" />
+               </font>
+            </Label>
+            <VBox alignment="CENTER">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <children>
+                  <Button id="btn" fx:id="create" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="289.0" style="-fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em; -fx-background-color: #E6E8EB;" text="Create">
+                     <font>
+                        <Font name="Monospaced Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+      <VBox prefHeight="119.0" prefWidth="429.0">
+         <children>
+            <VBox alignment="CENTER" VBox.vgrow="ALWAYS">
+               <VBox.margin>
+                  <Insets top="16.0" />
+               </VBox.margin>
+               <children>
+                  <Label alignment="CENTER" contentDisplay="CENTER" prefHeight="31.0" prefWidth="429.0" text="Have an Invite already">
+                     <font>
+                        <Font name="Monospaced Bold" size="18.0" />
+                     </font>
+                  </Label>
+                  <Button id="btn" fx:id="join" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" prefHeight="48.0" prefWidth="289.0" style="-fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em; -fx-background-color: #E6E8EB;" text="Join">
+                     <font>
+                        <Font name="Monospaced Bold" size="16.0" />
+                     </font>
+                  </Button>
+               </children>
+            </VBox>
+         </children>
+         <VBox.margin>
+            <Insets />
+         </VBox.margin>
+      </VBox>
+   </children>
+</VBox>

@@ -1,0 +1,9 @@
+#confirm:hover{
+    -fx-background-color:#2ac439 !important;
+    -fx-text-fill: white !important;
+   }
+
+   #btn:hover{
+    -fx-background-color:#2a50c4 !important;
+    -fx-text-fill: white !important;
+   }
