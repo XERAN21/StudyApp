@@ -1,7 +1,9 @@
 package com.ss.studysystem.controller.chat;
 
+import com.google.gson.Gson;
 import com.ss.studysystem.Model.Chatter;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.controller.chat.request.ChatBotRequest;
 import com.ss.studysystem.web.lumi_websocket;
 import javafx.fxml.FXML;
 import javafx.scene.Node;
@@ -42,7 +44,10 @@ public class ChatBoxCtrl {
             if (event.getCode() == KeyCode.ENTER && !event.isShiftDown()) {
                 String text = user_input.getText().strip();
                 if (!text.isEmpty()) {
-                    lumi_websocket.getInstance().sendMsg(text);
+                    Gson gson = new Gson();
+                    ChatBotRequest request = new ChatBotRequest("send_message", text, true);
+                    String jsonMessage = gson.toJson(request);
+                    lumi_websocket.getInstance().sendMsg(jsonMessage);
                     geo_guesser();
                     user_input.clear();
                     resetTextArea();
@@ -121,6 +126,7 @@ public class ChatBoxCtrl {
             chat_message_ww_img_ctrl msg_ctrl = loader.getController();
             msg_ctrl.set_messages(msg, null, Chatter.SELF);
             */
+
             user_input.clear();
             chat_bubble_gen abg = new chat_bubble_gen(); //todo change name (ABG stands for Asian .... Girl)
             this.current_bubble = abg.generate_chat_msg(who, msg);
