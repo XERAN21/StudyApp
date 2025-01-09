@@ -57,12 +57,7 @@ public class sign_up_details {
                         """, _user.getEmail(), _user.getUsername()
                 , _user.getPassword(), _user.getGender(), _user.getDob());
 
-        Runnable sign_up_task = new Runnable() {
-            @Override
-            public void run() {
-                auth_manager.add_new_user(_user);
-            }
-        };
+
         //todo move onto questionaries after database
 
         exe.set_on_result(result -> {
@@ -72,7 +67,9 @@ public class sign_up_details {
                     "" +
                     "");
         });
-        exe.exec_database_task(sign_up_task, "Success", "Failure", event, (Stage) confirm.getScene().getWindow());
+        exe.exec_database_task(()->                 auth_manager.add_new_user(_user),
+                "Success", "Failure",
+                event, (Stage) confirm.getScene().getWindow());
 
     }
 
