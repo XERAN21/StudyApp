@@ -1,11 +1,13 @@
 package com.ss.studysystem.controller.chat;
 
 import com.ss.studysystem.Model.Chatter;
-import com.ss.studysystem.UI.misc.text_style_renderer;
 import com.ss.studysystem.UI.misc.Font_size;
+import com.ss.studysystem.UI.misc.profile_pattern;
+import com.ss.studysystem.UI.misc.text_style_renderer;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.scene.layout.*;
+import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
@@ -40,6 +42,10 @@ public class chat_message_ww_img_ctrl {
 //        ImageView imageView = new ImageView(img);
 //        imageView.setFitWidth(300);
 //        imageView.setPreserveRatio(true);
+
+        File inputFile = new File("/Users/thantzinlin/Downloads/outout.png");
+        ImagePattern pt = profile_pattern.generate_profile_image(inputFile);
+        profile_image.setFill(pt);
 
 
     }

@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Text?>
 <?import javafx.scene.text.TextFlow?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.login_error_message">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.error_handler.login_error_message">
    <children>
       <Button fx:id="close" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-background-color: #FCDF78; -fx-border-color: black; -fx-border-radius: 25em; -fx-background-radius: 25em;">
          <VBox.margin>

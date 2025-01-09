@@ -46,6 +46,10 @@ public class Change_password_controller {
 
     @FXML
     void com(ActionEvent event) {
+        String cur_pass = current.getText();
+        String npass = new_pass.getText();
+        String cpass = com_pass.getText();
+
 
     }
 
@@ -56,6 +60,7 @@ public class Change_password_controller {
 
     @FXML
     void cur_pass(ActionEvent event) {
+
 
     }
 

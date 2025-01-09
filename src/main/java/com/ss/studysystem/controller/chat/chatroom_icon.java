@@ -1,4 +1,4 @@
-package com.ss.studysystem.controller;
+package com.ss.studysystem.controller.chat;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -9,7 +9,7 @@ import javafx.stage.Stage;
 import javafx.event.ActionEvent;
 import javafx.scene.Parent;
 
-public class Classroom {
+public class chatroom_icon {
 
     @FXML
     private ToggleButton classroom;
@@ -19,14 +19,14 @@ public class Classroom {
 
     @FXML
     void initialize(){
-        classroom.setOnAction(this::enterClassroom);
-        create_classroom.setOnAction(this::createClassroom);
+        classroom.setOnAction(this::enter_chatroom);
+        create_classroom.setOnAction(this::add_Chatroom);
     }
 
     @FXML
-    void enterClassroom(ActionEvent event){
+    void enter_chatroom(ActionEvent event){
         try{
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/classroom_view.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/chat_is_this_real/chat_real.fxml"));
             Parent root = loader.load();
             Stage stage = new Stage();
             stage.setTitle("Classroom");
@@ -38,7 +38,7 @@ public class Classroom {
     }
 
     @FXML
-    void createClassroom(ActionEvent event){
+    void add_Chatroom(ActionEvent event){
         try{
             System.out.println("Classroom created!");
 
