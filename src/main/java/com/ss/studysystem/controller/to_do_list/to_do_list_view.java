@@ -5,6 +5,7 @@ import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.Model.Users;
 import com.ss.studysystem.UI.layouts.status_indicators;
 import com.ss.studysystem.UI.utils.indicator_animation;
+import com.ss.studysystem.cnf.user_cnf;
 import com.ss.studysystem.database.async_service.Operation;
 import com.ss.studysystem.database.async_service.to_do_list_async;
 import javafx.application.Platform;
@@ -40,10 +41,15 @@ public class to_do_list_view {
     private TextArea new_task_field;
 
     private indicator_animation iani = new indicator_animation();
+    private user_cnf user = user_cnf.get_instance();
 
     @FXML
-    void initialze() {
+    void initialize() {
         //todo
+        URL path = getClass().getResource("/com/ss/studysystem/css/scroll_round.css");
+        if (path != null)
+            list_root.getStylesheets().add(path.toExternalForm());
+
     }
 
     //todo async load user tasks
@@ -62,7 +68,8 @@ public class to_do_list_view {
 
             //Database controller logic
 
-            int uid = 1; //todo change this later
+            user.load();
+            int uid = user.getUser().getId(); //todo change this later
 
             Frequency freq = to_do_list.getCurrent_freq();
 
@@ -85,12 +92,12 @@ public class to_do_list_view {
             Node td_item = generate_to_do_item(toDoList, status_indicators.PROGRESS);
             append_node(td_item, status_indicators.PROGRESS);
 
-            tdl_service.setOnSucceeded(state_event->{
+            tdl_service.setOnSucceeded(state_event -> {
                 Boolean success = tdl_service.getValue();
-                if(success){
+                if (success) {
                     update_node(td_item, status_indicators.SUCCESS);
                     toDoList.setTo_do_list(inserted_id[0]);
-                }else{
+                } else {
                     update_node(td_item, status_indicators.FAILURE);
                     td_item.setStyle("-fx-background-color: #ed1a1a;");
                 }
@@ -117,8 +124,8 @@ public class to_do_list_view {
         this.Day.setText(day.getValue());
     }
 
-    public Node generate_to_do_item(To_Do_List toDoList, status_indicators type){
-        try{
+    public Node generate_to_do_item(To_Do_List toDoList, status_indicators type) {
+        try {
             URL item_path = getClass().getResource("/com/ss/studysystem/Fxml/to_do_list_item.fxml");
             FXMLLoader item_loader = new FXMLLoader(item_path);
             Node item = item_loader.load();
@@ -132,7 +139,7 @@ public class to_do_list_view {
             Platform.runLater(() -> iani.animate_light_effect(tdl_ctrl.getStack_pane(), type));
 
             return item;
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
             return new Text(e.toString());
         }
@@ -161,7 +168,7 @@ public class to_do_list_view {
         }
     }
 
-    public void update_node(Node item, status_indicators type){
+    public void update_node(Node item, status_indicators type) {
         Platform.runLater(() -> iani.animate_light_effect((StackPane) item, type));
     }
 

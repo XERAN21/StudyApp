@@ -4,6 +4,7 @@ import com.ss.studysystem.Model.Frequency;
 import com.ss.studysystem.Model.To_Do_List;
 import com.ss.studysystem.UI.layouts.status_indicators;
 import com.ss.studysystem.UI.model.to_do_task;
+import com.ss.studysystem.cnf.user_cnf;
 import com.ss.studysystem.database.controller.to_do_list_controller;
 import javafx.concurrent.Service;
 import javafx.concurrent.Task;
@@ -77,6 +78,7 @@ public class to_do_list {
 
     private to_do_task to_do_config = to_do_task.getWeakInstance();
     private Map<Frequency, Node> task_day = to_do_config.getTask_days();
+    private user_cnf user = user_cnf.get_instance();
 
     private GridPane grid = new GridPane();
     int row_count = 0;
@@ -265,10 +267,11 @@ public class to_do_list {
     Service<List<To_Do_List>> service_tdl = new Service<>() {
         @Override
         protected Task<List<To_Do_List>> createTask() {
+            user.load();
             return new Task<>() {
                 @Override
                 protected List<To_Do_List> call() throws Exception {
-                    return to_do_list_controller.get_to_do_list(1); //todo dyn uid
+                    return to_do_list_controller.get_to_do_list(user.getUser().getId()); //todo dyn uid
                 }
             };
         }

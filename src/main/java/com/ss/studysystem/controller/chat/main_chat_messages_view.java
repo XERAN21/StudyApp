@@ -20,7 +20,7 @@ import javafx.util.Duration;
 import java.io.IOException;
 import java.net.URL;
 
-public class PleaseProvideControllerClassName implements message_handler {
+public class main_chat_messages_view implements message_handler {
 
 //    @FXML
 //    private VBox chat_viewer;
@@ -45,6 +45,11 @@ public class PleaseProvideControllerClassName implements message_handler {
         //todo async load messages from database
         //todo load_msg method -> create nodes, the following code below
         //todo websocket real time add node on pane type shit idk
+
+        URL path = getClass().getResource("/com/ss/studysystem/css/scroll_round.css");
+        if (path != null)
+            chat_scroll.getStylesheets().add(path.toExternalForm());
+
 
         chat_viewer.getChildren().addListener((javafx.collections.ListChangeListener<? super Node>) change -> {
             if(chat_scroll.getVvalue() >= 0.5) {

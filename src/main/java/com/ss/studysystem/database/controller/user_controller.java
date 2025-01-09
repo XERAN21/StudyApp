@@ -87,7 +87,7 @@ public class user_controller {
                         current_user.setStudy_hour(resultSet.getInt("total_study_hours"));
                         current_user.setGender(Gender.valueOf(resultSet.getString("gender").toUpperCase()));
                         current_user.setEmail(resultSet.getString("email"));
-                        current_user.setPassword(resultSet.getString("password"));
+                        current_user.setPassword(password);
                         current_user.setSalt(resultSet.getString("salt"));
                         current_user.setDob(resultSet.getDate("dob").toLocalDate());
                         current_user.setFile_patch(resultSet.getString("file_path"));

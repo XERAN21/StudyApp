@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<ScrollPane fx:id="list_root" fitToHeight="true" fitToWidth="true" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list_view">
+<ScrollPane fx:id="list_root" fitToHeight="true" fitToWidth="true" prefWidth="500.0" style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list.to_do_list_view">
    <content>
       <VBox alignment="TOP_CENTER" style="-fx-background-color: #F3EEF8;">
          <children>

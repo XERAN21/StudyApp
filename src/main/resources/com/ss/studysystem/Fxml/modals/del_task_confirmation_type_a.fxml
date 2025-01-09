@@ -11,7 +11,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="447.0" style="-fx-padding: 20px; -fx-spacing: 15px; -fx-border-color: black; -fx-background-radius: 1.5em; -fx-border-radius: 1.5em; -fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.del_task_controller">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="248.0" prefWidth="447.0" style="-fx-padding: 20px; -fx-spacing: 15px; -fx-border-color: black; -fx-background-radius: 1.5em; -fx-border-radius: 1.5em; -fx-background-color: #fefefe;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.to_do_list.del_task_controller">
    <children>
       <Label text="Delete Task" textFill="#f44336">
          <font>
