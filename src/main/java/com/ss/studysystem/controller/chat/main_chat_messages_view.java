@@ -1,5 +1,7 @@
 package com.ss.studysystem.controller.chat;
 
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import com.ss.studysystem.Model.Chatter;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
 import com.ss.studysystem.web.lumi_websocket;
@@ -36,7 +38,6 @@ public class main_chat_messages_view implements message_handler {
 
     int row = 0;
 
-
     @FXML
     void initialize() throws IOException {
 
@@ -52,7 +53,7 @@ public class main_chat_messages_view implements message_handler {
 
 
         chat_viewer.getChildren().addListener((javafx.collections.ListChangeListener<? super Node>) change -> {
-            if(chat_scroll.getVvalue() >= 0.5) {
+            if (chat_scroll.getVvalue() >= 0.5) {
                 while (change.next()) {
                     if (change.wasAdded()) {
                         Platform.runLater(this::smoothScrollToBottom);
@@ -94,8 +95,27 @@ public class main_chat_messages_view implements message_handler {
     }
 
     @Override
-    public void handleMessage(String message) {
+    public void handleMessage(String payload) {
         chat_bubble_gen cbg = new chat_bubble_gen();
+        String message = "Invalid message format";
+        try {
+            String uid;
+            JsonObject jsonObject = JsonParser.parseString(payload).getAsJsonObject();
+            if (jsonObject.has("uid")) {
+                uid = jsonObject.get("uid").getAsString();
+            }
+
+            if (jsonObject.has("reply")) {
+                message = jsonObject.get("reply").getAsString();
+            } else if (jsonObject.has("message")) {
+                message = jsonObject.get("message").getAsString();
+            }
+
+        } catch (Exception e) {
+            System.err.println("Error parsing JSON: " + e.getMessage());
+        }
+
+
         Node reply = cbg.generate_chat_msg(Chatter.SENDER, message);
         chat_viewer.add(reply, 0, row++);
     }

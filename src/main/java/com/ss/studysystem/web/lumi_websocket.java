@@ -1,5 +1,9 @@
 package com.ss.studysystem.web;
 
+import com.google.gson.Gson;
+import com.google.gson.JsonObject;
+import com.ss.studysystem.controller.chat.request.ChatBotRequest;
+import com.ss.studysystem.web.request.request_type;
 import javafx.application.Platform;
 import org.java_websocket.client.WebSocketClient;
 import org.java_websocket.handshake.ServerHandshake;
@@ -37,7 +41,7 @@ public class lumi_websocket {
         }
 
         String ip = "0.0.0.0";
-        String serverUri = String.format("ws://%s:6789",ip);
+        String serverUri = String.format("ws://%s:6789", ip);
         connectWebSocket(serverUri);
     }
 
@@ -68,6 +72,7 @@ public class lumi_websocket {
                 public void onError(Exception ex) {
                     System.out.println("WebSocket error: " + ex.getMessage());
                 }
+
             };
 
             webSocketClient.connect();
@@ -90,4 +95,35 @@ public class lumi_websocket {
             System.out.println("Sent: " + msg);
         }
     }
+
+    public void use_bot(String roomCode) {
+        System.out.println("r");
+        if (webSocketClient != null && webSocketClient.isOpen()) {
+            JsonObject joinMessage = new JsonObject();
+            joinMessage.addProperty("action", "join_room");
+            joinMessage.addProperty("room_code", roomCode);
+
+            webSocketClient.send(joinMessage.toString());
+            System.out.println("Sent: " + joinMessage.toString());
+        }
+    }
+
+    public void create_room(String roomCode) {
+        System.out.println("c");
+        if (webSocketClient != null && webSocketClient.isOpen()) {
+            use_bot(roomCode);
+            Gson gson = new Gson();
+            request_type request = new request_type("create_room", roomCode);
+            String jsonMessage = gson.toJson(request);
+//            JsonObject create_msg = new JsonObject();
+//            create_msg.addProperty("action", "create_room");
+//            create_msg.addProperty("room_name", roomCode);
+
+            System.out.println("Sent: " + request);
+            webSocketClient.send(jsonMessage);
+
+
+        }
+    }
+
 }
