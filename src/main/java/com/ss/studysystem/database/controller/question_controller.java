@@ -109,9 +109,8 @@ public class question_controller {
         }
     }
 
-    //todo testing
+    //todo testing DONE!
 
-//    public class Main {
 //        public static void main(String[] args) {
 //            // Create a new question
 //            Questions newQuestion = new Questions();
@@ -140,7 +139,6 @@ public class question_controller {
 //            boolean isQuestionDeleted = question_controller.delete_question(newQuestion.getId());
 //            System.out.println("Question deleted: " + isQuestionDeleted);
 //        }
-//    }
 }
 
 
