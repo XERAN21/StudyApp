@@ -1,11 +1,9 @@
 package com.ss.studysystem.database.controller;
 
 import com.ss.studysystem.Model.*;
-
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
-import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -83,7 +81,7 @@ public class classroom_controller {
     }
 
     //todo finish this controller
-    public static boolean join_classroom(int invitation_code){
+    public static boolean join_classroom(int invitation_code) {
         return true;
     }
 
@@ -125,7 +123,6 @@ public class classroom_controller {
         }
         return member_list;
     }
-
 
 
     public static boolean upload_file(Files files) {
@@ -211,6 +208,34 @@ public class classroom_controller {
             }
 
             return classrooms;
+        } catch (SQLException e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public static List<Classrooms> get_owned_classrooms(int user_id) {
+        String sql = "SELECT * FROM classrooms where created_by = ?";
+        List<Classrooms> list_classrooms = new ArrayList<>();
+        try (Connection connection = DB_Connection.Get_Connection();
+             PreparedStatement callableStatement = connection.prepareCall(sql)) {
+
+            callableStatement.setInt(1, user_id);
+
+            ResultSet resultSet = callableStatement.executeQuery();
+            while (resultSet.next()) {
+                Classrooms classrooms = new Classrooms();
+                classrooms.setId(resultSet.getInt("classroom_id"));
+                classrooms.setName(resultSet.getString("name"));
+                classrooms.setDescription(resultSet.getString("description"));
+                classrooms.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
+                classrooms.set_archived(resultSet.getBoolean("is_archived"));
+
+                list_classrooms.add(classrooms);
+            }
+            callableStatement.close();
+            resultSet.close();
+            return list_classrooms;
         } catch (SQLException e) {
             e.printStackTrace();
             return null;

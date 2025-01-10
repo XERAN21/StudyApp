@@ -1,0 +1,23 @@
+.scroll-pane {
+    -fx-background-color: transparent; /* Make the background transparent */
+    -fx-border-radius: 15; /* Rounded border */
+    -fx-background-radius: 15; /* Rounded background */
+    -fx-padding: 5; /* Optional padding */
+    -fx-border-width: 2; /* Border thickness */
+}
+
+.scroll-pane .viewport {
+    -fx-background-color: white; /* Background color inside the scrollpane */
+    -fx-background-radius: 15; /* Keep the background rounded */
+    -fx-padding: 10; /* Optional padding for inner content */
+}
+
+.scroll-bar:vertical,
+.scroll-bar:horizontal {
+    -fx-background-color: transparent; /* Remove scroll bar background (optional) */
+}
+
+.scroll-bar .thumb {
+    -fx-background-color: #3498db; /* Scroll bar thumb color */
+    -fx-background-radius: 5; /* Rounded thumb */
+}

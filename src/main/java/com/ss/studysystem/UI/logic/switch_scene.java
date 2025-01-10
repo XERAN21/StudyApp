@@ -37,8 +37,11 @@ public class switch_scene {
             protected HBox call() throws Exception {
 
                 try {
-                    signUpConfig.setSignInNode(loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/sign_up.fxml").toString()));
-                    signUpConfig.setDetailsNode(loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/sign_up_details.fxml").toString()));
+                    URL s1 = getClass().getResource("/com/ss/studysystem/Fxml/sign_up.fxml").toURI().toURL();
+                    URL s2 = getClass().getResource("/com/ss/studysystem/Fxml/sign_up_details.fxml").toURI().toURL();
+
+                    signUpConfig.setSignInNode(loadFXML(s1));
+                    signUpConfig.setDetailsNode(loadFXML(s2));
 
                     signUpConfig.setCurrentNode(signUpConfig.getSignInNode());
 
@@ -69,7 +72,9 @@ public class switch_scene {
         Task<HBox> loadSceneTask = new Task<>() {
             @Override
             protected HBox call() throws Exception {
-                Parent loginNode = loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/Entry_page/login.fxml").toString());
+                URL p = getClass().getResource("/com/ss/studysystem/Fxml/Entry_page/login.fxml").toURI().toURL();
+                System.out.println(p.toString());
+                Parent loginNode = loadFXML(p);
 
                 Scene currentScene = mainStage.getScene();
                 HBox root = new HBox();
@@ -114,7 +119,8 @@ public class switch_scene {
             Task<Parent> loadSceneTask = new Task<>() {
                 @Override
                 protected Parent call() throws Exception {
-                    return loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/fourinone.fxml").toString());
+                    URL surv = getClass().getResource("/com/ss/studysystem/Fxml/fourinone.fxml").toURI().toURL();
+                    return loadFXML(surv);
                 }
             };
 
@@ -287,10 +293,9 @@ public class switch_scene {
         thread.start();
     }
 
-    private Parent loadFXML(String resourcePath) throws Exception {
-        URL resource = getClass().getResource(resourcePath);
+    private Parent loadFXML(URL resource) throws Exception {
         if (resource == null) {
-            throw new IllegalArgumentException("FXML file not found: " + resourcePath);
+            throw new IllegalArgumentException("FXML file not found: " + resource.toString());
         }
 
         logger.info("Successfully loaded scene.");

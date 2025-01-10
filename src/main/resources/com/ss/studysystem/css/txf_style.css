@@ -1,0 +1,29 @@
+#text_field {
+    -fx-background-color: transparent; /* No background, blends with VBox */
+    -fx-border-color: transparent;    /* No border by default */
+    -fx-border-width: 0;              /* No border width */
+    -fx-padding: 5;                   /* Adds spacing inside the text field */
+    -fx-font-size: 14px;              /* Modern font size */
+    -fx-font-family: "Arial", sans-serif; /* Minimalistic font family */
+    -fx-text-fill: #333333;           /* Text color - dark gray for good contrast */
+}
+
+#text_field:focused {
+    -fx-border-color: #0078D7;        /* Subtle blue border on focus */
+    -fx-border-width: 0 0 2px 0;      /* Only bottom border */
+    -fx-background-color: transparent;
+    -fx-text-fill: #000000;           /* Darker text color for focus state */
+}
+
+#text_field:hover {
+    -fx-border-color: #B3B3B3;        /* Light gray border on hover */
+    -fx-border-width: 0 0 1px 0;      /* Thin bottom border on hover */
+}
+
+#reset:hover{
+ -fx-background-color: #FFB1A3!important;
+}
+
+#save:hover{
+ -fx-background-color: #A0A001!important;
+}

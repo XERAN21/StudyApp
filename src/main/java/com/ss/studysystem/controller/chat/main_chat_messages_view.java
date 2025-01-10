@@ -38,6 +38,17 @@ public class main_chat_messages_view implements message_handler {
 
     int row = 0;
 
+    private chat_where_is_this where_am_i;
+
+    public chat_where_is_this getWhere_am_i() { return where_am_i;
+    }
+
+    public void setWhere_am_i(chat_where_is_this where_am_i) {
+        this.where_am_i = where_am_i;
+        System.out.println("where_am_i set to: " + this.where_am_i);
+
+    }
+
     @FXML
     void initialize() throws IOException {
 
@@ -66,7 +77,8 @@ public class main_chat_messages_view implements message_handler {
         FXMLLoader input = new FXMLLoader(user_input);
         Node textbox = input.load();
         ChatBoxCtrl cbt = input.getController();
-        cbt.setPlace(chat_where_is_this.CHAT);
+
+       Platform.runLater(()-> cbt.setPlace(where_am_i));
 
         cbt.set_on_result(result -> {
             Platform.runLater(() -> {
@@ -98,17 +110,31 @@ public class main_chat_messages_view implements message_handler {
     public void handleMessage(String payload) {
         chat_bubble_gen cbg = new chat_bubble_gen();
         String message = "Invalid message format";
+        System.out.println("HANDLING");
         try {
             String uid;
             JsonObject jsonObject = JsonParser.parseString(payload).getAsJsonObject();
+
             if (jsonObject.has("uid")) {
+                System.out.println("getting uid");
                 uid = jsonObject.get("uid").getAsString();
             }
 
             if (jsonObject.has("reply")) {
+
+                System.out.println("rc");
                 message = jsonObject.get("reply").getAsString();
+
             } else if (jsonObject.has("message")) {
+
+                System.out.println("msg");
                 message = jsonObject.get("message").getAsString();
+
+            }else if(jsonObject.has("room_code")){
+
+                System.out.println("rc");
+                message = jsonObject.get("room_code").getAsString();
+
             }
 
         } catch (Exception e) {

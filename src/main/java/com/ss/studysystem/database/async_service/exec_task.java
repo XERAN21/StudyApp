@@ -3,11 +3,13 @@ package com.ss.studysystem.database.async_service;
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.misc.modal_animations;
 import javafx.animation.ParallelTransition;
+import javafx.animation.PauseTransition;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
+import javafx.util.Duration;
 
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
@@ -28,6 +30,7 @@ public class exec_task {
     public Consumer<Boolean> getOn_result() {
         return on_result;
     }
+
     public Consumer<Object> get_on_object() {
         return on_object;
     }
@@ -42,10 +45,12 @@ public class exec_task {
         //todo dims the mainstage
         try {
 
+            PauseTransition pause = new PauseTransition(Duration.millis(150));
+
             FXMLLoader fx_spinner = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/loading_screen.fxml"));
             Parent parent_spinner = fx_spinner.load();
             this.loader = modal_builder.build_fixed_modal(st, parent_spinner);
-
+            pause.setOnFinished(f->close_loader());
             Task<T> loadSceneTask = new Task<>() {
                 @Override
                 protected T call() throws Exception {
@@ -67,10 +72,10 @@ public class exec_task {
                     //todo remove dim, show notification, remove loading screen
                     System.out.println(successMessage);
 
-                    close_loader();
+                    pause.play();
                     T result = loadSceneTask.getValue();
                     if (on_result != null) {
-                        if(result != null) on_result.accept(true);
+                        if (result != null) on_result.accept(true);
                         else on_result.accept(false);
                     }
                 } catch (Exception ex) {
@@ -82,7 +87,7 @@ public class exec_task {
                 try {
                     //todo remove dim, show notification, remove loading screen
                     System.out.println(failureMessage);
-                    close_loader();
+                    pause.play();
                     if (on_result != null) {
                         on_result.accept(false);
                     }
@@ -128,7 +133,7 @@ public class exec_task {
                 System.out.println(successMessage);
                 T result = loadSceneTask.getValue();
                 if (on_result != null) {
-                    if(result != null) on_result.accept(true);
+                    if (result != null) on_result.accept(true);
                     else on_result.accept(false);
                 }
 

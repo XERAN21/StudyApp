@@ -3,6 +3,7 @@ package com.ss.studysystem.controller.chat;
 import com.google.gson.Gson;
 import com.ss.studysystem.Model.Chatter;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.cnf.user_cnf;
 import com.ss.studysystem.controller.chat.request.ChatBotRequest;
 import com.ss.studysystem.web.lumi_websocket;
 import javafx.fxml.FXML;
@@ -29,11 +30,14 @@ public class ChatBoxCtrl {
 
     private chat_where_is_this place;
 
+
     private Node current_bubble;
+
+    user_cnf user = user_cnf.get_instance();
 
     @FXML
     void initialize() {
-
+        user.load();
         send.setOnAction(event -> geo_guesser());
 
         user_input.textProperty().addListener((observable, oldValue, newValue) -> resizeTextArea());
@@ -44,8 +48,13 @@ public class ChatBoxCtrl {
                 if (!text.isEmpty()) {
                     Gson gson = new Gson();
 
-                    ChatBotRequest request = new ChatBotRequest("send_message", text,
-                            place.equals(chat_where_is_this.BOT));
+                    System.out.println(place);
+                    boolean bot = place.equals(chat_where_is_this.BOT);
+
+                    ChatBotRequest request = new ChatBotRequest("send_message",
+                            user.getUser().getId()+"", text,
+                            bot);
+
                     String jsonMessage = gson.toJson(request);
                     lumi_websocket.getInstance().sendMsg(jsonMessage);
                     geo_guesser();
@@ -75,6 +84,7 @@ public class ChatBoxCtrl {
 
     public void setPlace(chat_where_is_this place) {
         this.place = place;
+
     }
 
     public Node getCurrent_bubble() {

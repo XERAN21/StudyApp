@@ -8,9 +8,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="449.0" style="-fx-padding: 20; -fx-spacing: 5; -fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="249.0" prefWidth="449.0" style="-fx-padding: 20; -fx-spacing: 5; -fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.join_location">
    <children>
-      <VBox prefHeight="78.0" prefWidth="497.0" style="-fx-padding: 20px 15px;">
+      <VBox prefHeight="347.0" prefWidth="407.0" style="-fx-padding: 20px 15px; -fx-spacing: 15;" VBox.vgrow="ALWAYS">
          <children>
             <Label alignment="TOP_CENTER" prefHeight="45.0" text="Enter Code">
                <font>
@@ -20,7 +20,7 @@
                   <Insets />
                </VBox.margin>
             </Label>
-            <TextField prefHeight="27.0" prefWidth="282.0" style="-fx-border-color: black; -fx-border-radius: 1em;" />
+            <TextField fx:id="input_field" prefHeight="48.0" prefWidth="377.0" style="-fx-border-color: black; -fx-border-radius: 1em;" />
          </children>
          <padding>
             <Insets top="20.0" />
@@ -31,12 +31,12 @@
       </VBox>
       <HBox alignment="CENTER" prefHeight="40.0" prefWidth="457.0" style="-fx-spacing: 40px;">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: #D18787; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Cancel">
+            <Button fx:id="cancle_btn" mnemonicParsing="false" style="-fx-background-color: #D18787; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Cancel">
                <font>
                   <Font size="15.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="81.0" style="-fx-background-color: #8ABFFF; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Confirm">
+            <Button fx:id="confirm_btn" mnemonicParsing="false" prefHeight="22.0" prefWidth="81.0" style="-fx-background-color: #8ABFFF; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Confirm">
                <font>
                   <Font size="15.0" />
                </font>

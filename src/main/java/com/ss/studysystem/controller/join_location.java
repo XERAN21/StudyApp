@@ -2,6 +2,8 @@ package com.ss.studysystem.controller;
 
 import com.ss.studysystem.Model.*;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
+import com.ss.studysystem.cnf.user_cnf;
+import com.ss.studysystem.web.lumi_websocket;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,12 +28,14 @@ public class join_location {
 
     String invi_code = input_field.getText();
     chat_where_is_this location = create_and_join.getlocation();
+    user_cnf user = user_cnf.get_instance();
 
     @FXML
     void initialize(){
         System.out.println("Input Field: " + input_field);
         cancle_btn.setOnAction(this::close);
         confirm_btn.setOnAction(this::confirm);
+        user.load();
     }
 
     @FXML
@@ -74,24 +78,26 @@ public class join_location {
         }
     }
 
-    public boolean join_chatroom(){
-        Chatroom_invite chat_invite = new Chatroom_invite();
-
-        Chatrooms chatrooms = new Chatrooms();
-        chatrooms.setChartroom_id(chat_invite.getChatrooms().getChartroom_id());
-
-        Users users = new Users();
-        users.setId(1); //todo how to get user_id?
-
-        User_Chatroom user_chatroom = new User_Chatroom();
-        user_chatroom.setUser(users);
-        user_chatroom.setChatroom(chatrooms);
-
-        if (invi_code.equals(chat_invite.getInvite_code())){
-            return Chatroom_controller.addUserToChatroom(user_chatroom);
-        }else {
-            return false;
-        }
+    public void join_chatroom(){
+//        Chatroom_invite chat_invite = new Chatroom_invite();
+//
+//        Chatrooms chatrooms = new Chatrooms();
+//        chatrooms.setChartroom_id(chat_invite.getChatrooms().getChartroom_id());
+//
+//        Users users = new Users();
+//        users.setId(1);
+//
+//        User_Chatroom user_chatroom = new User_Chatroom();
+//        user_chatroom.setUser(users);
+//        user_chatroom.setChatroom(chatrooms);
+//
+//        if (invi_code.equals(chat_invite.getInvite_code())){
+//            return Chatroom_controller.addUserToChatroom(user_chatroom);
+//        }else {
+//            return false;
+//        }
+        String code = input_field.getText();
+        lumi_websocket.getInstance().join_room(code);
 
     }
 
@@ -102,7 +108,7 @@ public class join_location {
         classrooms.setId(class_invite.getClassrooms().getId());
 
         Users users = new Users();
-        users.setId(1); //todo how to get user_id?
+        users.setId(user.getUser().getId()); //todo how to get user_id?
 
         User_Classroom user_classroom = new User_Classroom();
         user_classroom.setClassrooms(classrooms);

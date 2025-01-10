@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+
+<HBox style="-fx-padding: 15; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.classroom.nav.class_navbar">
+   <children>
+      <ScrollPane fx:id="nav_scroll" fitToHeight="true" HBox.hgrow="ALWAYS">
+         <content>
+            <HBox fx:id="nav_box" style="-fx-background-color: F3EEF8; -fx-padding: 2 15; -fx-spacing: 15; -fx-background-radius: 1em; -fx-border-color: black; -fx-border-radius: 1em;">
+               <children>
+                  <Button fx:id="home" mnemonicParsing="false" prefHeight="55.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-background-radius: 1em;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/Classroom%20Home%20Icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Home" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="members" layoutX="25.0" layoutY="25.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-background-radius: 1em;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/users-alt.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Members" />
+                     </tooltip>
+                  </Button>
+                  <Button fx:id="summary" layoutX="109.0" layoutY="25.0" mnemonicParsing="false" prefHeight="55.0" prefWidth="69.0" style="-fx-background-color: transparent; -fx-background-radius: 1em;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/apple-books.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Summary" />
+                     </tooltip>
+                  </Button>
+                  <Pane HBox.hgrow="ALWAYS" />
+                  <Button fx:id="compose" mnemonicParsing="false" prefHeight="55.0" prefWidth="66.0" style="-fx-background-color: transparent; -fx-background-radius: 1em;">
+                     <graphic>
+                        <ImageView fitHeight="36.0" fitWidth="46.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../../images/File%20Icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                     <tooltip>
+                        <Tooltip text="Compose">
+                           <font>
+                              <Font name="American Typewriter Bold" size="16.0" />
+                           </font>
+                        </Tooltip>
+                     </tooltip>
+                  </Button>
+               </children>
+            </HBox>
+         </content>
+      </ScrollPane>
+   </children>
+</HBox>

@@ -17,7 +17,7 @@
             <Font name="Monospaced Bold" size="35.0" />
          </font>
       </Label>
-      <AnchorPane prefHeight="421.0" prefWidth="432.0" style="-fx-background-color: #D18787; -fx-background-radius: 0.5em; -fx-border-color: black; -fx-border-radius: 0.5em;" VBox.vgrow="ALWAYS">
+      <AnchorPane prefHeight="421.0" prefWidth="432.0" style="-fx-background-color: #D18787; -fx-background-radius: 0.5em; -fx-border-color: black; -fx-border-radius: 0.5em;" VBox.vgrow="NEVER">
          <children>
             <VBox layoutX="31.0" layoutY="42.0" prefHeight="235.0" prefWidth="363.0" style="-fx-spacing: 30px;" AnchorPane.leftAnchor="37.0" AnchorPane.rightAnchor="37.0" AnchorPane.topAnchor="42.0">
                <children>
@@ -70,6 +70,6 @@
             </VBox>
          </children>
       </AnchorPane>
-      <HBox alignment="CENTER_RIGHT" />
+      <HBox alignment="CENTER_RIGHT" VBox.vgrow="NEVER" />
    </children>
 </VBox>

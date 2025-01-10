@@ -1,5 +1,6 @@
 package com.ss.studysystem.controller;
 
+import com.ss.studysystem.Model.Classrooms;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
 import com.ss.studysystem.UI.misc.modal_animations;
 import javafx.animation.ParallelTransition;
@@ -13,6 +14,9 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.paint.Color;
 import javafx.stage.Stage;
+import org.reactfx.util.LL;
+
+import java.util.function.Consumer;
 
 public class create_and_join {
 
@@ -29,6 +33,16 @@ public class create_and_join {
     private Button close;
 
     private static chat_where_is_this location;
+
+    private Consumer<Classrooms> on_classroom;
+
+    public Consumer<Classrooms> getOn_classroom() {
+        return on_classroom;
+    }
+
+    public void setOn_classroom(Consumer<Classrooms> on_classroom) {
+        this.on_classroom = on_classroom;
+    }
 
     public void setLocation(chat_where_is_this location) {
         this.location = location;
@@ -56,6 +70,9 @@ public class create_and_join {
 
             Create_locationCG create_group_cnf = loader.getController();
             create_group_cnf.setLocation(location);
+            if(location.equals(chat_where_is_this.CLASSROOM)){
+                create_group_cnf.setOn_result(on_classroom);
+            }
 
             Stage stage = (Stage) create.getScene().getWindow();
             Scene sc = new Scene(load_view,stage.getWidth(),stage.getHeight(), Color.TRANSPARENT);
@@ -68,7 +85,7 @@ public class create_and_join {
     @FXML
     void Join(ActionEvent event){
         try {
-            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/quiz/invi_code_join.fxml"));
+            FXMLLoader loader = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/modals/invi_code_join.fxml"));
             Parent load_view = loader.load();
 
             Stage stage = (Stage) join.getScene().getWindow();

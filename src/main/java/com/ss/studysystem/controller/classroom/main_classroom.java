@@ -19,8 +19,11 @@ public class main_classroom {
         URL nav_path = getClass().getResource("/com/ss/studysystem/Fxml/classroom/nav_bar.fxml");
         Region nav_node = new FXMLLoader(nav_path).load();
 
-        URL view_path = getClass().getResource("/com/ss/studysystem/Fxml/quiz/quiz_input.fxml");
-        Region view_region = new FXMLLoader(view_path).load();
+        URL view_path = getClass().getResource("/com/ss/studysystem/Fxml/classroom/class_home.fxml");
+        FXMLLoader view_load =  new FXMLLoader(view_path);
+        Region view_region = view_load.load();
+        class_home class_ctrl = view_load.getController();
+        class_ctrl.set_text("Your Classes");
         main_root.setTop(nav_node);
 
         VBox vbox = new VBox(view_region);
