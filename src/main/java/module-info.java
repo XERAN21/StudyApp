@@ -9,6 +9,10 @@ module com.ss.studysystem {
     requires org.apache.commons.imaging;
     requires net.sourceforge.plantuml;
     requires java.desktop;
+    requires java.prefs;
+    requires com.google.gson;
+    requires javafx.graphics;
+    requires javafx.web;
 
 
     opens com.ss.studysystem.controller to javafx.fxml;
@@ -37,4 +41,8 @@ module com.ss.studysystem {
     opens com.ss.studysystem.UI.utils to java.desktop;
     opens com.ss.studysystem.controller.event to javafx.fxml;
     exports com.ss.studysystem.controller.event;
+    opens com.ss.studysystem.checking_new_package to javafx.fxml;
+    exports com.ss.studysystem.checking_new_package;
+    opens com.ss.studysystem.controller.solo_study to javafx.fxml;
+    exports com.ss.studysystem.controller.solo_study;
 }

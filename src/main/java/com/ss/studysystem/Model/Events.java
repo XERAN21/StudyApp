@@ -6,11 +6,11 @@ public class Events {
     private int id;
     private String title;
     private String description;
-    private LocalDateTime event_date;
     private Users user;
     private Classrooms classroom;
     private LocalDateTime created_at;
     private boolean is_archived = false;
+    private LocalDateTime start_date;
 
     public Events() {
 
@@ -38,14 +38,6 @@ public class Events {
 
     public void setDescription(String description) {
         this.description = description;
-    }
-
-    public LocalDateTime getEvent_date() {
-        return event_date;
-    }
-
-    public void setEvent_date(LocalDateTime event_date) {
-        this.event_date = event_date;
     }
 
     public Users getUser() {
@@ -78,5 +70,13 @@ public class Events {
 
     public void set_archived(boolean is_archived) {
         this.is_archived = is_archived;
+    }
+
+    public LocalDateTime getStart_date() {
+        return start_date;
+    }
+
+    public void setStart_date(LocalDateTime start_date) {
+        this.start_date = start_date;
     }
 }
