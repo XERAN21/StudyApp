@@ -9,6 +9,7 @@ import java.sql.CallableStatement;
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -170,18 +171,54 @@ public class Chatroom_controller {
         return null;
     }
 
-    public static void main(String[] args) {
-        int chatroomId = 1;
-        List<Users> members = getAllMembers(chatroomId);
-        if(members != null) {
-            for (Users user : members) {
-                System.out.println("User ID: " + user.getId());
-                System.out.println("Username: " + user.getUsername());
-                System.out.println("Profile Image: " + user.getProfile_img());
-            }
-        }else{
-                System.out.println("No members found or an error occurred.");
-            }
-        }
-    }
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1); // Assuming the user ID is 1
+//
+//            // Create a new chatroom
+//            Chatrooms newChatroom = new Chatrooms();
+//            newChatroom.setName("Study Group");
+//            newChatroom.setUser(user);
+//            newChatroom.setInvitation_code("INV123");
+//            newChatroom.setCreated_at(LocalDateTime.now());
+//
+//            // Test create_Chatroom method
+//            boolean isChatroomCreated = Chatroom_controller.create_Chatroom(newChatroom);
+//            System.out.println("Chatroom created: " + isChatroomCreated);
+//
+//            // Test getAllChatrooms method
+//            List<Chatrooms> chatroomsList = Chatroom_controller.getAllChatrooms(user.getId());
+//            System.out.println("Chatrooms List: " + chatroomsList);
+//
+//            // Create a new user_chatroom
+//            User_Chatroom newUserChatroom = new User_Chatroom();
+//            newUserChatroom.setUser(user);
+//            newUserChatroom.setChatroom(newChatroom);
+//
+//            // Test addUserToChatroom method
+//            boolean isUserAdded = Chatroom_controller.addUserToChatroom(newUserChatroom);
+//            System.out.println("User added to chatroom: " + isUserAdded);
+//
+//            // Test getAllMembers method
+//            List<Users> membersList = Chatroom_controller.getAllMembers(newChatroom.getChartroom_id());
+//            System.out.println("Members List: " + membersList);
+//
+//            // Test getChatroomMessages method
+//            List<String> messagesList = Chatroom_controller.getChatroomMessages(newChatroom.getChartroom_id());
+//            System.out.println("Messages List: " + messagesList);
+//
+//            // Test delete_message method
+//            boolean isMessageDeleted = Chatroom_controller.delete_message(1);// Assuming the message ID is 1
+//            System.out.println("Message deleted: " + isMessageDeleted);
+//
+//            // Test removeUserFromChatroom method
+//            boolean isUserRemoved = Chatroom_controller.removeUserFromChatroom(user.getId(), newChatroom.getChartroom_id());
+//            System.out.println("User removed from chatroom: " + isUserRemoved);
+//        }
+//    }
+}
 

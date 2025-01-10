@@ -146,4 +146,49 @@ public class assignment_controller extends DBConnection<Assignments> {
             return null;
         }
     }
+
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1); // Assuming the user ID is 1
+//
+//            // Create a new classroom
+//            Classrooms classroom = new Classrooms();
+//            classroom.setId(1); // Assuming the classroom ID is 1
+//
+//            // Create a new assignment
+//            Assignments newAssignment = new Assignments();
+//            newAssignment.setClassroom(classroom);
+//            newAssignment.setTitle("Math Homework");
+//            newAssignment.setDescription("Complete the exercises on page 42");
+//            newAssignment.setDue_date(LocalDate.of(2025, 1, 15));
+//            newAssignment.setCreated_by(user);
+//            newAssignment.setCreated_at(LocalDateTime.now());
+//
+//            // Test save method
+//            assignment_controller assignmentController = new assignment_controller();
+//            boolean isAssignmentSaved = assignmentController.save(newAssignment);
+//            System.out.println("Assignment saved: " + isAssignmentSaved);
+//
+//            // Test get method
+//            Assignments retrievedAssignment = assignmentController.get(newAssignment.getAssignment_id());
+//            System.out.println("Retrieved Assignment: " + retrievedAssignment);
+//
+//            // Update assignment details
+//            newAssignment.setTitle("Updated Math Homework");
+//            boolean isAssignmentUpdated = assignmentController.update(newAssignment);
+//            System.out.println("Assignment updated: " + isAssignmentUpdated);
+//
+//            // Test get_all_entity method
+//            List<Assignments> assignmentsList = assignmentController.get_all_entity(classroom.getId());
+//            System.out.println("Assignments List: " + assignmentsList);
+//
+//            // Test delete method
+//            boolean isAssignmentDeleted = assignmentController.delete(newAssignment.getAssignment_id());
+//            System.out.println("Assignment deleted: " + isAssignmentDeleted);
+//        }
+//    }
 }

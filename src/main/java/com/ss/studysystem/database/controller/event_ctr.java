@@ -139,23 +139,68 @@ public class event_ctr {
         }
     }
 
-        public static void main(String[] args) {
-            try (Connection connection = DB_Connection.Get_Connection()){
+    //todo testing
 
-                 event_ctr eventController = new event_ctr(connection);
-                 eventController.createEvent(1, "Event Title", "Event Description", Timestamp.valueOf("2025-01-06 14:00:00"), 1, 1, Timestamp.valueOf("2025-01-06 13:00:00"));
-                 Events event = eventController.getEvent(1);
-                if (event != null) {
-                System.out.println("Event ID: " + event.getId());
-                System.out.println("Title: " + event.getTitle());
-                System.out.println("Description: " + event.getDescription());
-                System.out.println("Event Date: " + event.getEvent_date());
-                System.out.println("Created By: " + event.getUser());
-                System.out.println("Classroom ID: " + event.getClassroom());
-                System.out.println("Created At: " + event.getCreated_at());
-            }
-        } catch (SQLException e){
-            e.printStackTrace();
-        }
-    }
+//        public static void main(String[] args) {
+//            try (Connection connection = DB_Connection.Get_Connection()){
+//                 event_ctr eventController = new event_ctr(connection);
+//
+//                 //Create a new event
+//                 eventController.createEvent(1, "Event Title", "Event Description", Timestamp.valueOf("2025-01-06 14:00:00"), 1, 1, Timestamp.valueOf("2025-01-06 13:00:00"));
+//                 Events event = eventController.getEvent(1);
+//                if (event != null) {
+//                System.out.println("Event ID: " + event.getId());
+//                System.out.println("Title: " + event.getTitle());
+//                System.out.println("Description: " + event.getDescription());
+//                System.out.println("Event Date: " + event.getEvent_date());
+//                System.out.println("Created By: " + event.getUser());
+//                System.out.println("Classroom ID: " + event.getClassroom());
+//                System.out.println("Created At: " + event.getCreated_at());
+//            }
+//
+//                // Get all events
+//                List<Events> allEvents = eventController.getAllEvent();
+//                System.out.println("All Events: " + allEvents);
+//
+//                // Get today's events
+//                ResultSet todayEvents = eventController.getTodayEvent();
+//                while (todayEvents.next()) {
+//                    System.out.println("Today's Event ID: " + todayEvents.getInt("eventId"));
+//                    System.out.println("Title: " + todayEvents.getString("title"));
+//                }
+//
+//                // Get this week's events
+//                ResultSet weekEvents = eventController.getWeekEvent();
+//                while (weekEvents.next()) {
+//                    System.out.println("This Week's Event ID: " + weekEvents.getInt("eventId"));
+//                    System.out.println("Title: " + weekEvents.getString("title"));
+//                }
+//
+//                // Get this month's events
+//                ResultSet monthEvents = eventController.getMonthEvent();
+//                while (monthEvents.next()) {
+//                    System.out.println("This Month's Event ID: " + monthEvents.getInt("eventId"));
+//                    System.out.println("Title: " + monthEvents.getString("title"));
+//                }
+//
+//                // Update the event
+//                eventController.updateEvent(1, "Updated Event Title", "Updated Event Description", Timestamp.valueOf("2025-01-06 15:00:00"), 1, 1, Timestamp.valueOf("2025-01-06 13:00:00"));
+//                Events updatedEvent = eventController.getEvent(1);
+//                if (updatedEvent != null) {
+//                    System.out.println("Updated Event ID: " + updatedEvent.getId());
+//                    System.out.println("Updated Title: " + updatedEvent.getTitle());
+//                    System.out.println("Updated Description: " + updatedEvent.getDescription());
+//                    System.out.println("Updated Event Date: " + updatedEvent.getEvent_date());
+//                }
+//
+//                // Delete the event
+//                eventController.deleteEvent(1);
+//                Events deletedEvent = eventController.getEvent(1);
+//                if (deletedEvent == null) {
+//                    System.out.println("Event successfully deleted.");
+//                }
+//        } catch (SQLException e){
+//            e.printStackTrace();
+//        }
+//    }
 }

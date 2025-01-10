@@ -118,7 +118,54 @@ public class forum_controller {
             return false;
         }
     }
+//todo testing
 
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1); // Assuming the user ID is 1
+//
+//            // Create a new classroom
+//            Classrooms classroom = new Classrooms();
+//            classroom.setId(1); // Assuming the classroom ID is 1
+//
+//            // Create a new forum
+//            Forums newForum = new Forums();
+//            newForum.setClassroom(classroom);
+//            newForum.setTitle("Discussion on Project");
+//            newForum.setDescription("Let's discuss the project details here.");
+//            newForum.setUser(user); newForum.setCreated_at(LocalDateTime.now());
+//
+//            // Test create_forum method
+//            boolean isForumCreated = forum_controller.create_forum(newForum);
+//            System.out.println("Forum created: " + isForumCreated);
+//
+//            // Create a new forum comment
+//            Forum_Comments newComment = new Forum_Comments();
+//            newComment.setForum(newForum);
+//            newComment.setUser(user);
+//            newComment.setComment_text("This is a comment on the forum.");
+//            newComment.setForum_file(null); // Assuming no file for this comment
+//
+//            // Test create_forum_comments method
+//            boolean isCommentCreated = forum_controller.create_forum_comments(newComment);
+//            System.out.println("Forum comment created: " + isCommentCreated);
+//
+//            // Test Get_forum_comments method
+//            List<Forum_Comments> forumCommentsList = forum_controller.Get_forum_comments(newForum.getId(), 10, 0);
+//            System.out.println("Forum Comments List: " + forumCommentsList);
+//
+//            // Update forum comment details
+//            newComment.setComment_text("This is an updated comment on the forum.");
+//            boolean isCommentUpdated = forum_controller.Edit_forum_comment(newComment);
+//            System.out.println("Forum comment updated: " + isCommentUpdated);
+//
+//            // Test Delete_forum_comments method
+//            boolean isCommentDeleted = forum_controller.Delete_forum_comments(newComment.getComment());
+//            System.out.println("Forum comment deleted: " + isCommentDeleted);
+//        }
+//    }
 }
 
 

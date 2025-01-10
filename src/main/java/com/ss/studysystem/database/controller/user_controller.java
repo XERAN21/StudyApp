@@ -6,6 +6,7 @@ import com.ss.studysystem.auth.auth_manager;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -234,4 +235,47 @@ public class user_controller {
         }
     }
 
+    //todo testing
+
+//    public static void main(String[] args){
+//        Users newUser = new Users();
+//        newUser.setUsername("NIKO");
+//        newUser.setEmail("niko.@gmail.com");
+//        newUser.setPassword("pass12");
+//        newUser.setSalt("random_salt");
+//        newUser.setDob(LocalDate.of(2000, 1, 1));
+//        newUser.setGender(Gender.MALE);
+//    // Test create_user method
+//    boolean isUserCreated = user_controller.create_user(newUser);
+//    System.out.println("User created: " + isUserCreated);
+
+//    // Test search_user method
+//    Users searchedUser = user_controller.search_user("john_doe");
+//    System.out.println("Searched User: " + searchedUser);
+//
+//    // Test login method
+//    Users loggedInUser = user_controller.login("john_doe", "password123");
+//    System.out.println("Logged in User: " + loggedInUser);
+//
+//    // Test get_user_by_username method
+//    Users userByUsername = user_controller.get_user_by_username("john_doe");
+//    System.out.println("User by Username: " + userByUsername);
+//
+//    // Test get_user_by_email method
+//    Users userByEmail = user_controller.get_user_by_email("john.doe@example.com");
+//    System.out.println("User by Email: " + userByEmail);
+//
+//    // Test get_all_friends method
+//    List<Users> friendsList = user_controller.get_all_friends(loggedInUser.getId());
+//    System.out.println("Friends List: " + friendsList);
+//
+//    // Update user details
+//    loggedInUser.setEmail("new_email@example.com");
+//    boolean isUserUpdated = user_controller.update_user(loggedInUser);
+//    System.out.println("User updated: " + isUserUpdated);
+//
+//    // Delete user
+//    boolean isUserDeleted = user_controller.delete_user(loggedInUser.getId());
+//    System.out.println("User deleted: " + isUserDeleted);
+//}
 }

@@ -108,6 +108,39 @@ public class question_controller {
             return false;
         }
     }
+
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new question
+//            Questions newQuestion = new Questions();
+//            newQuestion.setId(1);// Assuming the question ID is 1
+//            newQuestion.setQuestion_text("What is the capital of France?");
+//            newQuestion.setQuestion_img(null);// Assuming no image for this question
+//
+//            // Test create_question method
+//            boolean isQuestionCreated = question_controller.create_question(newQuestion);
+//            System.out.println("Question created: " + isQuestionCreated);
+//
+//            // Test get_question method
+//            Questions retrievedQuestion = question_controller.get_question(newQuestion.getId());
+//            System.out.println("Retrieved Question: " + retrievedQuestion);
+//
+//            // Test get_all_questions method
+//            List<Questions> allQuestions = question_controller.get_all_questions(newQuestion.getId());
+//            System.out.println("All Questions: " + allQuestions);
+//
+//            // Update question details
+//            newQuestion.setQuestion_text("What is the capital of Germany?");
+//            boolean isQuestionUpdated = question_controller.update_question(newQuestion);
+//            System.out.println("Question updated: " + isQuestionUpdated);
+//
+//            // Test delete_question method
+//            boolean isQuestionDeleted = question_controller.delete_question(newQuestion.getId());
+//            System.out.println("Question deleted: " + isQuestionDeleted);
+//        }
+//    }
 }
 
 

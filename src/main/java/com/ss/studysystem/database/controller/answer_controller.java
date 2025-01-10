@@ -141,32 +141,41 @@ public class answer_controller {
         return false;
     }
 
-    public static void main(String[] args) {
-        Test test = new Test();
-        test.setTest(1);
+    //todo testing
 
-        Questions questions = new Questions();
-        questions.setId(1);
-
-        Answers answers = new Answers();
-        answers.setAnswer(4);
-        answers.setQuestion(questions);
-
-        Test_Questions testQuestions = new Test_Questions();
-        testQuestions.setTest(test);
-        testQuestions.setQuestion(questions);
-
-        List<Answers> gnqaList = getGNQA(1,1,1,testQuestions);
-
-        for (Answers answer : gnqaList) {
-            System.out.println("Question: " + answer.getQuestion().getQuestion_text());
-            System.out.println("Answer: " + answer.getAnswer_text());
-            System.out.println("Is Correct: " + answer.getIs_correct());
-            System.out.println("Question Image: " + answer.getQuestion().getQuestion_img());
-            System.out.println();
-        }
-    }
-
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new question
+//            Questions question = new Questions();
+//            question.setId(1); // Assuming the question ID is 1
+//
+//            // Create a new answer
+//            Answers newAnswer = new Answers();
+//            newAnswer.setQuestion(question);
+//            newAnswer.setAnswer_text("This is an answer.");
+//
+//            // Test createAnswer method
+//            boolean isAnswerCreated = answer_controller.createAnswer(newAnswer);
+//            System.out.println("Answer created: " + isAnswerCreated);
+//
+//            // Test getGNQA method
+//            Test test = new Test();
+//            test.setTest(1); // Assuming the test ID is 1
+//            Test_Questions testQuestions = new Test_Questions();
+//            testQuestions.setTest(test);
+//            testQuestions.setQuestion(question);
+//            List<Answers> gnqaList = answer_controller.getGNQA(1, 1, 1, testQuestions);
+//            System.out.println("GNQA List: " + gnqaList);
+//
+//            // Test getStudentAnswers method
+//            List<Student_Answers> studentAnswersList = answer_controller.getStudentAnswers(1);// Assuming the response ID is 1
+//            System.out.println("Student Answers List: " + studentAnswersList);
+//
+//            // Update answer details
+//            boolean isAnswerUpdated = answer_controller.updateAnswer(newAnswer.getAnswer(), question.getId(), "Updated answer text", true);
+//            System.out.println("Answer updated: " + isAnswerUpdated);
+//        }
+//    }
 }
 
 
