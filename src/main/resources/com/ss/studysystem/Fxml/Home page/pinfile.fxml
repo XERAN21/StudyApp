@@ -5,8 +5,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-
-<AnchorPane id="achor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="151.0" prefWidth="155.0" style="-fx-background-color: #DEDEDE; -fx-padding: x; -fx-background-radius: 10;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" >
+<AnchorPane id="achor1" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="170.0" style="-fx-background-color: #DEDEDE; -fx-padding: x; -fx-background-radius: 10; -fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em; -fx-background-color: #F3EEF8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
    <children>
       <VBox alignment="CENTER" layoutX="45.0" layoutY="58.0" AnchorPane.bottomAnchor="58.0" AnchorPane.leftAnchor="45.0" AnchorPane.rightAnchor="38.0" AnchorPane.topAnchor="58.0">
          <children>

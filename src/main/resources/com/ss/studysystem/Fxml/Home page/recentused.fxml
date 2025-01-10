@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="160.0" prefWidth="170.0" style="-fx-background-color: #F3EEF8; -fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <VBox alignment="CENTER" layoutX="39.0" layoutY="57.0" AnchorPane.bottomAnchor="72.0" AnchorPane.leftAnchor="39.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="57.0">
+         <children>
+            <Label prefHeight="31.0" prefWidth="98.0" text="Recent Used">
+               <font>
+                  <Font size="17.0" />
+               </font>
+            </Label>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

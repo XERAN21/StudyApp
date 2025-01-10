@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.FlowPane?>
+<?import javafx.scene.layout.VBox?>
+
+<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Homepage.Home_ctrl">
+   <content>
+      <BorderPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="639.0">
+         <center>
+            <VBox fx:id="vbox">
+               <children>
+                  <FlowPane fx:id="top_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
+                  <FlowPane fx:id="middle_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
+                  <FlowPane fx:id="bottom_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
+               </children>
+            </VBox>
+         </center>
+      </BorderPane>
+   </content>
+</ScrollPane>

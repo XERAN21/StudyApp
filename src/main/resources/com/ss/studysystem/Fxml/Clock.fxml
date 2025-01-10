@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.text.Font?>
+
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="75.0" prefWidth="153.0" style="-fx-border-radius: 3em; -fx-border-color: black;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <ImageView fitHeight="37.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@images/img_2.png" />
+         </image>
+         <HBox.margin>
+            <Insets left="12.0" top="18.0" />
+         </HBox.margin>
+      </ImageView>
+      <Label fx:id="timeTextField" prefHeight="40.0" prefWidth="84.0">
+         <font>
+            <Font name="Monospaced Bold" size="16.0" />
+         </font>
+         <HBox.margin>
+            <Insets left="10.0" top="16.0" />
+         </HBox.margin>
+      </Label>
+   </children>
+</HBox>
