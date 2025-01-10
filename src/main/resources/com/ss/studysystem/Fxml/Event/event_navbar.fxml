@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: B2AC88; -fx-border-color: black;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.event.event_navbar">
+<AnchorPane id="event_navbar" prefHeight="600.0" prefWidth="150.0" style="-fx-background-color: B2AC88; -fx-border-color: black;" stylesheets="@../../css/event_navbar.css" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.event.event_navbar">
    <children>
       <VBox layoutX="43.0" layoutY="28.0" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" AnchorPane.topAnchor="20.0">
          <children>
@@ -21,22 +21,22 @@
             </Label>
             <VBox spacing="50.0" style="-fx-alignment: center;">
                <children>
-                  <Button fx:id="all_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="All" userData="ALL">
+                  <Button id="btn" fx:id="all_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="All" userData="ALL">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="today_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Today" userData="TODAY">
+                  <Button id="btn" fx:id="today_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Today" userData="TODAY">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="week_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Week" userData="WEEK">
+                  <Button id="btn" fx:id="week_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Week" userData="WEEK">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="month_event" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Month" userData="MONTH">
+                  <Button id="btn" fx:id="month_event" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Month" userData="MONTH">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
