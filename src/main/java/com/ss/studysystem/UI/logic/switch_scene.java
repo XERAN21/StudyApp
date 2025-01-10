@@ -1,21 +1,21 @@
 package com.ss.studysystem.UI.logic;
 
 import com.ss.studysystem.UI.components.modal_builder;
-import com.ss.studysystem.UI.layouts.config_position;
-import com.ss.studysystem.UI.misc.modal_animations;
 import com.ss.studysystem.UI.model.login_mdl;
 import com.ss.studysystem.UI.model.sign_up_mdl;
-import javafx.animation.ParallelTransition;
-import javafx.application.Platform;
+import javafx.animation.PauseTransition;
 import javafx.concurrent.Task;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXMLLoader;
+import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Region;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
+import javafx.util.Duration;
 
 import java.net.URL;
 import java.util.logging.Level;
@@ -37,8 +37,8 @@ public class switch_scene {
             protected HBox call() throws Exception {
 
                 try {
-                    signUpConfig.setSignInNode(loadFXML("/com/ss/studysystem/Fxml/sign_up.fxml"));
-                    signUpConfig.setDetailsNode(loadFXML("/com/ss/studysystem/Fxml/sign_up_details.fxml"));
+                    signUpConfig.setSignInNode(loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/sign_up.fxml").toString()));
+                    signUpConfig.setDetailsNode(loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/sign_up_details.fxml").toString()));
 
                     signUpConfig.setCurrentNode(signUpConfig.getSignInNode());
 
@@ -66,17 +66,30 @@ public class switch_scene {
 
         login_mdl loginConfig = login_mdl.getInstance();
 
-        Task<AnchorPane> loadSceneTask = new Task<>() {
+        Task<HBox> loadSceneTask = new Task<>() {
             @Override
-            protected AnchorPane call() throws Exception {
-                Parent loginNode = loadFXML("/com/ss/studysystem/Fxml/Entry_page/login.fxml");
+            protected HBox call() throws Exception {
+                Parent loginNode = loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/Entry_page/login.fxml").toString());
 
                 Scene currentScene = mainStage.getScene();
-                AnchorPane root = new AnchorPane();
-                root.setPrefWidth(currentScene.getWidth());
-                root.setPrefHeight(currentScene.getHeight());
+                HBox root = new HBox();
+                if (currentScene.getWidth() > 800 && currentScene.getHeight() > 600) {
+                    root.setPrefWidth(currentScene.getWidth());
+                    root.setPrefHeight(currentScene.getHeight());
+                } else {
+                    root.setPrefWidth(800);
+                    root.setPrefHeight(600);
+                }
                 root.setBackground(loginConfig.getBackground_image());
                 root.getChildren().add(loginNode);
+
+                root.setAlignment(Pos.CENTER);
+
+//                Platform.runLater(() -> {
+//                    config_position.center_node(mainStage, loginNode);
+//                    mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, loginNode));
+//                    mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, loginNode));
+//                });
 
                 return root;
             }
@@ -84,32 +97,137 @@ public class switch_scene {
 
         configureTask(loadSceneTask, event, mainStage,
                 () -> {
-                    AnchorPane root = loadSceneTask.getValue();
+                    HBox root = loadSceneTask.getValue();
                     Node node = root.getChildrenUnmodifiable().get(0);
-                    config_position.center_node(mainStage, node);
 
-                    Platform.runLater(() -> {
-                        mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-                        mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
-                    });
+//                    Platform.runLater(() -> {
+//                        config_position.center_node(mainStage, node);
+//                        mainStage.widthProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+//                        mainStage.heightProperty().addListener((obs, oldVal, newVal) -> config_position.center_node(mainStage, node));
+//                    });
                 });
     }
 
     public void switch_to_survey(ActionEvent event, Stage mainStage) {
         try {
 
-
             Task<Parent> loadSceneTask = new Task<>() {
                 @Override
                 protected Parent call() throws Exception {
-                    return loadFXML("/com/ss/studysystem/Fxml/fourinone.fxml");
+                    return loadFXML(getClass().getResource("/com/ss/studysystem/Fxml/fourinone.fxml").toString());
                 }
             };
 
             configureTask(loadSceneTask, event, mainStage, null);
 
-        }catch (Exception e){
+        } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+
+    public Region open_chat_view(ActionEvent event, Stage mainStage) {
+        try {
+            FXMLLoader fx_spinner = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/loading_screen.fxml"));
+            Parent parent_spinner = fx_spinner.load();
+            Stage loader = modal_builder.build_fixed_modal(mainStage, parent_spinner);
+            PauseTransition pause = new PauseTransition(Duration.millis(150));
+            pause.setOnFinished(done -> loader.close());
+
+            Task<Region> loadSceneTask = new Task<>() {
+                @Override
+                protected Region call() throws Exception {
+                    FXMLLoader chat_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/chat_is_this_real/chat_main.fxml"));
+                    return chat_.load();
+                }
+            };
+
+            loader.show();
+
+            loadSceneTask.setOnSucceeded(workerStateEvent -> {
+                try {
+                    Region loadedScene = loadSceneTask.getValue();
+                    if (loadedScene != null) {
+
+                        pause.play();
+
+
+                    } else {
+                        throw new Exception("Loaded scene is null");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    pause.play();
+                }
+            });
+
+            loadSceneTask.setOnFailed(workerStateEvent -> {
+                pause.play();
+                Throwable exception = loadSceneTask.getException();
+                System.out.println("Error loading scene: " + exception.getMessage());
+                exception.printStackTrace();
+            });
+
+            Thread thread = new Thread(loadSceneTask);
+            thread.setDaemon(true);
+            thread.start();
+
+            return loadSceneTask.get();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Region open_class_view(ActionEvent event, Stage mainStage) {
+        try {
+            FXMLLoader fx_spinner = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/loading_screen.fxml"));
+            Parent parent_spinner = fx_spinner.load();
+            Stage loader = modal_builder.build_fixed_modal(mainStage, parent_spinner);
+            PauseTransition pause = new PauseTransition(Duration.millis(150));
+            pause.setOnFinished(done -> loader.close());
+
+            Task<Region> loadSceneTask = new Task<>() {
+                @Override
+                protected Region call() throws Exception {
+                    FXMLLoader chat_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/classroom/classroom_view.fxml"));
+                    return chat_.load();
+                }
+            };
+
+            loader.show();
+
+            loadSceneTask.setOnSucceeded(workerStateEvent -> {
+                try {
+                    Region loadedScene = loadSceneTask.getValue();
+                    if (loadedScene != null) {
+
+                        pause.play();
+
+
+                    } else {
+                        throw new Exception("Loaded scene is null");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    pause.play();
+                }
+            });
+
+            loadSceneTask.setOnFailed(workerStateEvent -> {
+                pause.play();
+                Throwable exception = loadSceneTask.getException();
+                System.out.println("Error loading scene: " + exception.getMessage());
+                exception.printStackTrace();
+            });
+
+            Thread thread = new Thread(loadSceneTask);
+            thread.setDaemon(true);
+            thread.start();
+
+            return loadSceneTask.get();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
         }
     }
 
@@ -118,14 +236,36 @@ public class switch_scene {
                                                   Stage mainStage, Runnable onSuccessAction) {
         task.setOnSucceeded(e -> {
             try {
-                Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+
+                Stage stage;
+
+                if (event != null) {
+                    stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                } else {
+                    stage = mainStage;
+                }
+
+
                 Parent root = task.getValue();
                 Scene newScene = new Scene(root);
+
+                if (stage.getStyle() == StageStyle.TRANSPARENT) {
+                    stage.close();
+
+                    stage = new Stage();
+                    stage.initStyle(StageStyle.DECORATED);
+
+                    stage.show();
+                } else {
+                    stage.show();
+                }
 
                 stage.setScene(newScene);
                 stage.setMinWidth(800);
                 stage.setMinHeight(600);
+
                 stage.show();
+
 
                 if (onSuccessAction != null)
                     onSuccessAction.run();
@@ -135,7 +275,9 @@ public class switch_scene {
             }
         });
 
-        task.setOnFailed(e -> {
+        task.setOnFailed(e ->
+
+        {
             Throwable throwable = task.getException();
             logger.log(Level.SEVERE, "Scene loading task failed.", throwable);
         });

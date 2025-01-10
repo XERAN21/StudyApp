@@ -9,9 +9,9 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="172.0" style="-fx-border-color: black; -fx-border-radius: 1em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.friend_section">
+<VBox minHeight="-Infinity" minWidth="-Infinity" prefHeight="337.0" prefWidth="172.0" style="-fx-border-color: black; -fx-border-radius: 1em;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.friend_section">
    <children>
-      <HBox prefHeight="65.0" prefWidth="172.0" style="-fx-border-color: black; -fx-background-color: #FCDF78;">
+      <HBox prefHeight="65.0" prefWidth="172.0" style="-fx-border-color: black; -fx-background-color: #FCDF78; -fx-background-radius: 1em 1em 0 0; -fx-border-radius: 1em 1em 0 0; -fx-border-width: 0 .1 1 0.1;">
          <children>
             <ImageView fx:id="group_photo" fitHeight="33.0" fitWidth="44.0" pickOnBounds="true" preserveRatio="true">
                <HBox.margin>
@@ -31,7 +31,7 @@
             </Label>
          </children>
       </HBox>
-      <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
+      <ScrollPane fitToHeight="true" fitToWidth="true" stylesheets="@../css/scroll_round.css" VBox.vgrow="ALWAYS">
          <content>
             <VBox fx:id="friend_view" />
          </content>

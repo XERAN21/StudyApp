@@ -1,6 +1,5 @@
 package com.ss.studysystem.database.async_service;
 
-import com.ibm.icu.impl.locale.XCldrStub;
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.misc.modal_animations;
 import javafx.animation.ParallelTransition;
@@ -10,7 +9,6 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.stage.Stage;
 
-import java.util.Objects;
 import java.util.concurrent.Callable;
 import java.util.function.Consumer;
 

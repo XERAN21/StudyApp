@@ -6,6 +6,7 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.shape.Circle?>
 
@@ -81,10 +82,19 @@
          </tooltip>
       </Button>
       <Pane VBox.vgrow="ALWAYS" />
-      <Circle fx:id="nav_profile" fill="DODGERBLUE" radius="28.0" stroke="BLACK" strokeType="INSIDE">
-         <cursor>
-            <Cursor fx:constant="HAND" />
-         </cursor>
-      </Circle>
+      <StackPane>
+         <children>
+            <Circle fx:id="nav_profile" radius="28.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+            <Circle fx:id="nav_profile1" fill="DODGERBLUE" layoutX="42.0" layoutY="38.0" radius="26.0" stroke="BLACK" strokeType="INSIDE">
+               <cursor>
+                  <Cursor fx:constant="HAND" />
+               </cursor>
+            </Circle>
+         </children>
+      </StackPane>
    </children>
 </VBox>
