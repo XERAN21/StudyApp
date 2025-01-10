@@ -1,11 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.ToggleButton?>
-<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
 
-
-<Pane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="60.0" prefWidth="110.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox style="-fx-background-color: transparent;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
    <children>
-      <ToggleButton fx:id="classroom" alignment="BOTTOM_RIGHT" layoutX="10.0" layoutY="6.0" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em;" text="Classroom" />
+      <ToggleButton id="chatroomlogo" fx:id="classroom" alignment="BOTTOM_RIGHT" minHeight="-Infinity" minWidth="-Infinity" mnemonicParsing="false" prefHeight="48.0" prefWidth="90.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-radius: 1em;" text="Classroom" />
    </children>
-</Pane>
+</VBox>
