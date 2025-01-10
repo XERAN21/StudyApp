@@ -1,21 +1,45 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="chat_root" maxHeight="120.0" prefWidth="421.0" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.ChatBoxCtrl">
+
+<VBox style="-fx-padding: 15; -fx-background-color: transparent;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.chat.ChatBoxCtrl">
    <children>
-      <TextArea fx:id="user_input" maxHeight="100.0" minHeight="0.0" prefHeight="30.0" prefWidth="421.0" promptText="Message" wrapText="true" VBox.vgrow="ALWAYS" />
-      <HBox>
+      <VBox fx:id="chat_root" maxHeight="120.0" prefWidth="421.0" style="-fx-padding: 10px 10px 0 10px; -fx-background-color: D9BBF8; -fx-spacing: 10; -fx-background-radius: .46em;">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
-            <Button fx:id="send" mnemonicParsing="false" style="-fx-background-radius: 2em;" text="Send" />
+            <TextArea id="modern_text_area" fx:id="user_input" maxHeight="100.0" minHeight="0.0" prefHeight="30.0" prefWidth="421.0" promptText="Message" wrapText="true" VBox.vgrow="ALWAYS">
+               <stylesheets>
+                  <URL value="@../css/text_area_style.css" />
+                  <URL value="@../css/scroll_round.css" />
+               </stylesheets>
+            </TextArea>
+            <HBox alignment="CENTER">
+               <children>
+                  <Button mnemonicParsing="false" prefHeight="21.0" prefWidth="41.0" style="-fx-background-color: transparent;">
+                     <graphic>
+                        <ImageView fitHeight="31.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../images/File%20Attachment%20Icon.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </Button>
+                  <Pane prefHeight="0.0" prefWidth="200.0" HBox.hgrow="ALWAYS" />
+                  <Button fx:id="send" mnemonicParsing="false" style="-fx-background-radius: 2em; -fx-background-color: #12ce81;" text="Send" textFill="WHITE" />
+               </children>
+            </HBox>
          </children>
-      </HBox>
+      </VBox>
    </children>
 </VBox>

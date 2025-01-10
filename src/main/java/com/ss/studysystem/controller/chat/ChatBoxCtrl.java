@@ -36,16 +36,16 @@ public class ChatBoxCtrl {
 
         send.setOnAction(event -> geo_guesser());
 
-        user_input.textProperty().addListener((observable, oldValue, newValue) -> {
-            resizeTextArea();
-        });
+        user_input.textProperty().addListener((observable, oldValue, newValue) -> resizeTextArea());
 
         user_input.setOnKeyPressed(event -> {
             if (event.getCode() == KeyCode.ENTER && !event.isShiftDown()) {
                 String text = user_input.getText().strip();
                 if (!text.isEmpty()) {
                     Gson gson = new Gson();
-                    ChatBotRequest request = new ChatBotRequest("send_message", text, true);
+
+                    ChatBotRequest request = new ChatBotRequest("send_message", text,
+                            place.equals(chat_where_is_this.BOT));
                     String jsonMessage = gson.toJson(request);
                     lumi_websocket.getInstance().sendMsg(jsonMessage);
                     geo_guesser();

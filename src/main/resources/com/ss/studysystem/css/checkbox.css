@@ -1,0 +1,45 @@
+/* Style for the entire CheckBox */
+.check-box {
+    -fx-font-family: "Segoe UI", sans-serif; /* Modern font */
+    -fx-font-size: 14px;
+    -fx-text-fill: #333333; /* Text color */
+    -fx-cursor: hand; /* Pointer cursor on hover */
+    -fx-padding: 5;
+}
+
+/* Style for the box */
+.check-box .box {
+    -fx-background-color: white; /* Background of the box */
+    -fx-border-color: #0078D7; /* Border color */
+    -fx-border-width: 2;
+    -fx-border-radius: 3; /* Rounded corners */
+    -fx-pref-width: 18; /* Size of the checkbox */
+    -fx-pref-height: 18;
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.2), 5, 0, 0, 1); /* Subtle shadow */
+    -fx-alignment: center;
+}
+
+/* Checked state */
+.check-box:selected .box {
+    -fx-background-color: #0078D7; /* Fill color when checked */
+    -fx-border-color: #0078D7;
+    -fx-background-radius: 3;
+    -fx-border-radius: 3;
+}
+
+/* Checkmark */
+.check-box:selected .box:before {
+    -fx-content: "\2713"; /* Unicode checkmark */
+    -fx-font-size: 14px;
+    -fx-text-fill: white; /* White checkmark */
+}
+
+/* Hover effect */
+.check-box:hover .box {
+    -fx-border-color: #005A9E; /* Darker blue on hover */
+}
+
+/* Focused state */
+.check-box:focused .box {
+    -fx-effect: dropshadow(three-pass-box, rgba(0,0,0,0.3), 10, 0, 0, 0);
+}

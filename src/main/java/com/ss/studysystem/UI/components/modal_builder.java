@@ -76,6 +76,10 @@ public class modal_builder {
         // modalStage.setResizable(false);
         Platform.runLater(() -> config_position.center_stage(owner, modalStage, modalScene));
 
+        ParallelTransition animation = modal_animations.open_modal_w_size(view, modalScene.getWidth(), modalScene.getHeight());
+        animation.setOnFinished(e -> modalStage.show());
+        modalStage.setOnShown(e -> animation.play());
+
         modalStage.setOnHidden(hid -> Platform.runLater(() -> config_brightness.removeDimmingEffect(owner)));
 
 
