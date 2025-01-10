@@ -7,6 +7,7 @@ import com.ss.studysystem.Model.Classrooms;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 
 //todo Testing and get all invitation
 public class invitation_controller {
@@ -99,11 +100,52 @@ public class invitation_controller {
                 chatroom_invite.setIs_used(resultSet.getBoolean("is_used"));
 
             }
-
             return chatroom_invite;
         }catch (SQLException e){
             e.printStackTrace();
             return null;
         }
     }
+
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new classroom invitation
+//            Classrooms classroom = new Classrooms();
+//            classroom.setId(1);// Assuming the classroom ID is 1
+//            Classroom_invite classroomInvite = new Classroom_invite();
+//            classroomInvite.setClassrooms(classroom);
+//            classroomInvite.setInvite_code("ABC123");
+//            classroomInvite.setCreated_at(LocalDateTime.now());
+//            classroomInvite.setExpire_at(LocalDateTime.now().plusDays(7));
+//            classroomInvite.setIs_used(false);
+//
+//            // Test create_classroom_invitation method
+//            boolean isClassroomInviteCreated = invitation_controller.create_classroom_invitation(classroomInvite);
+//            System.out.println("Classroom invitation created: " + isClassroomInviteCreated);
+//
+//            // Test get_classroom_invitation method
+//            Classroom_invite retrievedClassroomInvite = invitation_controller.get_classroom_invitation(1);// Assuming the invitation ID is 1
+//            System.out.println("Retrieved Classroom Invitation: " + retrievedClassroomInvite);
+//
+//            // Create a new chatroom invitation
+//            Chatrooms chatroom = new Chatrooms();
+//            chatroom.setChartroom_id(1); // Assuming the chatroom ID is 1
+//            Chatroom_invite chatroomInvite = new Chatroom_invite();
+//            chatroomInvite.setChatrooms(chatroom);
+//            chatroomInvite.setInvite_code("XYZ789");
+//            chatroomInvite.setCreated_at(LocalDateTime.now());
+//            chatroomInvite.setExpire_at(LocalDateTime.now().plusDays(7));
+//            chatroomInvite.setIs_used(false);
+//
+//            // Test create_chatroom_invitation method
+//            boolean isChatroomInviteCreated = invitation_controller.create_chatroom_invitation(chatroomInvite);
+//            System.out.println("Chatroom invitation created: " + isChatroomInviteCreated);
+//
+//            // Test get_chatroom_invitation method
+//            Chatroom_invite retrievedChatroomInvite = invitation_controller.get_chatroom_invitation(1);// Assuming the invitation ID is 1
+//            System.out.println("Retrieved Chatroom Invitation: " + retrievedChatroomInvite);
+//        }
+//    }
 }

@@ -85,10 +85,10 @@ public class test_controller {
             while (resultSet.next()) {
                 Test test = new Test();
                 test.setTest(resultSet.getInt("test_id"));
-                test.setClassroom(classroom_controller.get_classroom(resultSet.getInt("classroom_id")));
+              //  test.setClassroom(classroom_controller.get_classroom(resultSet.getInt("classroom_id")));
                 test.setTitle(resultSet.getString("title"));
                 test.setType(Test_Type.valueOf(resultSet.getString("type").toUpperCase()));
-                test.setUser(user_controller.get_user_by_id(resultSet.getInt("created_by"),flag));
+               // test.setUser(user_controller.get_user_by_id(resultSet.getInt("created_by"),flag));
                 test.setCreated_at(resultSet.getTimestamp("created_at").toLocalDateTime());
                 test_list.add(test);
             }
@@ -139,11 +139,50 @@ public class test_controller {
         }
     }
 
-        public static void main(String[] args) {
-            boolean isDeleted = delete_test(1);
-            System.out.println("Test Deleted: " + isDeleted);
+    //todo testing
 
-        }
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1);// Assuming the user ID is 1
+//
+//            // Create a new classroom
+//            Classrooms classroom = new Classrooms();
+//            classroom.setId(1); // Assuming the classroom ID is 1
+//
+//            // Create a new test
+//            Test newTest = new Test();
+//            newTest.setClassroom(classroom);
+//            newTest.setTitle("Midterm Exam");
+//            newTest.setType(Test_Type.MIDTERM);
+//            newTest.setUser(user);
+//            newTest.setCreated_at(LocalDateTime.now());
+//            newTest.setStart_time(LocalDateTime.of(2025, 1, 15, 10, 0));
+//            newTest.setEnd_time(LocalDateTime.of(2025, 1, 15, 12, 0));
+//
+//            // Test create_test method
+//            boolean isTestCreated = test_controller.create_test(newTest);
+//            System.out.println("Test created: " + isTestCreated);
+//
+//            // Test get_test method
+//            Test retrievedTest = test_controller.get_test(newTest.getTest());
+//            System.out.println("Retrieved Test: " + retrievedTest);
+//
+//            // Test get_all_tests method
+//            List<Test> allTests = test_controller.get_all_tests();
+//            System.out.println("All Tests: " + allTests);
+//
+//            // Update test details
+//            newTest.setTitle("Updated Midterm Exam");
+//            boolean isTestUpdated = test_controller.update_test(newTest);
+//            System.out.println("Test updated: " + isTestUpdated);
+//
+//            // Test delete_test method
+//            boolean isTestDeleted = test_controller.delete_test(newTest.getTest());
+//            System.out.println("Test deleted: " + isTestDeleted);
+//        }
+//    }
 }
 
 

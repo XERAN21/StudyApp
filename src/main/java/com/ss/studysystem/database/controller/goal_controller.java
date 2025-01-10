@@ -7,6 +7,7 @@ import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 //todo check all code and test it
@@ -57,7 +58,6 @@ public class goal_controller {
         } catch (SQLException e) {
             e.printStackTrace();
             return null;
-
         }
     }
 
@@ -72,15 +72,12 @@ public class goal_controller {
             callableStatement.setString(4, goals.getStatus().toString());
             callableStatement.setTimestamp(5, Timestamp.valueOf(goals.getCreated_at()));
 
-
             int rowsAffected = callableStatement.executeUpdate();
             return rowsAffected > 0;
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-
         }
-
     }
 
     public static boolean deleteGoal(int goalId) {
@@ -95,8 +92,42 @@ public class goal_controller {
         } catch (SQLException e) {
             e.printStackTrace();
             return false;
-
-
         }
     }
+
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1);// Assuming the user ID is 1
+//
+//            // Create a new goal
+//            Goals newGoal = new Goals();
+//            newGoal.setUser(user);
+//            newGoal.setDescription("Complete the project");
+//            newGoal.setTarget_date(LocalDate.of(2025, 12, 31));
+//            newGoal.setStatus(status.IN_PROGRESS);
+//            newGoal.setCreated_at(LocalDateTime.now());
+//
+//            // Test create_goal method
+//            boolean isGoalCreated = goal_controller.create_goal(newGoal);
+//            System.out.println("Goal created: " + isGoalCreated);
+//
+//            // Test get_goal method
+//            List<Goals> goalsList = goal_controller.get_goal(user.getId());
+//            System.out.println("Goals List: " + goalsList);
+//
+//            // Update goal details
+//            newGoal.setDescription("Complete the project with excellence");
+//            newGoal.setStatus(status.COMPLETED);
+//            boolean isGoalUpdated = goal_controller.updateGoal(newGoal);
+//            System.out.println("Goal updated: " + isGoalUpdated);
+//
+//            // Test deleteGoal method
+//            boolean isGoalDeleted = goal_controller.deleteGoal(newGoal.getGoal());
+//            System.out.println("Goal deleted: " + isGoalDeleted);
+//        }
+//    }
 }

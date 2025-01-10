@@ -91,4 +91,39 @@ public class to_do_list_controller {
 
         }
     }
+
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1); // Assuming the user ID is 1
+//
+//            // Create a new to-do list item
+//            To_Do_List newToDo = new To_Do_List();
+//            newToDo.setUser(user);
+//            newToDo.setContent("Complete the project");
+//            newToDo.setFreq(Frequency.DAILY);
+//            newToDo.setIs_complete(false);
+//
+//            // Test create_to_do_list method
+//            int[] insertedId = new int[1];
+//            boolean isToDoCreated = to_do_list_controller.create_to_do_list(newToDo, insertedId);
+//            System.out.println("To-Do List created: " + isToDoCreated);
+//            System.out.println("Inserted To-Do List ID: " + insertedId[0]);
+//
+//            // Test get_to_do_list method
+//            List<To_Do_List> toDoList = to_do_list_controller.get_to_do_list(user.getId());
+//            System.out.println("To-Do List: " + toDoList);
+//
+//            // Test update_task_completion method
+//            boolean isTaskUpdated = to_do_list_controller.update_task_completion(insertedId[0], true);
+//            System.out.println("Task completion updated: " + isTaskUpdated);
+//
+//            // Test delete_to_do_list method
+//            boolean isToDoDeleted = to_do_list_controller.delete_to_do_list(insertedId[0]);
+//            System.out.println("To-Do List deleted: " + isToDoDeleted);
+//        }
+//    }
 }

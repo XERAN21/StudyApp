@@ -5,6 +5,7 @@ import com.ss.studysystem.Model.*;
 import com.ss.studysystem.database.connection.DB_Connection;
 
 import java.sql.*;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -216,4 +217,67 @@ public class classroom_controller {
         }
     }
 
+    //todo testing
+
+//    public class Main {
+//        public static void main(String[] args) {
+//
+//            // Create a new user
+//            Users user = new Users();
+//            user.setId(1); // Assuming the user ID is 1
+//
+//            // Create a new classroom
+//            Classrooms newClassroom = new Classrooms();
+//            newClassroom.setName("Math 101");
+//            newClassroom.setDescription("Basic Math Class");
+//            newClassroom.setUser(user); newClassroom.setCreated_at(LocalDateTime.now());
+//
+//            // Test create_classroom method
+//            boolean isClassroomCreated = classroom_controller.create_classroom(newClassroom);
+//            System.out.println("Classroom created: " + isClassroomCreated);
+//
+//            // Test get_classroom method
+//            Classrooms retrievedClassroom = classroom_controller.get_classroom(newClassroom.getId());
+//            System.out.println("Retrieved Classroom: " + retrievedClassroom);
+//
+//            // Create a new user_classroom
+//            User_Classroom newUserClassroom = new User_Classroom();
+//            newUserClassroom.setUser(user);
+//            newUserClassroom.setClassrooms(newClassroom);
+//            newUserClassroom.setRole(Role.STUDENT);
+//
+//            // Test add_member method
+//            boolean isMemberAdded = classroom_controller.add_member(newUserClassroom);
+//            System.out.println("Member added: " + isMemberAdded);
+//
+//            // Test get_all_member method
+//            List<User_Classroom> memberList = classroom_controller.get_all_member(newClassroom.getId());
+//            System.out.println("Member List: " + memberList);
+//
+//            // Create a new file
+//            Files newFile = new Files();
+//            newFile.setUploader(user);
+//            newFile.setFilename("math_notes.pdf");
+//            newFile.setFile_path(null);// Assuming no file path for this example
+//            newFile.setFile_type("pdf");
+//            newFile.setUploaded_at(LocalDateTime.now());
+//
+//            // Test upload_file method
+//            boolean isFileUploaded = classroom_controller.upload_file(newFile);
+//            System.out.println("File uploaded: " + isFileUploaded);
+//
+//            // Test delete_file method
+//            boolean isFileDeleted = classroom_controller.delete_file(newFile.getId());
+//            System.out.println("File deleted: " + isFileDeleted);
+//
+//            // Update classroom details
+//            newClassroom.setName("Advanced Math 101");
+//            boolean isClassroomUpdated = classroom_controller.update_classroom(newClassroom);
+//            System.out.println("Classroom updated: " + isClassroomUpdated);
+//
+//            // Test get_all_classrooms method
+//            List<Classrooms> classroomsList = classroom_controller.get_all_classrooms(user.getId());
+//            System.out.println("Classrooms List: " + classroomsList);
+//        }
+//    }
 }
