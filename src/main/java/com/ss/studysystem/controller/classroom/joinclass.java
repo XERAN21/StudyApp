@@ -2,7 +2,6 @@ package com.ss.studysystem.controller.classroom;
 
 import com.ss.studysystem.UI.components.modal_builder;
 import com.ss.studysystem.UI.layouts.chat_where_is_this;
-import com.ss.studysystem.UI.utils.config_brightness;
 import com.ss.studysystem.controller.create_and_join;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
