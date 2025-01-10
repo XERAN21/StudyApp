@@ -21,22 +21,22 @@
             </Label>
             <VBox spacing="50.0" style="-fx-alignment: center;">
                <children>
-                  <Button fx:id="all_btn" userData="ALL" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="All">
+                  <Button fx:id="all_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="All" userData="ALL">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="today_btn" userData="TODAY" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Today">
+                  <Button fx:id="today_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Today" userData="TODAY">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="week_btn" userData="WEEK" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Week">
+                  <Button fx:id="week_btn" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Week" userData="WEEK">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
                   </Button>
-                  <Button fx:id="month_event" userData="MONTH" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Month">
+                  <Button fx:id="month_event" mnemonicParsing="false" onAction="#handleEvent" style="-fx-background-color: transpant;" text="Month" userData="MONTH">
                      <font>
                         <Font name="Monospaced Bold" size="18.0" />
                      </font>
@@ -48,6 +48,5 @@
             </VBox>
          </children>
       </VBox>
-      <Button fx:id="close_btn" layoutX="43.0" layoutY="560.0" mnemonicParsing="false" onAction="#close" style="-fx-background-color: #D9D9D9; -fx-background-radius: .5em; -fx-border-color: black; -fx-border-radius: .5em;" text="Close" AnchorPane.leftAnchor="30.0" AnchorPane.rightAnchor="30.0" />
    </children>
 </AnchorPane>
