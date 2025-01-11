@@ -32,9 +32,15 @@ public class Appearance {
     void Appearance(String mode){
         try {
             if(mode.equals("light")) {
-                preview.setStyle("-fx-background-color: white;");
+                preview.setStyle("""
+                        -fx-background-color: white;
+                        -fx-background-radius: 1em;
+                        """ );
             } else if(mode.equals("dark")){
-                preview.setStyle("-fx-background-color: black;");
+                preview.setStyle("""
+                        -fx-background-color: black;
+                        -fx-background-radius: 1em;
+                        """);
             }
         }catch (Exception e){
             e.printStackTrace();

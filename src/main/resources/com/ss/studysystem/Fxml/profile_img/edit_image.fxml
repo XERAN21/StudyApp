@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
@@ -14,7 +13,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefWidth="469.0" style="-fx-padding: 15px; -fx-border-radius: 1em; -fx-background-radius: 1em; -fx-background-color: eaedea; -fx-border-color: black; -fx-spacing: 8px;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.image_editor.image_editor">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="461.0" prefWidth="455.0" style="-fx-padding: 15px; -fx-border-radius: 1em; -fx-background-radius: 1em; -fx-background-color: eaedea; -fx-border-color: black; -fx-spacing: 8px;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.image_editor.image_editor">
    <children>
       <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Image">
          <font>
@@ -23,14 +22,14 @@
       </Text>
       <ScrollPane fitToHeight="true" fitToWidth="true" VBox.vgrow="ALWAYS">
          <content>
-            <VBox style="-fx-spacing: 18px; -fx-background-color: dedede;">
+            <VBox prefHeight="378.0" prefWidth="435.0" style="-fx-spacing: 18px; -fx-background-color: dedede;">
                <children>
-                  <StackPane fx:id="image_stack" prefWidth="405.0">
+                  <StackPane fx:id="image_stack" prefHeight="239.0" prefWidth="390.0">
                      <children>
-                        <ImageView fx:id="image" fitHeight="292.0" fitWidth="404.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />
+                        <ImageView fx:id="image" fitHeight="238.0" fitWidth="390.0" pickOnBounds="true" preserveRatio="true" StackPane.alignment="CENTER" />
                      </children>
                   </StackPane>
-                  <HBox alignment="CENTER" style="-fx-spacing: 8px;" VBox.vgrow="ALWAYS">
+                  <HBox alignment="CENTER" prefHeight="51.0" prefWidth="390.0" style="-fx-spacing: 8px;" VBox.vgrow="ALWAYS">
                      <children>
                         <ImageView fitHeight="25.0" fitWidth="22.0" layoutX="150.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
                            <image>

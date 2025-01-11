@@ -47,7 +47,7 @@ public class dele_acc_controller {
         String password = pass_text.getText();
 
         //todo change uid
-        Users curr_user = user_controller.get_user_by_id(1);
+        Users curr_user = user_controller.get_user_by_username("");
 
         if (password == null || password.trim().isEmpty()){
             
@@ -59,7 +59,7 @@ public class dele_acc_controller {
             boolean check = auth_manager.verify_password(password,curr_user.getPassword(),curr_user.getSalt());
 
         if (check){
-            user_controller.delete_user(curr_user);
+            user_controller.delete_user(1);
         }else {
 
         }

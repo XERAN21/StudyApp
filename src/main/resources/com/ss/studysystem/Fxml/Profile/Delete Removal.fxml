@@ -16,7 +16,7 @@
             <Insets left="40.0" top="20.0" />
          </VBox.margin>
       </Label>
-      <Button fx:id="delete_account" mnemonicParsing="false" prefHeight="37.0" prefWidth="159.0" style="-fx-border-radius: 1em; -fx-border-color: black; -fx-background-radius: 1em; -fx-background-color: red;" text="Delete Account">
+      <Button fx:id="btn_dele" mnemonicParsing="false" onAction="#del_acc" prefHeight="37.0" prefWidth="159.0" style="-fx-border-radius: 1em; -fx-border-color: black; -fx-background-radius: 1em; -fx-background-color: red;" text="Delete Account">
          <font>
             <Font name="Monospaced Bold" size="13.0" />
          </font>

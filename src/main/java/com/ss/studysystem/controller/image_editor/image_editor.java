@@ -249,5 +249,7 @@ public class image_editor {
         }
     }
 
+    }
 
-}
+
+

@@ -26,9 +26,6 @@ public class FinalProfileCtr {
 
 
 
-
-
-
             URL path1 =getClass().getResource("/com/ss/studysystem/Fxml/UserSetting.fxml");
             FXMLLoader loader1 = new FXMLLoader(path1);
             Node Setting = loader1.load();

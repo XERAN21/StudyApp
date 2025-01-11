@@ -29,7 +29,7 @@ public class Change_password_controller {
 
     @FXML
     void initialize() {
-
+        btn_cancel.setOnAction(this::cancel);
     }
 
     @FXML

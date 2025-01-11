@@ -30,6 +30,7 @@
             <StackPane alignment="CENTER_LEFT" prefHeight="124.0" prefWidth="224.0">
                <children>
                   <Circle fx:id="profile_img" fill="DODGERBLUE" radius="55.0" stroke="BLACK" strokeType="INSIDE" />
+                  <Circle fx:id="edit_img" fill="#00000099" layoutX="65.0" layoutY="72.0" mouseTransparent="true" radius="55.0" stroke="BLACK" strokeType="INSIDE" strokeWidth="0.0" visible="false" />
                </children>
             </StackPane>
          </children>

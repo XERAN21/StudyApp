@@ -8,7 +8,7 @@
 <?import javafx.scene.shape.Circle?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Appearance">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="541.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Appearance">
    <children>
       <Label text="Theme">
          <font>
@@ -47,7 +47,7 @@
             <Insets />
          </VBox.margin>
       </VBox>
-      <VBox fx:id="preview" prefHeight="401.0" prefWidth="538.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-color: #E6E8EB;">
+      <VBox fx:id="preview" prefHeight="401.0" prefWidth="538.0" style="-fx-border-color: black; -fx-border-radius: 1em; -fx-background-color: #E6E8EB; -fx-background-radius: 1em;">
          <VBox.margin>
             <Insets left="30.0" right="30.0" top="10.0" />
          </VBox.margin>

@@ -3,56 +3,48 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="267.0" prefWidth="600.0" style="-fx-padding: 20; -fx-spacing: 25; -fx-border-color: black; -fx-border-radius: 2em;" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="173.0" prefWidth="387.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.settings.Delete_acc_controller">
    <children>
-      <Label alignment="TOP_CENTER" prefHeight="45.0" prefWidth="280.0" text="Delete Account">
+      <Label prefHeight="29.0" prefWidth="165.0" text="Delete Account">
          <font>
-            <Font name="Monospaced Bold" size="30.0" />
+            <Font name="Monospaced Bold" size="18.0" />
          </font>
-         <VBox.margin>
-            <Insets left="135.0" top="10.0" />
-         </VBox.margin>
       </Label>
-      <VBox alignment="TOP_CENTER" prefHeight="78.0" prefWidth="497.0" style="-fx-padding: 1em;">
+      <VBox prefHeight="76.0" prefWidth="399.0" style="-fx-padding: 15px;">
          <children>
-            <Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="156.0" text="Enter your password">
-               <opaqueInsets>
-                  <Insets />
-               </opaqueInsets>
-               <VBox.margin>
-                  <Insets right="380.0" top="-15.0" />
-               </VBox.margin>
+            <Label text="Enter your password">
                <font>
-                  <Font name="Monospaced Bold" size="12.0" />
+                  <Font name="Monospaced Bold" size="15.0" />
                </font>
             </Label>
-            <TextField prefHeight="37.0" prefWidth="442.0" style="-fx-border-color: black; -fx-border-radius: 1em;" />
+            <PasswordField fx:id="del_pass" style="-fx-border-radius: .5em; -fx-border-color: black; -fx-background-radius: .5em;">
+               <VBox.margin>
+                  <Insets top="10.0" />
+               </VBox.margin>
+            </PasswordField>
          </children>
-         <padding>
-            <Insets top="20.0" />
-         </padding>
-         <opaqueInsets>
-            <Insets />
-         </opaqueInsets>
       </VBox>
-      <HBox alignment="CENTER" prefHeight="40.0" prefWidth="457.0" style="-fx-spacing: 40px;">
+      <HBox alignment="CENTER" prefHeight="31.0" prefWidth="399.0" style="-fx-spacing: 80px;">
          <children>
-            <Button mnemonicParsing="false" style="-fx-background-color: #D18787; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Cancel">
+            <Button fx:id="btn_cancel" mnemonicParsing="false" prefHeight="31.0" prefWidth="76.0" style="-fx-border-radius: .5em; -fx-border-color: black; -fx-background-radius: .5em; -fx-background-color: D18787;" text="Cancel">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Monospaced Bold" size="13.0" />
                </font>
             </Button>
-            <Button mnemonicParsing="false" prefHeight="22.0" prefWidth="81.0" style="-fx-background-color: #8ABFFF; -fx-border-color: black; -fx-border-radius: .5em; -fx-background-radius: .5em;" text="Confirm">
+            <Button fx:id="btn_com" mnemonicParsing="false" prefHeight="31.0" prefWidth="76.0" style="-fx-border-radius: .5em; -fx-border-color: black; -fx-background-radius: .5em; -fx-background-color: skyblue;" text="Confirm">
                <font>
-                  <Font size="15.0" />
+                  <Font name="Monospaced Bold" size="13.0" />
                </font>
             </Button>
          </children>
+         <VBox.margin>
+            <Insets top="5.0" />
+         </VBox.margin>
       </HBox>
    </children>
 </VBox>
