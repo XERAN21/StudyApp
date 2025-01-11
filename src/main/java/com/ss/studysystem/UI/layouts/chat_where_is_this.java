@@ -5,6 +5,7 @@ public enum chat_where_is_this {
     BOT("GEMINI"),
     FORUM("Forum"),
     CLASSROOM("Classroom"),
+    SETTINGS("Settings"),
     ASSIGNMENT("Assignment");
 
     private String value;

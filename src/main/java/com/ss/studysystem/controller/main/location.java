@@ -4,5 +4,7 @@ public enum location {
     HOME,
     GROUP,
     SOLO,
+    SETTINGS,
     CLASSROOM;
+
 }

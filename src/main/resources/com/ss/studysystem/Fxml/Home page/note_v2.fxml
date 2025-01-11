@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.web.HTMLEditor?>
+
+
+<VBox prefHeight="261.0" prefWidth="400.0" style="-fx-background-color: #F3EEF8; -fx-border-color: black; -fx-background-radius: 1em; -fx-border-radius: 1em; -fx-padding: 15;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1">
+   <children>
+      <Label prefHeight="29.0" text="Draft">
+         <font>
+            <Font size="24.0" />
+         </font>
+      </Label>
+      <HTMLEditor htmlText="&lt;html&gt;&lt;head&gt;&lt;/head&gt;&lt;body contenteditable=&quot;true&quot;&gt;&lt;/body&gt;&lt;/html&gt;" prefHeight="200.0" prefWidth="506.0" VBox.vgrow="ALWAYS" />
+   </children>
+</VBox>

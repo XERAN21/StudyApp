@@ -9,6 +9,7 @@ import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
+import javafx.scene.layout.Region;
 import javafx.scene.layout.VBox;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -18,6 +19,7 @@ import java.net.URISyntaxException;
 import java.net.URL;
 import java.util.List;
 import java.util.concurrent.Callable;
+import java.util.function.Consumer;
 
 public class class_home {
 
@@ -34,6 +36,12 @@ public class class_home {
 
     user_cnf user = user_cnf.get_instance();
 
+    Consumer<Region> update_view;
+
+    public void setUpdate_view(Consumer<Region> update_view) {
+        this.update_view = update_view;
+    }
+
     public void set_text(String title) {
         Platform.runLater(() -> {
             classname.setText(title);
@@ -47,25 +55,6 @@ public class class_home {
     @FXML
     void initialize() {
         user.load();
-        final List<Classrooms>[] owned = new List[1];
-        Callable<List<Classrooms>> get_user_ownded_classes = new Callable<List<Classrooms>>() {
-            @Override
-            public List<Classrooms> call() throws Exception {
-                owned[0] = classroom_controller.get_owned_classrooms(user.getUser().getId());
-                return owned[0];
-            }
-        };
-
-        exe.set_on_result(result -> {
-            if (result) {
-                for (Classrooms c : owned[0]) {
-                    create_classes(c);
-                }
-            }
-        });
-
-        exe.exec_database_task_no_loader(get_user_ownded_classes,
-                "s", "f", null, null);
 
 
     }
@@ -82,6 +71,27 @@ public class class_home {
                         create_classes(result));
                 pause.play();
             });
+            final List<Classrooms>[] owned = new List[1];
+            Callable<List<Classrooms>> get_user_ownded_classes = new Callable<List<Classrooms>>() {
+                @Override
+                public List<Classrooms> call() throws Exception {
+                    owned[0] = classroom_controller.get_owned_classrooms(user.getUser().getId());
+                    return owned[0];
+                }
+            };
+
+            exe.set_on_result(result -> {
+                if (result) {
+                    for (Classrooms c : owned[0]) {
+                        create_classes(c);
+                    }
+                }
+            });
+
+            exe.exec_database_task_no_loader(get_user_ownded_classes,
+                    "s", "f", null, null);
+
+
 
         } catch (Exception e) {
             e.printStackTrace();
@@ -97,6 +107,9 @@ public class class_home {
             classroom_item ci = join_loader.getController();
             ci.init(classrooms);
             home_root.getChildren().add(join_node);
+
+            ci.setOn_change(update_view);
+
         } catch (URISyntaxException e) {
             throw new RuntimeException(e);
         } catch (IOException e) {

@@ -11,6 +11,7 @@ import javafx.geometry.Pos;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.Region;
 import javafx.stage.Stage;
@@ -119,7 +120,7 @@ public class switch_scene {
             Task<Parent> loadSceneTask = new Task<>() {
                 @Override
                 protected Parent call() throws Exception {
-                    URL surv = getClass().getResource("/com/ss/studysystem/Fxml/fourinone.fxml").toURI().toURL();
+                    URL surv = getClass().getResource("/com/ss/studysystem/Fxml/main/main.fxml").toURI().toURL();
                     return loadFXML(surv);
                 }
             };
@@ -237,6 +238,111 @@ public class switch_scene {
         }
     }
 
+    public Region open_home_view(ActionEvent event, Stage mainStage) {
+        try {
+            FXMLLoader fx_spinner = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/loading_screen.fxml"));
+            Parent parent_spinner = fx_spinner.load();
+            Stage loader = modal_builder.build_fixed_modal(mainStage, parent_spinner);
+            PauseTransition pause = new PauseTransition(Duration.millis(150));
+            pause.setOnFinished(done -> loader.close());
+
+            Task<Region> loadSceneTask = new Task<>() {
+                @Override
+                protected Region call() throws Exception {
+                    FXMLLoader chat_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/Home page/FinalHomepage.fxml"));
+                    return chat_.load();
+                }
+            };
+
+            loader.show();
+
+            loadSceneTask.setOnSucceeded(workerStateEvent -> {
+                try {
+                    Region loadedScene = loadSceneTask.getValue();
+                    if (loadedScene != null) {
+
+                        pause.play();
+
+
+                    } else {
+                        throw new Exception("Loaded scene is null");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    pause.play();
+                }
+            });
+
+            loadSceneTask.setOnFailed(workerStateEvent -> {
+                pause.play();
+                Throwable exception = loadSceneTask.getException();
+                System.out.println("Error loading scene: " + exception.getMessage());
+                exception.printStackTrace();
+            });
+
+            Thread thread = new Thread(loadSceneTask);
+            thread.setDaemon(true);
+            thread.start();
+
+            return loadSceneTask.get();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public Region open_settings(MouseEvent event, Stage mainStage) {
+        try {
+            FXMLLoader fx_spinner = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/loading_screen.fxml"));
+            Parent parent_spinner = fx_spinner.load();
+            Stage loader = modal_builder.build_fixed_modal(mainStage, parent_spinner);
+            PauseTransition pause = new PauseTransition(Duration.millis(150));
+            pause.setOnFinished(done -> loader.close());
+
+            Task<Region> loadSceneTask = new Task<>() {
+                @Override
+                protected Region call() throws Exception {
+                    FXMLLoader chat_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/Profile/Final_border.fxml"));
+                    return chat_.load();
+                }
+            };
+
+            loader.show();
+
+            loadSceneTask.setOnSucceeded(workerStateEvent -> {
+                try {
+                    Region loadedScene = loadSceneTask.getValue();
+                    if (loadedScene != null) {
+
+                        pause.play();
+
+
+                    } else {
+                        throw new Exception("Loaded scene is null");
+                    }
+                } catch (Exception e) {
+                    e.printStackTrace();
+                    pause.play();
+                }
+            });
+
+            loadSceneTask.setOnFailed(workerStateEvent -> {
+                pause.play();
+                Throwable exception = loadSceneTask.getException();
+                System.out.println("Error loading scene: " + exception.getMessage());
+                exception.printStackTrace();
+            });
+
+            Thread thread = new Thread(loadSceneTask);
+            thread.setDaemon(true);
+            thread.start();
+
+            return loadSceneTask.get();
+        } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
 
     private <T extends Parent> void configureTask(Task<T> task, ActionEvent event,
                                                   Stage mainStage, Runnable onSuccessAction) {

@@ -1,15 +1,14 @@
 package com.ss.studysystem.controller.Homepage;
 
 import com.ss.studysystem.UI.components.modal_builder;
+import javafx.application.Platform;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
-import javafx.scene.layout.BorderPane;
-import javafx.scene.layout.FlowPane;
-import javafx.scene.layout.GridPane;
-import javafx.scene.layout.VBox;
+import javafx.scene.layout.*;
 import javafx.stage.Stage;
 
+import java.io.IOException;
 import java.net.URL;
 
 public class Home_ctrl {
@@ -55,45 +54,37 @@ public class Home_ctrl {
             Node calendar = loader3.load();
             top_pane.getChildren().add(calendar);
 
-            URL path4 = getClass().getResource("/com/ss/studysystem/Fxml/Home page/t.fxml");
+            URL path4 = getClass().getResource("/com/ss/studysystem/Fxml/ToDoList.fxml");
             FXMLLoader loader4 = new FXMLLoader(path4);
-            Node to_do_list= loader4.load();
+            Region to_do_list= loader4.load();
             middle_pane.getChildren().add(to_do_list);
 
+            Platform.runLater(()->{
+                try {
+                    URL path5 = getClass().getResource("/com/ss/studysystem/Fxml/Home page/note_v2.fxml");
+                    FXMLLoader loader5 = new FXMLLoader(path5);
+                    Node note= loader5.load();
+                    middle_pane.getChildren().add(note);
+                    HBox.setHgrow(note, Priority.ALWAYS);
+                } catch (IOException e) {
+                    throw new RuntimeException(e);
+                }
+            });
 
-            URL path5 = getClass().getResource("/com/ss/studysystem/Fxml/Home page/note.fxml");
-            FXMLLoader loader5 = new FXMLLoader(path5);
-            Node note= loader5.load();
-            middle_pane.getChildren().add(note);
 
             URL path6 = getClass().getResource("/com/ss/studysystem/Fxml/Home page/join.fxml");
             FXMLLoader loader6 = new FXMLLoader(path6);
-            Node classroom= loader6.load();
+            Region classroom= loader6.load();
             bottom_pane.getChildren().add(classroom);
 
             URL path7 = getClass().getResource("/com/ss/studysystem/Fxml/Home page/addfriend.fxml");
             FXMLLoader loader7 = new FXMLLoader(path7);
             Node addfri= loader7.load();
-            root.setRight(addfri);
+           // root.setRight(addfri);
 
+            HBox.setHgrow(to_do_list, Priority.ALWAYS);
+            HBox.setHgrow(classroom, Priority.ALWAYS);
 
-            vbox.setSpacing(30);
-
-            VBox LeftBorder= new VBox();
-            LeftBorder.setStyle("""
-                 -fx-pref-width:150px;
-                 -fx-pref-height: 400px;
-                 -fx-background-color:F3EEF8;
-                 """);
-            root.setLeft(LeftBorder);
-
-            VBox TopBorder= new VBox();
-            TopBorder.setStyle("""
-                 -fx-pref-width:600px;
-                 -fx-pref-height: 55px;
-                 -fx-background-color:F3EEF8;
-                 """);
-            root.setTop(TopBorder);
 
 
         }catch (Exception e){

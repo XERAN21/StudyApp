@@ -9,11 +9,39 @@ import javafx.scene.paint.Color;
 import javafx.scene.paint.ImagePattern;
 import javafx.scene.shape.Circle;
 
+import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 import static com.ss.studysystem.UI.utils.png_metadata_handler.read_png_metadata;
 
 public class profile_pattern {
+
+    public static File imageToTempFile(Image image) throws IOException {
+        BufferedImage bufferedImage = javafxImageToBufferedImage(image);
+
+        File tempFile = File.createTempFile("temp_image", ".png");
+
+        ImageIO.write(bufferedImage, "png", tempFile);
+
+        return tempFile;
+    }
+
+    private static BufferedImage javafxImageToBufferedImage(Image fxImage) {
+        int width = (int) fxImage.getWidth();
+        int height = (int) fxImage.getHeight();
+        BufferedImage bufferedImage = new BufferedImage(width, height, BufferedImage.TYPE_INT_ARGB);
+
+        for (int x = 0; x < width; x++) {
+            for (int y = 0; y < height; y++) {
+                int argb = fxImage.getPixelReader().getArgb(x, y);
+                bufferedImage.setRGB(x, y, argb);
+            }
+        }
+
+        return bufferedImage;
+    }
 
     public static ImagePattern generate_profile_image(File inputFile) {
         try {
