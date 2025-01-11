@@ -5,15 +5,16 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<ScrollPane fitToHeight="true" fitToWidth="true" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Homepage.Home_ctrl">
+
+<ScrollPane fitToHeight="true" fitToWidth="true" style="-fx-background-color: transparent; -fx-padding: 15;" stylesheets="@../../css/scroll_round.css" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.Homepage.Home_ctrl">
    <content>
-      <BorderPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="639.0">
+      <BorderPane fx:id="root" maxHeight="1.7976931348623157E308" maxWidth="1.7976931348623157E308" prefHeight="461.0" prefWidth="639.0" style="-fx-background-color: transparent; -fx-padding: 5px;">
          <center>
-            <VBox fx:id="vbox">
+            <VBox fx:id="vbox" alignment="CENTER" style="-fx-background-color: transparent; -fx-spacing: 15; -fx-padding: 0 15 0 0;" BorderPane.alignment="TOP_CENTER">
                <children>
-                  <FlowPane fx:id="top_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
-                  <FlowPane fx:id="middle_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
-                  <FlowPane fx:id="bottom_pane" style="-fx-hgap: 15; -fx-vgap: 5;" />
+                  <FlowPane fx:id="top_pane" alignment="CENTER" columnHalignment="CENTER" style="-fx-hgap: 15; -fx-padding: 0 15 0 5; -fx-vgap: 5;" />
+                  <FlowPane fx:id="middle_pane" alignment="CENTER" columnHalignment="CENTER" style="-fx-hgap: 15; -fx-padding: 0 15 0 5; -fx-vgap: 5;" />
+                  <FlowPane fx:id="bottom_pane" alignment="CENTER" columnHalignment="CENTER" style="-fx-hgap: 15; -fx-padding: 0 15 0 5; -fx-vgap: 5;" />
                </children>
             </VBox>
          </center>

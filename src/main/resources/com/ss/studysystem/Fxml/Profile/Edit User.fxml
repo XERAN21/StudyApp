@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Font?>
 
-<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.settings.Edit_controller">
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="261.0" prefWidth="600.0" style="-fx-border-color: black; -fx-border-radius: 2em; -fx-background-radius: 2em; -fx-background-color: F3EEF8;" xmlns="http://javafx.com/javafx/23.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.ss.studysystem.controller.settings.Edit_ctr">
    <children>
       <GridPane prefHeight="339.0" prefWidth="591.0">
         <columnConstraints>

@@ -27,7 +27,9 @@ import javafx.scene.shape.Shape;
 import javafx.stage.Stage;
 
 import javax.imageio.ImageIO;
+import java.awt.image.BufferedImage;
 import java.io.File;
+import java.util.function.Consumer;
 
 public class image_editor {
 
@@ -49,6 +51,12 @@ public class image_editor {
     private Circle circle;
 //    @FXML
 //    private VBox hidden_elements;
+
+    Consumer<Image> on_img;
+
+    public void setOn_img(Consumer<Image> on_img) {
+        this.on_img = on_img;
+    }
 
     double initx;
     double inity;
@@ -221,9 +229,20 @@ public class image_editor {
         //todo save image to database
         try {
             String save_path = System.getProperty("user.home") + File.separator + "Downloads";
+            System.out.println(save_path);
             File outputFile = new File(save_path + "/outout.png");
-            png_metadata_handler.write_png_metadata(path, outputFile,
-                    String.valueOf(zoomlvl), String.valueOf(offSetX), String.valueOf(offSetY));
+            if(on_img != null ){
+                BufferedImage img = ImageIO.read(path);
+                on_img.accept(png_metadata_handler.IMG_meta(img,
+                        String.valueOf(zoomlvl), String.valueOf(offSetX), String.valueOf(offSetY),
+                        outputFile));
+
+
+            }
+//            png_metadata_handler.write_png_metadata(path, outputFile,
+//                    String.valueOf(zoomlvl), String.valueOf(offSetX), String.valueOf(offSetY));
+            Stage stage = (Stage) image_stack.getScene().getWindow();
+            stage.close();
         }catch (Exception e){
             e.printStackTrace();
         }

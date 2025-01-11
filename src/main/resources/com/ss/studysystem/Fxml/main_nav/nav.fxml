@@ -82,7 +82,7 @@
          </tooltip>
       </Button>
       <Pane VBox.vgrow="ALWAYS" />
-      <StackPane>
+      <StackPane fx:id="open_settings">
          <children>
             <Circle fx:id="nav_profile" radius="28.0" stroke="BLACK" strokeType="INSIDE">
                <cursor>

@@ -1,17 +1,22 @@
 package com.ss.studysystem.controller.image_editor;
 
+import com.ss.studysystem.UI.misc.modal_animations;
 import com.ss.studysystem.UI.utils.file_size;
+import javafx.animation.ParallelTransition;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.image.Image;
 import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.stage.FileChooser;
 import javafx.stage.Stage;
+import org.reactfx.util.LL;
 
 import java.io.File;
+import java.util.function.Consumer;
 
 public class upload_img {
 
@@ -23,6 +28,12 @@ public class upload_img {
 
     @FXML
     private VBox upload_img_pane;
+
+    Consumer<Image> on_image;
+
+    public void setOn_image(Consumer<Image> on_image) {
+        this.on_image = on_image;
+    }
 
     File path;
 
@@ -72,6 +83,8 @@ public class upload_img {
 
             img_edtr.setPath(path);
 
+            img_edtr.setOn_img(on_image);
+
             Stage stage = (Stage) close_modal.getScene().getWindow();
             Scene sc = new Scene(load_view, Color.TRANSPARENT);
             stage.setScene(sc);
@@ -82,6 +95,11 @@ public class upload_img {
     }
 
     void close() {
+        Stage stage = (Stage) close_modal.getScene().getWindow();
+        Parent view = stage.getScene().getRoot();
+        ParallelTransition closeAnimation =  modal_animations.close_modal_w_size(view, stage.getWidth(), stage.getHeight());
+        closeAnimation.setOnFinished(e -> stage.close());
 
+        closeAnimation.play();
     }
 }

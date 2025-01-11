@@ -108,6 +108,18 @@ public class lumi_websocket {
         }
     }
 
+    public void join_room(String roomCode) {
+        System.out.println("r");
+        if (webSocketClient != null && webSocketClient.isOpen()) {
+            JsonObject joinMessage = new JsonObject();
+            joinMessage.addProperty("action", "join_room");
+            joinMessage.addProperty("room_code", roomCode);
+
+            webSocketClient.send(joinMessage.toString());
+            System.out.println("Sent: " + joinMessage.toString());
+        }
+    }
+
     public void create_room(String roomCode) {
         System.out.println("c");
         if (webSocketClient != null && webSocketClient.isOpen()) {
@@ -121,7 +133,6 @@ public class lumi_websocket {
 
             System.out.println("Sent: " + request);
             webSocketClient.send(jsonMessage);
-
 
         }
     }

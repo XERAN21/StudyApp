@@ -19,6 +19,8 @@ public class FinalProfileCtr {
     @FXML
     void initialize(){
         try{
+            root.setStyle("-fx-padding: 10px;");
+
             URL path = getClass().getResource("/com/ss/studysystem/Fxml/user_profile_setting_view.fxml");
             FXMLLoader loader = new FXMLLoader(path);
             Node settings_node = loader.load();
@@ -39,7 +41,7 @@ public class FinalProfileCtr {
                  -fx-pref-height: 400px;
                  -fx-background-color:F3EEF8;
                  """);
-         root.setLeft(LeftBorder);
+         //root.setLeft(LeftBorder);
 
             VBox TopBorder= new VBox();
             TopBorder.setStyle("""
@@ -47,7 +49,7 @@ public class FinalProfileCtr {
                  -fx-pref-height: 55px;
                  -fx-background-color:F3EEF8;
                  """);
-            root.setTop(TopBorder);
+            //root.setTop(TopBorder);
 
 
 

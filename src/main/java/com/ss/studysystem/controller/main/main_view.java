@@ -1,6 +1,7 @@
 package com.ss.studysystem.controller.main;
 
 import javafx.animation.Interpolator;
+import javafx.animation.PauseTransition;
 import javafx.animation.TranslateTransition;
 import javafx.application.Platform;
 import javafx.fxml.FXML;
@@ -71,7 +72,7 @@ public class main_view {
         });
 
         nav_ctrl.setOn_change(change -> {
-            Platform.runLater(()->{
+            Platform.runLater(() -> {
                 main_border.getChildren().remove(current);
                 current = change;
                 main_border.setCenter(current);
@@ -103,14 +104,17 @@ public class main_view {
             }
         });
 
+        PauseTransition pause = new PauseTransition(Duration.millis(150));
 
         //todo Main Page
-        FXMLLoader chat_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/chat_is_this_real/chat_main.fxml"));
-        FXMLLoader class_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/classroom/classroom_view.fxml"));
+        FXMLLoader class_ = new FXMLLoader(getClass().getResource("/com/ss/studysystem/Fxml/Home page/FinalHomepage.fxml"));
 
         Platform.runLater(() -> {
             try {
-                nav_ctrl.setParent_stage((Stage) main_border.getScene().getWindow());
+                pause.setOnFinished(fin -> {
+                    nav_ctrl.setParent_stage((Stage) main_border.getScene().getWindow());
+                });
+                pause.play();
                 Region class_reg = class_.load();
                 current = class_reg;
                 main_border.setCenter(current);
@@ -118,10 +122,9 @@ public class main_view {
                 throw new RuntimeException(e);
             }
         });
-
     }
 
-    void nav_listener(boolean hid, Region node){
+    void nav_listener(boolean hid, Region node) {
         if (hid) {
             TranslateTransition slideOut = new TranslateTransition(Duration.seconds(0.3), node);
             Platform.runLater(() -> {

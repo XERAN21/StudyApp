@@ -8,6 +8,7 @@ import java.awt.image.BufferedImage;
 import java.io.*;
 import java.sql.Blob;
 
+import javafx.scene.image.Image;
 import org.w3c.dom.Node;
 import org.w3c.dom.NodeList;
 
@@ -122,9 +123,45 @@ public class png_metadata_handler {
         writer.write(metadata, new IIOImage(buffImg, null, metadata), writeParam);
         stream.close();
 
-        return baos.toByteArray();
+
+        //return new Image(baos, buffImg.getWidth(), buffImg.getHeight(), true, true);
+       return baos.toByteArray();
     }
 
+    public static Image IMG_meta(BufferedImage buffImg, String zoomLevel, String offsetX, String offsetY, File outputFile) throws Exception {
+        ImageWriter writer = ImageIO.getImageWritersByFormatName("png").next();
+
+        ImageWriteParam writeParam = writer.getDefaultWriteParam();
+        ImageTypeSpecifier typeSpecifier = ImageTypeSpecifier.createFromBufferedImageType(BufferedImage.TYPE_INT_ARGB);
+
+        IIOMetadata metadata = writer.getDefaultImageMetadata(typeSpecifier, writeParam);
+
+        // Create metadata nodes
+        IIOMetadataNode textEntry1 = create_meta_entry("zoom_level", zoomLevel);
+        IIOMetadataNode textEntry2 = create_meta_entry("offset_x", offsetX);
+        IIOMetadataNode textEntry3 = create_meta_entry("offset_y", offsetY);
+
+        IIOMetadataNode text = new IIOMetadataNode("tEXt");
+        text.appendChild(textEntry1);
+        text.appendChild(textEntry2);
+        text.appendChild(textEntry3);
+
+        IIOMetadataNode root = new IIOMetadataNode("javax_imageio_png_1.0");
+        root.appendChild(text);
+
+        metadata.mergeTree("javax_imageio_png_1.0", root);
+
+        // Write the image with metadata to the file
+        try (ImageOutputStream stream = ImageIO.createImageOutputStream(outputFile)) {
+            writer.setOutput(stream);
+            writer.write(metadata, new IIOImage(buffImg, null, metadata), writeParam);
+        } finally {
+            writer.dispose();
+        }
+
+
+        return new Image(outputFile.toURI().toString(), buffImg.getWidth(), buffImg.getHeight(), true, true);
+    }
 
     public static String read_byte_metadata(byte[] imageData, String key) throws IOException {
         ImageReader reader = ImageIO.getImageReadersByFormatName("png").next();
